@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { type ComponentType } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import type { $ZodIssue } from 'zod/v4/core';
 import type {
   Action,
   ComponentDefinition,
+  SDUIComponentProps,
   SDUINode as SDUINodeData,
   ThemeTokens,
 } from './types';
@@ -12,6 +13,37 @@ import { resolveBinding } from './bindings';
 import { evaluatePredicate } from './predicate';
 import { resolveStyle } from './theme';
 import { warn } from '../utils/devLog';
+
+// Leaf nodes (no SDUI children) are cheap to memoize by id + resolved props/style hash: nothing
+// underneath depends on a binding this node doesn't itself see. Container nodes always recompute —
+// their own render is cheap composition, and each of *their* leaf descendants still bails on its own.
+const leafMemoCache = new WeakMap<ComponentType<SDUIComponentProps<Record<string, unknown>>>, ComponentType<SDUIComponentProps<Record<string, unknown>>>>();
+
+function leafPropsEqual(
+  prev: SDUIComponentProps<unknown>,
+  next: SDUIComponentProps<unknown>
+): boolean {
+  return (
+    prev.id === next.id &&
+    prev.actions === next.actions &&
+    prev.theme === next.theme &&
+    JSON.stringify(prev.props) === JSON.stringify(next.props) &&
+    JSON.stringify(prev.style) === JSON.stringify(next.style)
+  );
+}
+
+function getMemoizedLeaf(
+  Component: ComponentType<SDUIComponentProps<Record<string, unknown>>>
+): ComponentType<SDUIComponentProps<Record<string, unknown>>> {
+  let memoized = leafMemoCache.get(Component);
+  if (!memoized) {
+    memoized = React.memo(Component, leafPropsEqual) as unknown as ComponentType<
+      SDUIComponentProps<Record<string, unknown>>
+    >;
+    leafMemoCache.set(Component, memoized);
+  }
+  return memoized;
+}
 
 export interface RenderContext {
   state: Record<string, unknown>;
@@ -138,7 +170,10 @@ export function SDUINode({
   }
 
   const style = resolveStyle(resolvedStyle, ctx.theme);
-  const Component = definition.Component;
+  const isLeaf = !node.children || node.children.length === 0;
+  const Component = isLeaf
+    ? getMemoizedLeaf(definition.Component as ComponentType<SDUIComponentProps<Record<string, unknown>>>)
+    : definition.Component;
   const children = node.children?.map((child) => (
     <SDUINode key={child.id} node={child} ctx={ctx} />
   ));

@@ -68,6 +68,29 @@ const navigateTriggerDef: ComponentDefinition<Record<string, never>> = {
   ),
 };
 
+const sheetTriggerDef: ComponentDefinition<Record<string, never>> = {
+  type: 'sheet_trigger',
+  typeVersion: 1,
+  propsSchema: z.object({}),
+  defaults: {},
+  Component: ({ dispatch, id }) => (
+    <Pressable
+      testID={id}
+      onPress={() =>
+        dispatch({
+          type: 'open_sheet',
+          payload: {
+            title: 'Price breakup',
+            node: { id: 'sheetText', type: 'text', props: { value: 'Sheet content' } },
+          },
+        })
+      }
+    >
+      <Text>open sheet</Text>
+    </Pressable>
+  ),
+};
+
 function makeRegistry(): ComponentRegistry {
   const registry = new ComponentRegistry();
   registry.register(textDef);
@@ -153,5 +176,37 @@ describe('SDUIScreen', () => {
 
     await fireEvent.press(screen.getByTestId('trigger'));
     expect(screen.getByText('still here')).toBeTruthy();
+  });
+
+  test('navigate is routed to the injected effects.onNavigate handler', async () => {
+    const onNavigate = jest.fn();
+    const payload: Payload = {
+      schemaVersion: '1.1.0',
+      screenId: 'home',
+      theme: baseTheme,
+      sections: [{ id: 'trigger', type: 'navigate_trigger' }],
+    };
+    await render(
+      <SDUIScreen payload={payload} registry={makeRegistry()} effects={{ onNavigate }} />
+    );
+
+    await fireEvent.press(screen.getByTestId('trigger'));
+    expect(onNavigate).toHaveBeenCalledWith('pdp', undefined);
+  });
+
+  test('open_sheet renders its SDUI node through the same renderer inside the bottom sheet', async () => {
+    const registry = makeRegistry();
+    registry.register(sheetTriggerDef);
+    const payload: Payload = {
+      schemaVersion: '1.1.0',
+      screenId: 'home',
+      theme: baseTheme,
+      sections: [{ id: 'trigger', type: 'sheet_trigger' }],
+    };
+    await render(<SDUIScreen payload={payload} registry={registry} />);
+
+    expect(screen.queryByText('Sheet content')).toBeNull();
+    await fireEvent.press(screen.getByTestId('trigger'));
+    expect(await screen.findByText('Sheet content')).toBeTruthy();
   });
 });

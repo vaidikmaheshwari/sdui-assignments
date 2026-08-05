@@ -247,4 +247,86 @@ describe('SDUINode', () => {
       consoleError.mockRestore();
     });
   });
+
+  describe('leaf memoization', () => {
+    function makeSpyLeafRegistry(renderSpy: jest.Mock): ComponentRegistry {
+      const spyLeafDef: ComponentDefinition<{ value: string }> = {
+        type: 'spy_leaf',
+        typeVersion: 1,
+        propsSchema: z.object({ value: z.string() }),
+        defaults: {},
+        Component: ({ props }) => {
+          renderSpy();
+          return <Text>{props.value}</Text>;
+        },
+      };
+      const registry = new ComponentRegistry();
+      registry.register(spyLeafDef);
+      return registry;
+    }
+
+    test('a leaf node does not re-render when its own resolved props are unchanged', async () => {
+      const renderSpy = jest.fn();
+      const registry = makeSpyLeafRegistry(renderSpy);
+      const node = { id: 'leaf1', type: 'spy_leaf', props: { value: 'unchanged' } };
+
+      const view = await render(
+        <SDUINode node={node} ctx={makeCtx({ registry, state: { a: 1 } })} />
+      );
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+
+      await view.rerender(<SDUINode node={node} ctx={makeCtx({ registry, state: { a: 2 } })} />);
+
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+      expect(screen.getByText('unchanged')).toBeTruthy();
+    });
+
+    test('a leaf node re-renders when its own resolved props actually change', async () => {
+      const renderSpy = jest.fn();
+      const registry = makeSpyLeafRegistry(renderSpy);
+      const node = { id: 'leaf2', type: 'spy_leaf', props: { value: '{{state.a}}' } };
+
+      const view = await render(
+        <SDUINode node={node} ctx={makeCtx({ registry, state: { a: '1' } })} />
+      );
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+      expect(screen.getByText('1')).toBeTruthy();
+
+      await view.rerender(<SDUINode node={node} ctx={makeCtx({ registry, state: { a: '2' } })} />);
+
+      expect(renderSpy).toHaveBeenCalledTimes(2);
+      expect(screen.getByText('2')).toBeTruthy();
+    });
+
+    test('a container node (has children) always recomputes, independent of leaf memoization', async () => {
+      const renderSpy = jest.fn();
+      const containerSpyDef: ComponentDefinition<Record<string, never>> = {
+        type: 'spy_container',
+        typeVersion: 1,
+        propsSchema: z.object({}),
+        defaults: {},
+        Component: ({ children }) => {
+          renderSpy();
+          return <View testID="spy-container">{children}</View>;
+        },
+      };
+      const registry = new ComponentRegistry();
+      registry.register(containerSpyDef);
+      registry.register(textDef);
+      const node = {
+        id: 'container1',
+        type: 'spy_container',
+        children: [{ id: 'child', type: 'text', props: { value: 'static child' } }],
+      };
+
+      const view = await render(
+        <SDUINode node={node} ctx={makeCtx({ registry, state: { a: 1 } })} />
+      );
+      expect(renderSpy).toHaveBeenCalledTimes(1);
+
+      await view.rerender(<SDUINode node={node} ctx={makeCtx({ registry, state: { a: 2 } })} />);
+
+      expect(renderSpy).toHaveBeenCalledTimes(2);
+    });
+  });
 });

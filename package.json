@@ -48,6 +48,10 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/scripts/"
-    ]
+    ],
+    "setupFiles": [
+      "react-native-gesture-handler/jestSetup.js"
+    ],
+    "resolver": "react-native-worklets/jest/resolver.js"
   }
 }
