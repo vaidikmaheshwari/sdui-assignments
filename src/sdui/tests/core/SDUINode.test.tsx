@@ -49,6 +49,16 @@ const tappableDef: ComponentDefinition<Record<string, never>> = {
   ),
 };
 
+const virtualizedDef: ComponentDefinition<Record<string, never>> = {
+  type: 'virtualized_rail',
+  typeVersion: 1,
+  propsSchema: z.object({}),
+  defaults: {},
+  Component: ({ childNodes, renderNode }) => (
+    <View testID="rail">{childNodes?.map((node) => <View key={node.id}>{renderNode?.(node)}</View>)}</View>
+  ),
+};
+
 const boomDef: ComponentDefinition<Record<string, never>> = {
   type: 'boom',
   typeVersion: 1,
@@ -65,6 +75,7 @@ function makeCtx(overrides: Partial<RenderContext> = {}): RenderContext {
   registry.register(badgeDef);
   registry.register(stackDef);
   registry.register(tappableDef);
+  registry.register(virtualizedDef);
   registry.register(boomDef);
   return {
     state: {},
@@ -122,6 +133,38 @@ describe('SDUINode', () => {
     );
     expect(screen.getByText('First')).toBeTruthy();
     expect(screen.getByText('Second')).toBeTruthy();
+  });
+
+  test('passes raw childNodes plus a renderNode callback, for components that must virtualize', async () => {
+    await render(
+      <SDUINode
+        node={{
+          id: 'rail1',
+          type: 'virtualized_rail',
+          children: [
+            { id: 'a', type: 'text', props: { value: 'Item A' } },
+            { id: 'b', type: 'text', props: { value: 'Item B' } },
+          ],
+        }}
+        ctx={makeCtx()}
+      />
+    );
+    expect(screen.getByText('Item A')).toBeTruthy();
+    expect(screen.getByText('Item B')).toBeTruthy();
+  });
+
+  test('passes the theme tokens through so a component can resolve its own token-referencing props', async () => {
+    const themeDef: ComponentDefinition<Record<string, never>> = {
+      type: 'theme_reader',
+      typeVersion: 1,
+      propsSchema: z.object({}),
+      defaults: {},
+      Component: ({ theme }) => <Text>{theme?.color.brand}</Text>,
+    };
+    const ctx = makeCtx();
+    ctx.registry.register(themeDef);
+    await render(<SDUINode node={{ id: 'n1', type: 'theme_reader' }} ctx={ctx} />);
+    expect(screen.getByText('#3B24C4')).toBeTruthy();
   });
 
   test('passes node.actions through so a component can dispatch its own declared action', async () => {

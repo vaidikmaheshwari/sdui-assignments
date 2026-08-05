@@ -18,7 +18,7 @@ export interface ResolvedStyle {
   height?: number | string;
 }
 
-type TokenCategory = 'space' | 'color' | 'radius';
+type TokenCategory = 'space' | 'color' | 'radius' | 'type';
 
 const TOKEN_MAPPED_KEYS: Record<
   'padding' | 'paddingX' | 'paddingY' | 'margin' | 'marginX' | 'marginY' | 'background' | 'borderColor' | 'radius',
@@ -37,12 +37,13 @@ const TOKEN_MAPPED_KEYS: Record<
 
 const RAW_PASSTHROUGH_KEYS = ['borderWidth', 'opacity', 'flex', 'width', 'height'] as const;
 
-function resolveTokenRef(
+/** Shared token-lookup used by both `style` resolution and component-specific token props (e.g. text.variant/color). */
+export function resolveToken(
   key: string,
   rawValue: unknown,
   category: TokenCategory,
   tokens: ThemeTokens
-): number | string | undefined {
+): number | string | { size: number; weight: string } | undefined {
   if (typeof rawValue !== 'string') {
     warn('theme', `style "${key}" must be a token reference string, got ${JSON.stringify(rawValue)} — dropped`);
     return undefined;
@@ -73,7 +74,7 @@ export function resolveStyle(style: NodeStyle | undefined, tokens: ThemeTokens):
   for (const key of Object.keys(TOKEN_MAPPED_KEYS) as Array<keyof typeof TOKEN_MAPPED_KEYS>) {
     if (!(key in style)) continue;
     const { category, resolvedKey } = TOKEN_MAPPED_KEYS[key];
-    const value = resolveTokenRef(key, style[key], category, tokens);
+    const value = resolveToken(key, style[key], category, tokens);
     if (value !== undefined) {
       (resolved as Record<string, unknown>)[resolvedKey] = value;
     }

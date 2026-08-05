@@ -87,7 +87,10 @@ export interface SDUIComponentProps<P> {
   id: string;
   props: P;
   style?: ResolvedStyle;
+  theme?: ThemeTokens;
   children?: ReactNode;
+  childNodes?: SDUINode[];
+  renderNode?: (node: SDUINode) => ReactNode;
   actions?: Record<string, Action>;
   dispatch: (action: Action, event?: unknown) => void;
 }

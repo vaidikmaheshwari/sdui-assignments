@@ -149,7 +149,10 @@ export function SDUINode({
         id={node.id}
         props={finalProps}
         style={style}
+        theme={ctx.theme}
         actions={node.actions}
+        childNodes={node.children}
+        renderNode={(child) => <SDUINode key={child.id} node={child} ctx={ctx} />}
         dispatch={ctx.dispatch}
       >
         {children}

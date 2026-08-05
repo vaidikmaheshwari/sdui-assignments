@@ -63,4 +63,21 @@ describe('ComponentRegistry', () => {
     expect(registry.resolve('holographic_banner', 1)).toBeUndefined();
     expect(getDevLog().some((e) => e.source === 'registry')).toBe(true);
   });
+
+  test('list() enumerates every registered (type, typeVersion) pair, sorted for determinism', () => {
+    const registry = new ComponentRegistry();
+    registry.register(stubDefinition('text', 1));
+    registry.register(stubDefinition('car_card', 2));
+    registry.register(stubDefinition('car_card', 1));
+
+    expect(registry.list()).toEqual([
+      { type: 'car_card', typeVersion: 1 },
+      { type: 'car_card', typeVersion: 2 },
+      { type: 'text', typeVersion: 1 },
+    ]);
+  });
+
+  test('list() on an empty registry returns an empty array', () => {
+    expect(new ComponentRegistry().list()).toEqual([]);
+  });
 });

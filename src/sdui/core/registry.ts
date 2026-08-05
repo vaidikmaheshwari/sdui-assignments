@@ -32,6 +32,16 @@ export class ComponentRegistry {
   has(type: string): boolean {
     return this.versionsByType.has(type);
   }
+
+  list(): Array<{ type: string; typeVersion: number }> {
+    const entries: Array<{ type: string; typeVersion: number }> = [];
+    for (const [type, versions] of this.versionsByType) {
+      for (const typeVersion of versions.keys()) {
+        entries.push({ type, typeVersion });
+      }
+    }
+    return entries.sort((a, b) => a.type.localeCompare(b.type) || a.typeVersion - b.typeVersion);
+  }
 }
 
 export const registry = new ComponentRegistry();

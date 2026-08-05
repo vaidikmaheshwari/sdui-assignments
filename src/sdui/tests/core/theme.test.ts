@@ -1,4 +1,4 @@
-import { resolveStyle } from '../../core/theme';
+import { resolveStyle, resolveToken } from '../../core/theme';
 import { clearDevLog, getDevLog } from '../../utils/devLog';
 import type { ThemeTokens } from '../../core/types';
 
@@ -70,5 +70,29 @@ describe('resolveStyle', () => {
   test('never throws on malformed style input', () => {
     // @ts-expect-error deliberately malformed payload value
     expect(() => resolveStyle({ background: 42 }, tokens)).not.toThrow();
+  });
+});
+
+describe('resolveToken', () => {
+  test('resolves a "type.*" reference for component props outside the style system', () => {
+    expect(resolveToken('variant', 'type.body', 'type', tokens)).toEqual({ size: 14, weight: '400' });
+  });
+
+  test('resolves a "color.*" reference', () => {
+    expect(resolveToken('color', 'color.textPrimary', 'color', tokens)).toBe('#101828');
+  });
+
+  test('rejects a raw value where a token was required, drops it, and warns', () => {
+    expect(resolveToken('color', '#101828', 'color', tokens)).toBeUndefined();
+    expect(getDevLog().some((e) => e.source === 'theme' && e.message.includes('color'))).toBe(true);
+  });
+
+  test('unknown token reference returns undefined and warns', () => {
+    expect(resolveToken('variant', 'type.display', 'type', tokens)).toBeUndefined();
+    expect(getDevLog().some((e) => e.source === 'theme' && e.message.includes('type.display'))).toBe(true);
+  });
+
+  test('never throws on malformed input', () => {
+    expect(() => resolveToken('color', 42, 'color', tokens)).not.toThrow();
   });
 });
