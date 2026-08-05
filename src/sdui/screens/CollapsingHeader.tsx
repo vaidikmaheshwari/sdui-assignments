@@ -70,7 +70,7 @@ export function CollapsingHeader({
 
   // Nothing to collapse (no children, or a single child): render the node as-is.
   // `SDUIScreen` still pins it via `stickyHeaderIndices` — it just won't shrink.
-  if (collapsibleChildren.length === 0 || !pinnedChild) {
+  if (!collapsibleChild || pinnedChildren.length === 0) {
     return <SDUINode node={node} ctx={ctx} />;
   }
 
@@ -80,13 +80,13 @@ export function CollapsingHeader({
       style={[{ flexDirection: direction, gap: spacing }, resolvedStyle as ViewStyle]}
     >
       <Animated.View style={[{ overflow: 'hidden' }, animatedStyle]}>
-        <View onLayout={onCollapsibleLayout} style={{ gap: spacing }}>
-          {collapsibleChildren.map((child) => (
-            <SDUINode key={child.id} node={child} ctx={ctx} />
-          ))}
+        <View onLayout={onCollapsibleLayout}>
+          <SDUINode node={collapsibleChild} ctx={ctx} />
         </View>
       </Animated.View>
-      <SDUINode node={pinnedChild} ctx={ctx} />
+      {pinnedChildren.map((child) => (
+        <SDUINode key={child.id} node={child} ctx={ctx} />
+      ))}
     </View>
   );
 }

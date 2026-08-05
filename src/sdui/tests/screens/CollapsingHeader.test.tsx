@@ -41,7 +41,7 @@ function makeCtx(registry: ComponentRegistry): RenderContext {
 }
 
 describe('CollapsingHeader', () => {
-  test('renders every child of a multi-child header (collapsible group + pinned last child)', async () => {
+  test('renders every child of a multi-child header (first child collapsible, the rest pinned)', async () => {
     const registry = makeRegistry();
     const node: SDUINodeData = {
       id: 'home.header',
@@ -59,6 +59,26 @@ describe('CollapsingHeader', () => {
     expect(screen.getByText('Search cars')).toBeTruthy();
     expect(screen.getByText('Nav')).toBeTruthy();
     expect(screen.getByTestId('home.header')).toBeTruthy();
+  });
+
+  test('all pinned children render, not just the first one after the collapsible child', async () => {
+    const registry = makeRegistry();
+    const node: SDUINodeData = {
+      id: 'home.header',
+      type: 'stack',
+      props: { direction: 'vertical', spacing: 12 },
+      children: [
+        { id: 'home.header.topRow', type: 'text', props: { value: 'Top row' } },
+        { id: 'home.header.search', type: 'text', props: { value: 'Search cars' } },
+        { id: 'home.header.nav', type: 'text', props: { value: 'Nav' } },
+        { id: 'home.header.extra', type: 'text', props: { value: 'Extra pinned item' } },
+      ],
+    };
+    await render(<Harness node={node} ctx={makeCtx(registry)} />);
+
+    expect(screen.getByText('Search cars')).toBeTruthy();
+    expect(screen.getByText('Nav')).toBeTruthy();
+    expect(screen.getByText('Extra pinned item')).toBeTruthy();
   });
 
   test('a header with a single child renders as-is (nothing to collapse)', async () => {
