@@ -1,11 +1,13 @@
 import React, { useCallback, useReducer, useRef, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal, BottomSheetModalProvider, BottomSheetView } from '@gorhom/bottom-sheet';
+import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import type { Action, Payload, SDUINode as SDUINodeData } from '../core/types';
 import { ComponentRegistry, registry as defaultRegistry } from '../core/registry';
 import { SDUINode, type RenderContext } from '../core/SDUINode';
 import { pageStateReducer, runAction, type ActionEffects } from '../core/actions';
+import { CollapsingHeader } from './CollapsingHeader';
 
 export function SDUIScreen({
   payload,
@@ -42,15 +44,28 @@ export function SDUIScreen({
     dispatch,
   };
 
+  const scrollY = useSharedValue(0);
+  const scrollHandler = useAnimatedScrollHandler((event) => {
+    scrollY.value = event.contentOffset.y;
+  });
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <BottomSheetModalProvider>
-        <ScrollView>
-          {payload.header && <SDUINode node={payload.header} ctx={ctx} />}
-          {payload.sections.map((section) => (
-            <SDUINode key={section.id} node={section} ctx={ctx} />
-          ))}
-        </ScrollView>
+        <SafeAreaView style={{ flex: 1 }} edges={['top']}>
+          <Animated.ScrollView
+            onScroll={scrollHandler}
+            scrollEventThrottle={16}
+            stickyHeaderIndices={payload.header ? [0] : undefined}
+          >
+            {payload.header && (
+              <CollapsingHeader node={payload.header} ctx={ctx} scrollY={scrollY} />
+            )}
+            {payload.sections.map((section) => (
+              <SDUINode key={section.id} node={section} ctx={ctx} />
+            ))}
+          </Animated.ScrollView>
+        </SafeAreaView>
         <BottomSheetModal ref={sheetRef} onDismiss={() => setSheet(null)}>
           <BottomSheetView>{sheet && <SDUINode node={sheet.node} ctx={ctx} />}</BottomSheetView>
         </BottomSheetModal>
