@@ -8,7 +8,9 @@ import { ComponentRegistry, registry as defaultRegistry } from '../core/registry
 import { SDUINode, type RenderContext } from '../core/SDUINode';
 import { pageStateReducer, runAction, type ActionEffects } from '../core/actions';
 import { resolveToken } from '../core/theme';
+import { clearDevLog } from '../utils/devLog';
 import { CollapsingHeader } from './CollapsingHeader';
+import { DebugOverlay } from './DebugOverlay';
 
 export function SDUIScreen({
   payload,
@@ -22,6 +24,12 @@ export function SDUIScreen({
   /** Fires once the scroll content has laid out. Measurement hook (docs/SCHEMA.md §4.3) — not part of the render contract. */
   onContentSizeChange?: () => void;
 }): React.ReactElement {
+  // Dev-only debug overlay (docs/PROMPTS.md P5 item 5) shows degradations from the last
+  // render only, not history across renders — devLog is treated as render-scoped diagnostic
+  // output here, the same way warn() already logs synchronously from within render elsewhere
+  // in core/**.
+  if (__DEV__) clearDevLog();
+
   const [state, reactDispatch] = useReducer(pageStateReducer, payload.state ?? {});
   const [sheet, setSheet] = useState<{ node: SDUINodeData; title?: string } | null>(null);
   const sheetRef = useRef<BottomSheetModal>(null);
@@ -81,6 +89,7 @@ export function SDUIScreen({
         <BottomSheetModal ref={sheetRef} onDismiss={() => setSheet(null)}>
           <BottomSheetView>{sheet && <SDUINode node={sheet.node} ctx={ctx} />}</BottomSheetView>
         </BottomSheetModal>
+        <DebugOverlay />
       </BottomSheetModalProvider>
     </GestureHandlerRootView>
   );

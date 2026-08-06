@@ -19,6 +19,7 @@ import { input } from './atoms/input';
 import { accordion } from './atoms/accordion';
 
 import { tile } from './composites/tile';
+import { car_card, car_card_v2 } from './composites/car_card';
 
 registry.register(stack);
 registry.register(spacer);
@@ -37,5 +38,7 @@ registry.register(chip_group);
 registry.register(input);
 registry.register(accordion);
 registry.register(tile);
+registry.register(car_card);
+registry.register(car_card_v2);
 
 export { registry };

@@ -1,0 +1,4037 @@
+{
+  "schemaVersion": "1.1.0",
+  "screenId": "home",
+  "minClientSchemaVersion": "1.0.0",
+  "analytics": {
+    "screenName": "home",
+    "context": {
+      "city": "Bhilwara"
+    }
+  },
+  "theme": {
+    "tokens": {
+      "color": {
+        "brand": "#3B24C4",
+        "brandSurface": "#4A32E0",
+        "bg": "#FFFFFF",
+        "surfaceRaised": "#F5F6F8",
+        "tileBlue": "#123FA8",
+        "tileGreen": "#1F6A4A",
+        "tileCream": "#FBF3E4",
+        "textPrimary": "#101828",
+        "textOnBrand": "#FFFFFF",
+        "textMuted": "#667085",
+        "accent": "#3B24C4",
+        "danger": "#E03131",
+        "success": "#12B76A",
+        "border": "#EAECF0"
+      },
+      "space": {
+        "xs": 4,
+        "sm": 8,
+        "md": 12,
+        "lg": 16,
+        "xl": 24
+      },
+      "radius": {
+        "sm": 6,
+        "md": 12,
+        "lg": 16,
+        "pill": 999
+      },
+      "type": {
+        "h1": {
+          "size": 24,
+          "weight": "600"
+        },
+        "h2": {
+          "size": 20,
+          "weight": "600"
+        },
+        "body": {
+          "size": 14,
+          "weight": "400"
+        },
+        "caption": {
+          "size": 12,
+          "weight": "400"
+        },
+        "ghost": {
+          "size": 72,
+          "weight": "700"
+        }
+      }
+    }
+  },
+  "state": {
+    "carListTab": "wishlisted"
+  },
+  "data": {
+    "carLists": {
+      "wishlisted": {
+        "c_w1": {
+          "title": "Maruti Suzuki Baleno",
+          "year": 2021,
+          "city": "Bhilwara",
+          "km": "32,450 km",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "rto": "RJ27",
+          "price": "₹6.15 Lakh",
+          "emi": "EMI ₹11,499/m*",
+          "cars24Badge": "Zero Worry",
+          "image": "https://picsum.photos/seed/c_w1/400/300"
+        },
+        "c_w2": {
+          "title": "Hyundai Creta",
+          "year": 2019,
+          "city": "Jaipur",
+          "km": "48,760 km",
+          "fuel": "Diesel",
+          "transmission": "Automatic",
+          "rto": "RJ14",
+          "price": "₹9.87 Lakh",
+          "emi": "EMI ₹17,250/m*",
+          "cars24Badge": "Zero Worry Max",
+          "image": "https://picsum.photos/seed/c_w2/400/300"
+        },
+        "c_w3": {
+          "title": "Tata Nexon",
+          "year": 2022,
+          "city": "Delhi NCR",
+          "km": "18,120 km",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "rto": "DL8C",
+          "price": "₹8.42 Lakh",
+          "emi": "EMI ₹14,980/m*",
+          "cars24Badge": "Zero Worry",
+          "image": "https://picsum.photos/seed/c_w3/400/300"
+        },
+        "c_w4": {
+          "title": "Honda City",
+          "year": 2018,
+          "city": "Bhilwara",
+          "km": "61,300 km",
+          "fuel": "Petrol",
+          "transmission": "Automatic",
+          "rto": "RJ27",
+          "price": "₹6.89 Lakh",
+          "emi": "EMI ₹12,340/m*",
+          "cars24Badge": "Zero Worry Max",
+          "image": "https://picsum.photos/seed/c_w4/400/300"
+        }
+      },
+      "hotDeals": {
+        "c_h1": {
+          "title": "Maruti Suzuki Swift",
+          "year": 2020,
+          "city": "Jaipur",
+          "km": "27,890 km",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "rto": "RJ14",
+          "price": "₹5.24 Lakh",
+          "emi": "EMI ₹9,650/m*",
+          "cars24Badge": "Zero Worry",
+          "image": "https://picsum.photos/seed/c_h1/400/300"
+        },
+        "c_h2": {
+          "title": "Kia Seltos",
+          "year": 2021,
+          "city": "Delhi NCR",
+          "km": "22,540 km",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "rto": "DL10C",
+          "price": "₹10.75 Lakh",
+          "emi": "EMI ₹18,900/m*",
+          "cars24Badge": "Zero Worry Max",
+          "image": "https://picsum.photos/seed/c_h2/400/300"
+        },
+        "c_h3": {
+          "title": "Toyota Glanza",
+          "year": 2023,
+          "city": "Bhilwara",
+          "km": "8,760 km",
+          "fuel": "Petrol",
+          "transmission": "Manual",
+          "rto": "RJ27",
+          "price": "₹7.15 Lakh",
+          "emi": "EMI ₹13,120/m*",
+          "cars24Badge": "Zero Worry Max",
+          "image": "https://picsum.photos/seed/c_h3/400/300"
+        },
+        "c_h4": {
+          "title": "Mahindra XUV300",
+          "year": 2019,
+          "city": "Jaipur",
+          "km": "39,410 km",
+          "fuel": "Diesel",
+          "transmission": "Manual",
+          "rto": "RJ14",
+          "price": "₹7.68 Lakh",
+          "emi": "EMI ₹14,050/m*",
+          "cars24Badge": "Zero Worry",
+          "image": "https://picsum.photos/seed/c_h4/400/300"
+        }
+      }
+    }
+  },
+  "header": {
+    "id": "home.header",
+    "type": "stack",
+    "props": {
+      "direction": "vertical",
+      "spacing": 12
+    },
+    "style": {
+      "paddingX": "space.lg",
+      "paddingY": "space.md",
+      "background": "color.bg"
+    },
+    "children": [
+      {
+        "id": "home.header.topRow",
+        "type": "stack",
+        "props": {
+          "direction": "horizontal",
+          "justify": "between",
+          "align": "center"
+        },
+        "children": [
+          {
+            "id": "home.header.location",
+            "type": "stack",
+            "props": {
+              "direction": "horizontal",
+              "align": "center",
+              "spacing": 4
+            },
+            "actions": {
+              "onTap": {
+                "type": "open_sheet",
+                "payload": {
+                  "title": "Choose city",
+                  "node": {
+                    "id": "home.header.location.sheet",
+                    "type": "stack",
+                    "props": {
+                      "direction": "vertical",
+                      "spacing": 8
+                    },
+                    "style": {
+                      "padding": "space.lg"
+                    },
+                    "children": [
+                      {
+                        "id": "home.header.location.sheet.title",
+                        "type": "text",
+                        "props": {
+                          "value": "Choose your city",
+                          "variant": "type.h2"
+                        }
+                      },
+                      {
+                        "id": "home.header.location.sheet.bhilwara",
+                        "type": "text",
+                        "props": {
+                          "value": "Bhilwara"
+                        },
+                        "actions": {
+                          "onTap": {
+                            "type": "set_state",
+                            "payload": {
+                              "key": "city",
+                              "value": "Bhilwara"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "id": "home.header.location.sheet.jaipur",
+                        "type": "text",
+                        "props": {
+                          "value": "Jaipur"
+                        },
+                        "actions": {
+                          "onTap": {
+                            "type": "set_state",
+                            "payload": {
+                              "key": "city",
+                              "value": "Jaipur"
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "id": "home.header.location.sheet.delhi",
+                        "type": "text",
+                        "props": {
+                          "value": "Delhi NCR"
+                        },
+                        "actions": {
+                          "onTap": {
+                            "type": "set_state",
+                            "payload": {
+                              "key": "city",
+                              "value": "Delhi NCR"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "children": [
+              {
+                "id": "home.header.location.icon",
+                "type": "icon",
+                "props": {
+                  "name": "location-outline",
+                  "size": 18,
+                  "color": "color.textPrimary"
+                }
+              },
+              {
+                "id": "home.header.location.text",
+                "type": "text",
+                "props": {
+                  "value": "Bhilwara",
+                  "variant": "type.body"
+                }
+              },
+              {
+                "id": "home.header.location.chevron",
+                "type": "icon",
+                "props": {
+                  "name": "chevron-down",
+                  "size": 14,
+                  "color": "color.textMuted"
+                }
+              }
+            ]
+          },
+          {
+            "id": "home.header.avatar",
+            "type": "image",
+            "props": {
+              "url": "https://picsum.photos/seed/home_avatar/100/100",
+              "aspectRatio": 1,
+              "radius": "radius.pill",
+              "contentMode": "cover"
+            },
+            "style": {
+              "width": 36,
+              "height": 36
+            },
+            "actions": {
+              "onTap": {
+                "type": "navigate",
+                "payload": {
+                  "route": "profile"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "home.header.search",
+        "type": "input",
+        "props": {
+          "placeholder": "Search cars",
+          "placeholderRotation": [
+            "Search Baleno",
+            "Search Ertiga",
+            "Search Tata cars",
+            "Search FASTag"
+          ],
+          "rotationMs": 3000,
+          "readOnly": true
+        },
+        "style": {
+          "background": "color.surfaceRaised",
+          "radius": "radius.md",
+          "paddingX": "space.md",
+          "paddingY": "space.sm"
+        },
+        "actions": {
+          "onTap": {
+            "type": "navigate",
+            "payload": {
+              "route": "search"
+            }
+          }
+        }
+      },
+      {
+        "id": "home.header.nav",
+        "type": "stack",
+        "props": {
+          "direction": "horizontal",
+          "justify": "between"
+        },
+        "style": {
+          "paddingY": "space.sm"
+        },
+        "children": [
+          {
+            "id": "home.header.nav.buy",
+            "type": "stack",
+            "props": {
+              "direction": "vertical",
+              "align": "center",
+              "spacing": 4
+            },
+            "actions": {
+              "onTap": {
+                "type": "navigate",
+                "payload": {
+                  "route": "listing",
+                  "params": {
+                    "intent": "buy"
+                  }
+                }
+              }
+            },
+            "children": [
+              {
+                "id": "home.header.nav.buy.icon",
+                "type": "icon",
+                "props": {
+                  "name": "car-outline",
+                  "size": 22,
+                  "color": "color.brand"
+                }
+              },
+              {
+                "id": "home.header.nav.buy.text",
+                "type": "text",
+                "props": {
+                  "value": "Buy",
+                  "variant": "type.caption"
+                }
+              }
+            ]
+          },
+          {
+            "id": "home.header.nav.sell",
+            "type": "stack",
+            "props": {
+              "direction": "vertical",
+              "align": "center",
+              "spacing": 4
+            },
+            "actions": {
+              "onTap": {
+                "type": "navigate",
+                "payload": {
+                  "route": "sell"
+                }
+              }
+            },
+            "children": [
+              {
+                "id": "home.header.nav.sell.icon",
+                "type": "icon",
+                "props": {
+                  "name": "cash-outline",
+                  "size": 22,
+                  "color": "color.brand"
+                }
+              },
+              {
+                "id": "home.header.nav.sell.text",
+                "type": "text",
+                "props": {
+                  "value": "Sell",
+                  "variant": "type.caption"
+                }
+              }
+            ]
+          },
+          {
+            "id": "home.header.nav.loans",
+            "type": "stack",
+            "props": {
+              "direction": "vertical",
+              "align": "center",
+              "spacing": 4
+            },
+            "actions": {
+              "onTap": {
+                "type": "navigate",
+                "payload": {
+                  "route": "loans"
+                }
+              }
+            },
+            "children": [
+              {
+                "id": "home.header.nav.loans.icon",
+                "type": "icon",
+                "props": {
+                  "name": "wallet-outline",
+                  "size": 22,
+                  "color": "color.brand"
+                }
+              },
+              {
+                "id": "home.header.nav.loans.text",
+                "type": "text",
+                "props": {
+                  "value": "Loans",
+                  "variant": "type.caption"
+                }
+              }
+            ]
+          },
+          {
+            "id": "home.header.nav.services",
+            "type": "stack",
+            "props": {
+              "direction": "vertical",
+              "align": "center",
+              "spacing": 4
+            },
+            "actions": {
+              "onTap": {
+                "type": "navigate",
+                "payload": {
+                  "route": "services"
+                }
+              }
+            },
+            "children": [
+              {
+                "id": "home.header.nav.services.icon",
+                "type": "icon",
+                "props": {
+                  "name": "construct-outline",
+                  "size": 22,
+                  "color": "color.brand"
+                }
+              },
+              {
+                "id": "home.header.nav.services.text",
+                "type": "text",
+                "props": {
+                  "value": "Services",
+                  "variant": "type.caption"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "home.buyCar",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.buyCar.header",
+          "type": "stack",
+          "props": {
+            "direction": "horizontal",
+            "justify": "between",
+            "align": "center"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.buyCar.header.left",
+              "type": "stack",
+              "props": {
+                "direction": "horizontal",
+                "align": "center",
+                "spacing": 8
+              },
+              "children": [
+                {
+                  "id": "home.buyCar.header.title",
+                  "type": "text",
+                  "props": {
+                    "value": "Buy a car",
+                    "variant": "type.h2"
+                  }
+                },
+                {
+                  "id": "home.buyCar.header.badge",
+                  "type": "badge",
+                  "props": {
+                    "label": "Up to ₹80,000 off",
+                    "tone": "brand"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "home.buyCar.rail",
+          "type": "rail",
+          "props": {
+            "spacing": 12,
+            "contentInset": 16,
+            "peek": 24
+          },
+          "children": [
+            {
+              "id": "home.buyCar.tile.hatchback",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileBlue",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "listing",
+                    "params": {
+                      "bodyType": "hatchback"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.buyCar.tile.hatchback.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Hatchback",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.buyCar.tile.hatchback.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_hatchback/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.buyCar.tile.sedan",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileBlue",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "listing",
+                    "params": {
+                      "bodyType": "sedan"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.buyCar.tile.sedan.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Sedan",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.buyCar.tile.sedan.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_sedan/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.buyCar.tile.suv",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileBlue",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "listing",
+                    "params": {
+                      "bodyType": "suv"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.buyCar.tile.suv.text",
+                  "type": "text",
+                  "props": {
+                    "value": "SUV",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.buyCar.tile.suv.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_suv/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.buyCar.tile.muv",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileBlue",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "listing",
+                    "params": {
+                      "bodyType": "muv"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.buyCar.tile.muv.text",
+                  "type": "text",
+                  "props": {
+                    "value": "MUV",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.buyCar.tile.muv.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_muv/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.buyCar.tile.automatic",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileBlue",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "listing",
+                    "params": {
+                      "transmission": "automatic"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.buyCar.tile.automatic.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Automatic",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.buyCar.tile.automatic.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_automatic/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.sellCar",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.sellCar.title",
+          "type": "text",
+          "props": {
+            "value": "Sell your car",
+            "variant": "type.h2"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          }
+        },
+        {
+          "id": "home.sellCar.rail",
+          "type": "rail",
+          "props": {
+            "spacing": 12,
+            "contentInset": 16,
+            "peek": 24
+          },
+          "children": [
+            {
+              "id": "home.sellCar.tile.valuation",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileGreen",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "sell",
+                    "params": {
+                      "step": "valuation"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.sellCar.tile.valuation.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Free car valuation",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.sellCar.tile.valuation.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_valuation/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.sellCar.tile.inspection",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileGreen",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "sell",
+                    "params": {
+                      "step": "inspection"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.sellCar.tile.inspection.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Doorstep inspection",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.sellCar.tile.inspection.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_inspection/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.sellCar.tile.payment",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileGreen",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "sell",
+                    "params": {
+                      "step": "payment"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.sellCar.tile.payment.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Instant payment",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.sellCar.tile.payment.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_payment/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.sellCar.tile.rcTransfer",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileGreen",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "width": 132,
+                "height": 148
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "sell",
+                    "params": {
+                      "step": "rcTransfer"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.sellCar.tile.rcTransfer.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Free RC transfer",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.sellCar.tile.rcTransfer.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/tile_rctransfer/200/200",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 72,
+                    "height": 72
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.loans",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.loans.title",
+          "type": "text",
+          "props": {
+            "value": "Get car loans",
+            "variant": "type.h2"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          }
+        },
+        {
+          "id": "home.loans.rail",
+          "type": "rail",
+          "props": {
+            "spacing": 16,
+            "contentInset": 16,
+            "peek": 24
+          },
+          "children": [
+            {
+              "id": "home.loans.tile.newCar",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "align": "center",
+                "spacing": 8
+              },
+              "style": {
+                "width": 84
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "loans",
+                    "params": {
+                      "type": "newCar"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.loans.tile.newCar.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/loan_newcar/160/160",
+                    "aspectRatio": 1,
+                    "radius": "radius.pill",
+                    "contentMode": "cover"
+                  },
+                  "style": {
+                    "width": 64,
+                    "height": 64,
+                    "background": "color.surfaceRaised"
+                  }
+                },
+                {
+                  "id": "home.loans.tile.newCar.text",
+                  "type": "text",
+                  "props": {
+                    "value": "New Car Loan",
+                    "variant": "type.caption",
+                    "align": "center"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.loans.tile.usedCar",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "align": "center",
+                "spacing": 8
+              },
+              "style": {
+                "width": 84
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "loans",
+                    "params": {
+                      "type": "usedCar"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.loans.tile.usedCar.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/loan_usedcar/160/160",
+                    "aspectRatio": 1,
+                    "radius": "radius.pill",
+                    "contentMode": "cover"
+                  },
+                  "style": {
+                    "width": 64,
+                    "height": 64,
+                    "background": "color.surfaceRaised"
+                  }
+                },
+                {
+                  "id": "home.loans.tile.usedCar.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Used Car Loan",
+                    "variant": "type.caption",
+                    "align": "center"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.loans.tile.loanAgainstCar",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "align": "center",
+                "spacing": 8
+              },
+              "style": {
+                "width": 84
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "loans",
+                    "params": {
+                      "type": "loanAgainstCar"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.loans.tile.loanAgainstCar.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/loan_against/160/160",
+                    "aspectRatio": 1,
+                    "radius": "radius.pill",
+                    "contentMode": "cover"
+                  },
+                  "style": {
+                    "width": 64,
+                    "height": 64,
+                    "background": "color.surfaceRaised"
+                  }
+                },
+                {
+                  "id": "home.loans.tile.loanAgainstCar.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Loan Against Car",
+                    "variant": "type.caption",
+                    "align": "center"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.loans.tile.balanceTransfer",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "align": "center",
+                "spacing": 8
+              },
+              "style": {
+                "width": 84
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "loans",
+                    "params": {
+                      "type": "balanceTransfer"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.loans.tile.balanceTransfer.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/loan_balance/160/160",
+                    "aspectRatio": 1,
+                    "radius": "radius.pill",
+                    "contentMode": "cover"
+                  },
+                  "style": {
+                    "width": 64,
+                    "height": 64,
+                    "background": "color.surfaceRaised"
+                  }
+                },
+                {
+                  "id": "home.loans.tile.balanceTransfer.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Balance Transfer",
+                    "variant": "type.caption",
+                    "align": "center"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.services",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.services.title",
+          "type": "text",
+          "props": {
+            "value": "Car check & services",
+            "variant": "type.h2"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          }
+        },
+        {
+          "id": "home.services.grid",
+          "type": "grid",
+          "props": {
+            "columns": 3,
+            "gap": 12
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.services.tile.rcTransfer",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileCream",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "services",
+                    "params": {
+                      "service": "rcTransfer"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.services.tile.rcTransfer.text",
+                  "type": "text",
+                  "props": {
+                    "value": "RC Transfer",
+                    "variant": "type.caption",
+                    "color": "color.textPrimary"
+                  }
+                },
+                {
+                  "id": "home.services.tile.rcTransfer.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/svc_rctransfer/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.services.tile.insurance",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileCream",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "services",
+                    "params": {
+                      "service": "insurance"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.services.tile.insurance.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Car Insurance",
+                    "variant": "type.caption",
+                    "color": "color.textPrimary"
+                  }
+                },
+                {
+                  "id": "home.services.tile.insurance.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/svc_insurance/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.services.tile.challan",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileCream",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "services",
+                    "params": {
+                      "service": "challan"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.services.tile.challan.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Challan Check",
+                    "variant": "type.caption",
+                    "color": "color.textPrimary"
+                  }
+                },
+                {
+                  "id": "home.services.tile.challan.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/svc_challan/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.services.tile.fastag",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileCream",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "services",
+                    "params": {
+                      "service": "fastag"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.services.tile.fastag.text",
+                  "type": "text",
+                  "props": {
+                    "value": "FASTag Recharge",
+                    "variant": "type.caption",
+                    "color": "color.textPrimary"
+                  }
+                },
+                {
+                  "id": "home.services.tile.fastag.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/svc_fastag/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.services.tile.valuation",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileCream",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "services",
+                    "params": {
+                      "service": "valuation"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.services.tile.valuation.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Car Valuation",
+                    "variant": "type.caption",
+                    "color": "color.textPrimary"
+                  }
+                },
+                {
+                  "id": "home.services.tile.valuation.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/svc_valuation/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.services.tile.subscription",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.tileCream",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "services",
+                    "params": {
+                      "service": "subscription"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.services.tile.subscription.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Car Subscription",
+                    "variant": "type.caption",
+                    "color": "color.textPrimary"
+                  }
+                },
+                {
+                  "id": "home.services.tile.subscription.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/svc_subscription/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.usedCars",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.usedCars.header",
+          "type": "stack",
+          "props": {
+            "direction": "horizontal",
+            "justify": "between",
+            "align": "center"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.usedCars.header.left",
+              "type": "stack",
+              "props": {
+                "direction": "horizontal",
+                "align": "center",
+                "spacing": 8
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.header.title",
+                  "type": "text",
+                  "props": {
+                    "value": "Used cars you'll love",
+                    "variant": "type.h2"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.header.link",
+              "type": "text",
+              "props": {
+                "value": "View all",
+                "variant": "type.body",
+                "color": "color.accent"
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "listing"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "home.usedCars.tabs",
+          "type": "chip_group",
+          "props": {
+            "options": [
+              {
+                "label": "Wishlisted",
+                "value": "wishlisted",
+                "icon": "heart-outline"
+              },
+              {
+                "label": "Hot deals",
+                "value": "hotDeals",
+                "icon": "flame-outline"
+              }
+            ],
+            "selected": "{{state.carListTab}}",
+            "scrollable": false,
+            "multi": false
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "actions": {
+            "onSelect": {
+              "type": "set_state",
+              "payload": {
+                "key": "carListTab",
+                "value": "$event.value"
+              }
+            }
+          }
+        },
+        {
+          "id": "home.usedCars.rail.wishlisted",
+          "type": "rail",
+          "props": {
+            "spacing": 12,
+            "contentInset": 16,
+            "peek": 24
+          },
+          "visibleIf": {
+            "eq": [
+              "{{state.carListTab}}",
+              "wishlisted"
+            ]
+          },
+          "children": [
+            {
+              "id": "home.usedCars.card.c_w1",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_w1"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_w1.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.wishlisted.c_w1.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_w1.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_w1.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.wishlisted.c_w1.cars24Badge}}",
+                        "tone": "success"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w1.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w1.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w1.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w1.km}} • {{data.carLists.wishlisted.c_w1.fuel}} • {{data.carLists.wishlisted.c_w1.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w1.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w1.year}} • {{data.carLists.wishlisted.c_w1.rto}} • {{data.carLists.wishlisted.c_w1.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w1.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_w1.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w1.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_w1.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w1.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.card.c_w2",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_w2"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_w2.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.wishlisted.c_w2.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_w2.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_w2.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.wishlisted.c_w2.cars24Badge}}",
+                        "tone": "brand"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w2.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w2.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w2.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w2.km}} • {{data.carLists.wishlisted.c_w2.fuel}} • {{data.carLists.wishlisted.c_w2.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w2.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w2.year}} • {{data.carLists.wishlisted.c_w2.rto}} • {{data.carLists.wishlisted.c_w2.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w2.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_w2.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w2.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_w2.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w2.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.card.c_w3",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_w3"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_w3.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.wishlisted.c_w3.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_w3.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_w3.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.wishlisted.c_w3.cars24Badge}}",
+                        "tone": "success"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w3.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w3.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w3.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w3.km}} • {{data.carLists.wishlisted.c_w3.fuel}} • {{data.carLists.wishlisted.c_w3.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w3.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w3.year}} • {{data.carLists.wishlisted.c_w3.rto}} • {{data.carLists.wishlisted.c_w3.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w3.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_w3.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w3.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_w3.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w3.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.card.c_w4",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_w4"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_w4.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.wishlisted.c_w4.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_w4.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_w4.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.wishlisted.c_w4.cars24Badge}}",
+                        "tone": "brand"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w4.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w4.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w4.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w4.km}} • {{data.carLists.wishlisted.c_w4.fuel}} • {{data.carLists.wishlisted.c_w4.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w4.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.wishlisted.c_w4.year}} • {{data.carLists.wishlisted.c_w4.rto}} • {{data.carLists.wishlisted.c_w4.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_w4.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_w4.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w4.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_w4.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.wishlisted.c_w4.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "home.usedCars.rail.hotDeals",
+          "type": "rail",
+          "props": {
+            "spacing": 12,
+            "contentInset": 16,
+            "peek": 24
+          },
+          "visibleIf": {
+            "eq": [
+              "{{state.carListTab}}",
+              "hotDeals"
+            ]
+          },
+          "children": [
+            {
+              "id": "home.usedCars.card.c_h1",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_h1"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_h1.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.hotDeals.c_h1.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_h1.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_h1.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.hotDeals.c_h1.cars24Badge}}",
+                        "tone": "success"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h1.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h1.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h1.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h1.km}} • {{data.carLists.hotDeals.c_h1.fuel}} • {{data.carLists.hotDeals.c_h1.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h1.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h1.year}} • {{data.carLists.hotDeals.c_h1.rto}} • {{data.carLists.hotDeals.c_h1.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h1.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_h1.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h1.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_h1.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h1.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.card.c_h2",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_h2"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_h2.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.hotDeals.c_h2.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_h2.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_h2.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.hotDeals.c_h2.cars24Badge}}",
+                        "tone": "brand"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h2.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h2.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h2.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h2.km}} • {{data.carLists.hotDeals.c_h2.fuel}} • {{data.carLists.hotDeals.c_h2.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h2.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h2.year}} • {{data.carLists.hotDeals.c_h2.rto}} • {{data.carLists.hotDeals.c_h2.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h2.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_h2.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h2.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_h2.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h2.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.card.c_h3",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_h3"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_h3.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.hotDeals.c_h3.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_h3.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_h3.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.hotDeals.c_h3.cars24Badge}}",
+                        "tone": "brand"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h3.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h3.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h3.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h3.km}} • {{data.carLists.hotDeals.c_h3.fuel}} • {{data.carLists.hotDeals.c_h3.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h3.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h3.year}} • {{data.carLists.hotDeals.c_h3.rto}} • {{data.carLists.hotDeals.c_h3.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h3.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_h3.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h3.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_h3.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h3.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.usedCars.card.c_h4",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "style": {
+                "background": "color.bg",
+                "borderColor": "color.border",
+                "borderWidth": 1,
+                "radius": "radius.md",
+                "width": 176
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "pdp",
+                    "params": {
+                      "carId": "c_h4"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.usedCars.card.c_h4.image",
+                  "type": "image",
+                  "props": {
+                    "url": "{{data.carLists.hotDeals.c_h4.image}}",
+                    "aspectRatio": 1.4,
+                    "radius": "radius.md",
+                    "contentMode": "cover"
+                  }
+                },
+                {
+                  "id": "home.usedCars.card.c_h4.body",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "paddingX": "space.sm",
+                    "paddingY": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.usedCars.card.c_h4.badge",
+                      "type": "badge",
+                      "props": {
+                        "label": "{{data.carLists.hotDeals.c_h4.cars24Badge}}",
+                        "tone": "success"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h4.title",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h4.title}}",
+                        "variant": "type.body",
+                        "maxLines": 1
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h4.specs",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h4.km}} • {{data.carLists.hotDeals.c_h4.fuel}} • {{data.carLists.hotDeals.c_h4.transmission}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h4.rto",
+                      "type": "text",
+                      "props": {
+                        "value": "{{data.carLists.hotDeals.c_h4.year}} • {{data.carLists.hotDeals.c_h4.rto}} • {{data.carLists.hotDeals.c_h4.city}}",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    },
+                    {
+                      "id": "home.usedCars.card.c_h4.priceRow",
+                      "type": "stack",
+                      "props": {
+                        "direction": "horizontal",
+                        "justify": "between",
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "id": "home.usedCars.card.c_h4.price",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h4.price}}",
+                            "variant": "type.body"
+                          }
+                        },
+                        {
+                          "id": "home.usedCars.card.c_h4.emi",
+                          "type": "text",
+                          "props": {
+                            "value": "{{data.carLists.hotDeals.c_h4.emi}}",
+                            "variant": "type.caption",
+                            "color": "color.textMuted"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.manageVehicle",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "background": "color.brandSurface",
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.manageVehicle.header",
+          "type": "stack",
+          "props": {
+            "direction": "horizontal",
+            "justify": "between",
+            "align": "center"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.manageVehicle.header.left",
+              "type": "stack",
+              "props": {
+                "direction": "horizontal",
+                "align": "center",
+                "spacing": 8
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.header.title",
+                  "type": "text",
+                  "props": {
+                    "value": "Manage your vehicle",
+                    "variant": "type.h2",
+                    "color": "color.textOnBrand"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.manageVehicle.header.link",
+              "type": "text",
+              "props": {
+                "value": "View all",
+                "variant": "type.body",
+                "color": "color.textOnBrand"
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "home.manageVehicle.grid",
+          "type": "grid",
+          "props": {
+            "columns": 3,
+            "gap": 12
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.manageVehicle.tile.challan",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.bg",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage",
+                    "params": {
+                      "service": "challan"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.tile.challan.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Challan Check",
+                    "variant": "type.caption"
+                  }
+                },
+                {
+                  "id": "home.manageVehicle.tile.challan.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/mgmt_challan/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.manageVehicle.tile.fastag",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.bg",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage",
+                    "params": {
+                      "service": "fastag"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.tile.fastag.text",
+                  "type": "text",
+                  "props": {
+                    "value": "FASTag Recharge",
+                    "variant": "type.caption"
+                  }
+                },
+                {
+                  "id": "home.manageVehicle.tile.fastag.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/mgmt_fastag/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.manageVehicle.tile.insurance",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.bg",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage",
+                    "params": {
+                      "service": "insurance"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.tile.insurance.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Insurance Renewal",
+                    "variant": "type.caption"
+                  }
+                },
+                {
+                  "id": "home.manageVehicle.tile.insurance.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/mgmt_insurance/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.manageVehicle.tile.rcDownload",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.bg",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage",
+                    "params": {
+                      "service": "rcDownload"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.tile.rcDownload.text",
+                  "type": "text",
+                  "props": {
+                    "value": "RC Download",
+                    "variant": "type.caption"
+                  }
+                },
+                {
+                  "id": "home.manageVehicle.tile.rcDownload.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/mgmt_rc/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.manageVehicle.tile.puc",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.bg",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage",
+                    "params": {
+                      "service": "puc"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.tile.puc.text",
+                  "type": "text",
+                  "props": {
+                    "value": "PUC Certificate",
+                    "variant": "type.caption"
+                  }
+                },
+                {
+                  "id": "home.manageVehicle.tile.puc.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/mgmt_puc/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.manageVehicle.tile.roadside",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "justify": "between",
+                "spacing": 8
+              },
+              "style": {
+                "background": "color.bg",
+                "radius": "radius.md",
+                "padding": "space.md",
+                "height": 112
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "manage",
+                    "params": {
+                      "service": "roadside"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.manageVehicle.tile.roadside.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Roadside Assistance",
+                    "variant": "type.caption"
+                  }
+                },
+                {
+                  "id": "home.manageVehicle.tile.roadside.image",
+                  "type": "image",
+                  "props": {
+                    "url": "https://picsum.photos/seed/mgmt_roadside/160/160",
+                    "aspectRatio": 1,
+                    "contentMode": "contain"
+                  },
+                  "style": {
+                    "width": 40,
+                    "height": 40
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.spotifyPromo",
+      "type": "video_banner",
+      "typeVersion": 1,
+      "props": {
+        "videoUrl": "https://picsum.photos/seed/promo_spotify_video/800/400"
+      },
+      "style": {
+        "paddingX": "space.lg",
+        "marginY": "space.md",
+        "radius": "radius.lg",
+        "height": 180
+      },
+      "actions": {
+        "onTap": {
+          "type": "navigate",
+          "payload": {
+            "route": "promo",
+            "params": {
+              "campaign": "spotify"
+            }
+          }
+        }
+      },
+      "fallback": {
+        "id": "home.spotifyPromo.fallback",
+        "type": "zstack",
+        "props": {
+          "align": "bottomLeft"
+        },
+        "style": {
+          "paddingX": "space.lg",
+          "marginY": "space.md",
+          "radius": "radius.lg",
+          "height": 180
+        },
+        "actions": {
+          "onTap": {
+            "type": "navigate",
+            "payload": {
+              "route": "promo",
+              "params": {
+                "campaign": "spotify"
+              }
+            }
+          }
+        },
+        "children": [
+          {
+            "id": "home.spotifyPromo.bg",
+            "type": "image",
+            "props": {
+              "url": "https://picsum.photos/seed/promo_spotify/800/400",
+              "contentMode": "cover",
+              "radius": "radius.lg"
+            }
+          },
+          {
+            "id": "home.spotifyPromo.content",
+            "type": "stack",
+            "props": {
+              "direction": "vertical",
+              "spacing": 4
+            },
+            "style": {
+              "padding": "space.lg"
+            },
+            "children": [
+              {
+                "id": "home.spotifyPromo.logo",
+                "type": "image",
+                "props": {
+                  "url": "https://picsum.photos/seed/spotify_logo/80/80",
+                  "aspectRatio": 1,
+                  "contentMode": "contain"
+                },
+                "style": {
+                  "width": 28,
+                  "height": 28
+                }
+              },
+              {
+                "id": "home.spotifyPromo.title",
+                "type": "text",
+                "props": {
+                  "value": "Cars24 x Spotify",
+                  "variant": "type.h2",
+                  "color": "color.textOnBrand"
+                }
+              },
+              {
+                "id": "home.spotifyPromo.subtitle",
+                "type": "text",
+                "props": {
+                  "value": "Unlimited music on every test drive",
+                  "variant": "type.body",
+                  "color": "color.textOnBrand"
+                }
+              },
+              {
+                "id": "home.spotifyPromo.cta",
+                "type": "button",
+                "props": {
+                  "label": "Know more",
+                  "variant": "outline",
+                  "size": "sm"
+                },
+                "actions": {
+                  "onTap": {
+                    "type": "navigate",
+                    "payload": {
+                      "route": "promo",
+                      "params": {
+                        "campaign": "spotify"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "home.trending",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "paddingY": "space.lg"
+      },
+      "children": [
+        {
+          "id": "home.trending.header",
+          "type": "stack",
+          "props": {
+            "direction": "horizontal",
+            "justify": "between",
+            "align": "center"
+          },
+          "style": {
+            "paddingX": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.trending.header.left",
+              "type": "stack",
+              "props": {
+                "direction": "horizontal",
+                "align": "center",
+                "spacing": 8
+              },
+              "children": [
+                {
+                  "id": "home.trending.header.title",
+                  "type": "text",
+                  "props": {
+                    "value": "Trending new cars",
+                    "variant": "type.h2"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "home.trending.header.link",
+              "type": "text",
+              "props": {
+                "value": "View all",
+                "variant": "type.body",
+                "color": "color.accent"
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "newCars"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "home.trending.rail",
+          "type": "rail",
+          "props": {
+            "spacing": 12,
+            "contentInset": 16,
+            "peek": 24
+          },
+          "children": [
+            {
+              "id": "home.trending.item.1",
+              "type": "zstack",
+              "props": {
+                "align": "bottomLeft"
+              },
+              "style": {
+                "width": 168
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "newCarDetail",
+                    "params": {
+                      "model": "tataPunch"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.trending.item.1.numeral",
+                  "type": "text",
+                  "props": {
+                    "value": "01",
+                    "variant": "type.ghost",
+                    "color": "color.surfaceRaised",
+                    "opacity": 0.6
+                  }
+                },
+                {
+                  "id": "home.trending.item.1.content",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "padding": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.trending.item.1.image",
+                      "type": "image",
+                      "props": {
+                        "url": "https://picsum.photos/seed/trend_punch/300/220",
+                        "aspectRatio": 1.4,
+                        "radius": "radius.sm",
+                        "contentMode": "cover"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.1.name",
+                      "type": "text",
+                      "props": {
+                        "value": "Tata Punch",
+                        "variant": "type.body"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.1.price",
+                      "type": "text",
+                      "props": {
+                        "value": "₹6.10 Lakh onwards",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.trending.item.2",
+              "type": "zstack",
+              "props": {
+                "align": "bottomLeft"
+              },
+              "style": {
+                "width": 168
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "newCarDetail",
+                    "params": {
+                      "model": "hyundaiVenue"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.trending.item.2.numeral",
+                  "type": "text",
+                  "props": {
+                    "value": "02",
+                    "variant": "type.ghost",
+                    "color": "color.surfaceRaised",
+                    "opacity": 0.6
+                  }
+                },
+                {
+                  "id": "home.trending.item.2.content",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "padding": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.trending.item.2.image",
+                      "type": "image",
+                      "props": {
+                        "url": "https://picsum.photos/seed/trend_venue/300/220",
+                        "aspectRatio": 1.4,
+                        "radius": "radius.sm",
+                        "contentMode": "cover"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.2.name",
+                      "type": "text",
+                      "props": {
+                        "value": "Hyundai Venue",
+                        "variant": "type.body"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.2.price",
+                      "type": "text",
+                      "props": {
+                        "value": "₹7.94 Lakh onwards",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.trending.item.3",
+              "type": "zstack",
+              "props": {
+                "align": "bottomLeft"
+              },
+              "style": {
+                "width": 168
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "newCarDetail",
+                    "params": {
+                      "model": "marutiFronx"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.trending.item.3.numeral",
+                  "type": "text",
+                  "props": {
+                    "value": "03",
+                    "variant": "type.ghost",
+                    "color": "color.surfaceRaised",
+                    "opacity": 0.6
+                  }
+                },
+                {
+                  "id": "home.trending.item.3.content",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "padding": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.trending.item.3.image",
+                      "type": "image",
+                      "props": {
+                        "url": "https://picsum.photos/seed/trend_fronx/300/220",
+                        "aspectRatio": 1.4,
+                        "radius": "radius.sm",
+                        "contentMode": "cover"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.3.name",
+                      "type": "text",
+                      "props": {
+                        "value": "Maruti Fronx",
+                        "variant": "type.body"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.3.price",
+                      "type": "text",
+                      "props": {
+                        "value": "₹7.51 Lakh onwards",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "home.trending.item.4",
+              "type": "zstack",
+              "props": {
+                "align": "bottomLeft"
+              },
+              "style": {
+                "width": 168
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "newCarDetail",
+                    "params": {
+                      "model": "kiaSonet"
+                    }
+                  }
+                }
+              },
+              "children": [
+                {
+                  "id": "home.trending.item.4.numeral",
+                  "type": "text",
+                  "props": {
+                    "value": "04",
+                    "variant": "type.ghost",
+                    "color": "color.surfaceRaised",
+                    "opacity": 0.6
+                  }
+                },
+                {
+                  "id": "home.trending.item.4.content",
+                  "type": "stack",
+                  "props": {
+                    "direction": "vertical",
+                    "spacing": 4
+                  },
+                  "style": {
+                    "padding": "space.sm"
+                  },
+                  "children": [
+                    {
+                      "id": "home.trending.item.4.image",
+                      "type": "image",
+                      "props": {
+                        "url": "https://picsum.photos/seed/trend_sonet/300/220",
+                        "aspectRatio": 1.4,
+                        "radius": "radius.sm",
+                        "contentMode": "cover"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.4.name",
+                      "type": "text",
+                      "props": {
+                        "value": "Kia Sonet",
+                        "variant": "type.body"
+                      }
+                    },
+                    {
+                      "id": "home.trending.item.4.price",
+                      "type": "text",
+                      "props": {
+                        "value": "₹7.99 Lakh onwards",
+                        "variant": "type.caption",
+                        "color": "color.textMuted"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.findMatch",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 12
+      },
+      "style": {
+        "marginX": "space.lg",
+        "marginY": "space.md",
+        "padding": "space.lg",
+        "background": "color.surfaceRaised",
+        "radius": "radius.lg"
+      },
+      "children": [
+        {
+          "id": "home.findMatch.top",
+          "type": "stack",
+          "props": {
+            "direction": "horizontal",
+            "spacing": 12,
+            "align": "center"
+          },
+          "children": [
+            {
+              "id": "home.findMatch.image",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/find_expert/160/160",
+                "aspectRatio": 1,
+                "radius": "radius.pill",
+                "contentMode": "cover"
+              },
+              "style": {
+                "width": 56,
+                "height": 56
+              }
+            },
+            {
+              "id": "home.findMatch.text",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 4
+              },
+              "children": [
+                {
+                  "id": "home.findMatch.new",
+                  "type": "badge",
+                  "props": {
+                    "label": "NEW",
+                    "tone": "success"
+                  }
+                },
+                {
+                  "id": "home.findMatch.title",
+                  "type": "text",
+                  "props": {
+                    "value": "Talk to a car expert",
+                    "variant": "type.body"
+                  }
+                },
+                {
+                  "id": "home.findMatch.subtitle",
+                  "type": "text",
+                  "props": {
+                    "value": "Get personalised recommendations in 2 mins",
+                    "variant": "type.caption",
+                    "color": "color.textMuted"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "home.findMatch.divider",
+          "type": "divider",
+          "props": {
+            "inset": 0,
+            "thickness": 1
+          }
+        },
+        {
+          "id": "home.findMatch.cta",
+          "type": "stack",
+          "props": {
+            "direction": "horizontal",
+            "justify": "between",
+            "align": "center"
+          },
+          "actions": {
+            "onTap": {
+              "type": "navigate",
+              "payload": {
+                "route": "callback"
+              }
+            }
+          },
+          "children": [
+            {
+              "id": "home.findMatch.cta.text",
+              "type": "text",
+              "props": {
+                "value": "Request a callback",
+                "variant": "type.body",
+                "color": "color.accent"
+              }
+            },
+            {
+              "id": "home.findMatch.cta.icon",
+              "type": "icon",
+              "props": {
+                "name": "chevron-forward",
+                "size": 16,
+                "color": "color.accent"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.promoRail",
+      "type": "rail",
+      "props": {
+        "spacing": 12,
+        "contentInset": 16,
+        "peek": 32,
+        "snap": true
+      },
+      "style": {
+        "paddingY": "space.md"
+      },
+      "children": [
+        {
+          "id": "home.promoRail.item.moneyBack",
+          "type": "zstack",
+          "props": {
+            "align": "bottomLeft"
+          },
+          "style": {
+            "width": 260,
+            "height": 130,
+            "radius": "radius.md"
+          },
+          "actions": {
+            "onTap": {
+              "type": "navigate",
+              "payload": {
+                "route": "promo",
+                "params": {
+                  "campaign": "moneyBack"
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "id": "home.promoRail.item.moneyBack.bg",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/promo_moneyback/600/300",
+                "contentMode": "cover",
+                "radius": "radius.md"
+              }
+            },
+            {
+              "id": "home.promoRail.item.moneyBack.content",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 2
+              },
+              "style": {
+                "padding": "space.md"
+              },
+              "children": [
+                {
+                  "id": "home.promoRail.item.moneyBack.title",
+                  "type": "text",
+                  "props": {
+                    "value": "30-Day Money-Back Guarantee",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.promoRail.item.moneyBack.subtitle",
+                  "type": "text",
+                  "props": {
+                    "value": "Not happy? Return it, no questions asked",
+                    "variant": "type.caption",
+                    "color": "color.textOnBrand"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "home.promoRail.item.rcTransfer",
+          "type": "zstack",
+          "props": {
+            "align": "bottomLeft"
+          },
+          "style": {
+            "width": 260,
+            "height": 130,
+            "radius": "radius.md"
+          },
+          "actions": {
+            "onTap": {
+              "type": "navigate",
+              "payload": {
+                "route": "promo",
+                "params": {
+                  "campaign": "rcTransfer"
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "id": "home.promoRail.item.rcTransfer.bg",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/promo_rctransfer/600/300",
+                "contentMode": "cover",
+                "radius": "radius.md"
+              }
+            },
+            {
+              "id": "home.promoRail.item.rcTransfer.content",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 2
+              },
+              "style": {
+                "padding": "space.md"
+              },
+              "children": [
+                {
+                  "id": "home.promoRail.item.rcTransfer.title",
+                  "type": "text",
+                  "props": {
+                    "value": "Free RC Transfer",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.promoRail.item.rcTransfer.subtitle",
+                  "type": "text",
+                  "props": {
+                    "value": "On every used car purchase",
+                    "variant": "type.caption",
+                    "color": "color.textOnBrand"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "home.promoRail.item.warranty",
+          "type": "zstack",
+          "props": {
+            "align": "bottomLeft"
+          },
+          "style": {
+            "width": 260,
+            "height": 130,
+            "radius": "radius.md"
+          },
+          "actions": {
+            "onTap": {
+              "type": "navigate",
+              "payload": {
+                "route": "promo",
+                "params": {
+                  "campaign": "warranty"
+                }
+              }
+            }
+          },
+          "children": [
+            {
+              "id": "home.promoRail.item.warranty.bg",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/promo_warranty/600/300",
+                "contentMode": "cover",
+                "radius": "radius.md"
+              }
+            },
+            {
+              "id": "home.promoRail.item.warranty.content",
+              "type": "stack",
+              "props": {
+                "direction": "vertical",
+                "spacing": 2
+              },
+              "style": {
+                "padding": "space.md"
+              },
+              "children": [
+                {
+                  "id": "home.promoRail.item.warranty.title",
+                  "type": "text",
+                  "props": {
+                    "value": "1-Year Comprehensive Warranty",
+                    "variant": "type.body",
+                    "color": "color.textOnBrand"
+                  }
+                },
+                {
+                  "id": "home.promoRail.item.warranty.subtitle",
+                  "type": "text",
+                  "props": {
+                    "value": "Covered on every Cars24 car",
+                    "variant": "type.caption",
+                    "color": "color.textOnBrand"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.crashFreeIndia",
+      "type": "ar_showroom_banner",
+      "props": {
+        "align": "bottomLeft"
+      },
+      "style": {
+        "paddingX": "space.lg",
+        "marginY": "space.md",
+        "radius": "radius.lg",
+        "height": 200
+      },
+      "actions": {
+        "onTap": {
+          "type": "navigate",
+          "payload": {
+            "route": "promo",
+            "params": {
+              "campaign": "crashFreeIndia"
+            }
+          }
+        }
+      },
+      "children": [
+        {
+          "id": "home.crashFreeIndia.bg",
+          "type": "image",
+          "props": {
+            "url": "https://picsum.photos/seed/promo_crashfree/800/450",
+            "contentMode": "cover",
+            "radius": "radius.lg"
+          }
+        },
+        {
+          "id": "home.crashFreeIndia.content",
+          "type": "stack",
+          "props": {
+            "direction": "vertical",
+            "spacing": 4
+          },
+          "style": {
+            "padding": "space.lg"
+          },
+          "children": [
+            {
+              "id": "home.crashFreeIndia.title",
+              "type": "text",
+              "props": {
+                "value": "CrashFree India",
+                "variant": "type.h2",
+                "color": "color.textOnBrand"
+              }
+            },
+            {
+              "id": "home.crashFreeIndia.subtitle",
+              "type": "text",
+              "props": {
+                "value": "Every Cars24 car passes a 200-point quality check",
+                "variant": "type.body",
+                "color": "color.textOnBrand"
+              }
+            },
+            {
+              "id": "home.crashFreeIndia.disclaimer",
+              "type": "text",
+              "props": {
+                "value": "T&C apply",
+                "variant": "type.caption",
+                "color": "color.textOnBrand",
+                "opacity": 0.8
+              }
+            },
+            {
+              "id": "home.crashFreeIndia.cta",
+              "type": "button",
+              "props": {
+                "label": "Know more",
+                "variant": "outline",
+                "size": "sm"
+              },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": {
+                    "route": "promo",
+                    "params": {
+                      "campaign": "crashFreeIndia"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "home.footer",
+      "type": "stack",
+      "props": {
+        "direction": "vertical",
+        "spacing": 8,
+        "align": "center"
+      },
+      "style": {
+        "background": "color.brand",
+        "paddingX": "space.lg",
+        "paddingY": "space.xl"
+      },
+      "children": [
+        {
+          "id": "home.footer.brand",
+          "type": "text",
+          "props": {
+            "value": "Cars24",
+            "variant": "type.h1",
+            "color": "color.textOnBrand",
+            "align": "center"
+          }
+        },
+        {
+          "id": "home.footer.tagline",
+          "type": "text",
+          "props": {
+            "value": "India's largest auto platform. Buy, sell and finance cars with confidence.",
+            "variant": "type.caption",
+            "color": "color.textOnBrand",
+            "align": "center"
+          }
+        }
+      ]
+    }
+  ]
+}

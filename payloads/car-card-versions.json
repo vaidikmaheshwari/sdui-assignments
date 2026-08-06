@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.1.0",
+  "screenId": "car-card-versions-demo",
+  "theme": {
+    "tokens": {
+      "color": {
+        "brand": "#3B24C4",
+        "bg": "#FFFFFF",
+        "surfaceRaised": "#F5F6F8",
+        "textPrimary": "#101828",
+        "textOnBrand": "#FFFFFF",
+        "textMuted": "#667085",
+        "success": "#12B76A",
+        "danger": "#E03131"
+      },
+      "space": { "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24 },
+      "radius": { "sm": 6, "md": 12, "lg": 16, "pill": 999 },
+      "type": {
+        "h2": { "size": 20, "weight": "600" },
+        "body": { "size": 14, "weight": "400" },
+        "caption": { "size": 12, "weight": "400" }
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "demo.heading",
+      "type": "text",
+      "props": { "value": "car_card version coexistence", "variant": "type.h2" }
+    },
+    {
+      "id": "demo.rail",
+      "type": "rail",
+      "props": { "spacing": 12, "contentInset": 16 },
+      "children": [
+        {
+          "id": "demo.rail.v1",
+          "type": "car_card",
+          "typeVersion": 1,
+          "props": {
+            "title": "Maruti Suzuki Baleno",
+            "specs": "32,450 km • Petrol • Manual",
+            "rto": "2021 • RJ27 • Bhilwara",
+            "imageUrl": "https://picsum.photos/seed/car_card_v1/400/300",
+            "badgeLabel": "Zero Worry",
+            "badgeTone": "success",
+            "price": "₹6.15 Lakh",
+            "emi": "EMI ₹11,499/m*"
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "carId": "c_w1" } } } }
+        },
+        {
+          "id": "demo.rail.v2",
+          "type": "car_card",
+          "typeVersion": 2,
+          "props": {
+            "title": "Hyundai Creta",
+            "specs": "48,760 km • Diesel • Automatic",
+            "rto": "2019 • RJ14 • Jaipur",
+            "imageUrl": "https://picsum.photos/seed/car_card_v2/400/300",
+            "badgeLabel": "Zero Worry Max",
+            "badgeTone": "brand",
+            "priceLine": { "amount": "₹9.87 Lakh", "emi": "EMI ₹17,250/m*" }
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "carId": "c_w2" } } } }
+        },
+        {
+          "id": "demo.rail.v3-requested",
+          "type": "car_card",
+          "typeVersion": 3,
+          "props": {
+            "title": "Tata Nexon",
+            "specs": "18,120 km • Petrol • Manual",
+            "rto": "2022 • DL8C • Delhi NCR",
+            "imageUrl": "https://picsum.photos/seed/car_card_v3/400/300",
+            "badgeLabel": "Zero Worry",
+            "badgeTone": "success",
+            "priceLine": { "amount": "₹8.42 Lakh", "negotiable": true }
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "carId": "c_w3" } } } }
+        }
+      ]
+    }
+  ]
+}

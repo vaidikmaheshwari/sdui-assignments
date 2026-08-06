@@ -5,7 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import homePayloadRaw from './payloads/home.json';
 import homeTileCompositePayloadRaw from './payloads/home-tile-composite.json';
-import { parsePayload } from './src/sdui/core/schema';
+import { resolvePayload } from './src/sdui/core/resolvePayload';
 import { registry } from './src/sdui/components';
 import { SDUIScreen } from './src/sdui/screens/SDUIScreen';
 import { markTTR, markFullRender } from './src/perf/benchmarkMarkers';
@@ -16,7 +16,15 @@ import { markTTR, markFullRender } from './src/perf/benchmarkMarkers';
 const activePayloadRaw =
   process.env.EXPO_PUBLIC_SDUI_PAYLOAD === 'tile-composite' ? homeTileCompositePayloadRaw : homePayloadRaw;
 
-const parsedHome = parsePayload(activePayloadRaw);
+// home.json is the bundled last-known-good (SCHEMA.md §9/§10.6): a malformed envelope or a
+// minClientSchemaVersion this build can't satisfy falls back to it instead of blanking the page.
+let resolved: ReturnType<typeof resolvePayload> | undefined;
+let fatalError: unknown;
+try {
+  resolved = resolvePayload(activePayloadRaw, homePayloadRaw);
+} catch (error) {
+  fatalError = error;
+}
 
 // eslint-disable-next-line no-console
 console.log(
@@ -24,14 +32,19 @@ console.log(
 );
 
 export default function App() {
-  if (!parsedHome.success) {
+  useEffect(() => {
+    markTTR();
+  }, []);
+
+  if (!resolved) {
     // eslint-disable-next-line no-console
-    console.warn('[sdui:home] payload failed schema validation', parsedHome.error);
+    console.warn('[sdui:home] payload could not be resolved', fatalError);
     return (
       <SafeAreaProvider>
         <View style={styles.errorContainer}>
           <Text style={styles.errorText}>
-            payloads/home.json failed schema validation — see console for details.
+            payloads/home.json (the bundled last-known-good) failed schema validation — see console
+            for details.
           </Text>
           <StatusBar style="auto" />
         </View>
@@ -39,13 +52,9 @@ export default function App() {
     );
   }
 
-  useEffect(() => {
-    markTTR();
-  }, []);
-
   return (
     <SafeAreaProvider>
-      <SDUIScreen payload={parsedHome.data} registry={registry} onContentSizeChange={markFullRender} />
+      <SDUIScreen payload={resolved.payload} registry={registry} onContentSizeChange={markFullRender} />
       <StatusBar style="auto" />
     </SafeAreaProvider>
   );

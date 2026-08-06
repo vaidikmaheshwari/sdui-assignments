@@ -1,11 +1,13 @@
 import { registry } from '../../components';
 
 describe('components/index', () => {
-  test('registers every layout primitive and atom exactly once, at typeVersion 1', () => {
+  test('registers every layout primitive, atom and composite (car_card@1 and @2 coexisting)', () => {
     expect(registry.list()).toEqual([
       { type: 'accordion', typeVersion: 1 },
       { type: 'badge', typeVersion: 1 },
       { type: 'button', typeVersion: 1 },
+      { type: 'car_card', typeVersion: 1 },
+      { type: 'car_card', typeVersion: 2 },
       { type: 'chip_group', typeVersion: 1 },
       { type: 'divider', typeVersion: 1 },
       { type: 'grid', typeVersion: 1 },
