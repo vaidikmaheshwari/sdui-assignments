@@ -62,6 +62,10 @@
       "typeVersion": 1
     },
     {
+      "type": "tile",
+      "typeVersion": 1
+    },
+    {
       "type": "zstack",
       "typeVersion": 1
     }

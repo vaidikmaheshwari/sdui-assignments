@@ -1,13 +1,27 @@
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import homePayloadRaw from './payloads/home.json';
+import homeTileCompositePayloadRaw from './payloads/home-tile-composite.json';
 import { parsePayload } from './src/sdui/core/schema';
 import { registry } from './src/sdui/components';
 import { SDUIScreen } from './src/sdui/screens/SDUIScreen';
+import { markTTR, markFullRender } from './src/perf/benchmarkMarkers';
 
-const parsedHome = parsePayload(homePayloadRaw);
+// Measurement scaffolding for the §4.3 tile benchmark (docs/SCHEMA.md §4.3) — picks which
+// payload variant to build, so both can be release-built without a second entry point.
+// Remove once the tile composite question is resolved.
+const activePayloadRaw =
+  process.env.EXPO_PUBLIC_SDUI_PAYLOAD === 'tile-composite' ? homeTileCompositePayloadRaw : homePayloadRaw;
+
+const parsedHome = parsePayload(activePayloadRaw);
+
+// eslint-disable-next-line no-console
+console.log(
+  `SDUI_VARIANT ${process.env.EXPO_PUBLIC_SDUI_PAYLOAD === 'tile-composite' ? 'tile-composite' : 'composition'}`
+);
 
 export default function App() {
   if (!parsedHome.success) {
@@ -25,9 +39,13 @@ export default function App() {
     );
   }
 
+  useEffect(() => {
+    markTTR();
+  }, []);
+
   return (
     <SafeAreaProvider>
-      <SDUIScreen payload={parsedHome.data} registry={registry} />
+      <SDUIScreen payload={parsedHome.data} registry={registry} onContentSizeChange={markFullRender} />
       <StatusBar style="auto" />
     </SafeAreaProvider>
   );

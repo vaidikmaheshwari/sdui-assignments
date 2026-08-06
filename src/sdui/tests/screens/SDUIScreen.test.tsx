@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import { z } from 'zod';
 import { SDUIScreen } from '../../screens/SDUIScreen';
@@ -192,6 +192,37 @@ describe('SDUIScreen', () => {
 
     await fireEvent.press(screen.getByTestId('trigger'));
     expect(onNavigate).toHaveBeenCalledWith('pdp', undefined);
+  });
+
+  test('paints the root with theme.tokens.color.bg instead of leaking the native window background', async () => {
+    const payload: Payload = {
+      schemaVersion: '1.1.0',
+      screenId: 'home',
+      theme: {
+        tokens: {
+          color: { brand: '#3B24C4', bg: '#FFFFFF' },
+          space: { lg: 16 },
+          radius: { md: 12 },
+          type: { body: { size: 14, weight: '400' } },
+        },
+      },
+      sections: [{ id: 's1', type: 'text', props: { value: 'Section one' } }],
+    };
+    await render(<SDUIScreen payload={payload} registry={makeRegistry()} />);
+    const flatStyle = StyleSheet.flatten(screen.getByTestId('sdui-screen-root').props.style);
+    expect(flatStyle).toMatchObject({ backgroundColor: '#FFFFFF' });
+  });
+
+  test('without a color.bg token, the root background is left unset rather than throwing', async () => {
+    const payload: Payload = {
+      schemaVersion: '1.1.0',
+      screenId: 'home',
+      theme: baseTheme,
+      sections: [{ id: 's1', type: 'text', props: { value: 'Section one' } }],
+    };
+    await render(<SDUIScreen payload={payload} registry={makeRegistry()} />);
+    const flatStyle = StyleSheet.flatten(screen.getByTestId('sdui-screen-root').props.style);
+    expect(flatStyle.backgroundColor).toBeUndefined();
   });
 
   test('open_sheet renders its SDUI node through the same renderer inside the bottom sheet', async () => {

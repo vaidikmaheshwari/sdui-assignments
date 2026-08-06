@@ -18,6 +18,7 @@ describe('components/index', () => {
       { type: 'stack', typeVersion: 1 },
       { type: 'sticky', typeVersion: 1 },
       { type: 'text', typeVersion: 1 },
+      { type: 'tile', typeVersion: 1 },
       { type: 'zstack', typeVersion: 1 },
     ]);
   });

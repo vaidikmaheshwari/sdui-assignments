@@ -7,16 +7,20 @@ import type { Action, Payload, SDUINode as SDUINodeData } from '../core/types';
 import { ComponentRegistry, registry as defaultRegistry } from '../core/registry';
 import { SDUINode, type RenderContext } from '../core/SDUINode';
 import { pageStateReducer, runAction, type ActionEffects } from '../core/actions';
+import { resolveToken } from '../core/theme';
 import { CollapsingHeader } from './CollapsingHeader';
 
 export function SDUIScreen({
   payload,
   registry: registryOverride,
   effects,
+  onContentSizeChange,
 }: {
   payload: Payload;
   registry?: ComponentRegistry;
   effects?: ActionEffects;
+  /** Fires once the scroll content has laid out. Measurement hook (docs/SCHEMA.md §4.3) — not part of the render contract. */
+  onContentSizeChange?: () => void;
 }): React.ReactElement {
   const [state, reactDispatch] = useReducer(pageStateReducer, payload.state ?? {});
   const [sheet, setSheet] = useState<{ node: SDUINodeData; title?: string } | null>(null);
@@ -49,14 +53,22 @@ export function SDUIScreen({
     scrollY.value = event.contentOffset.y;
   });
 
+  // The page paints its own declared background rather than relying on the native window's
+  // default, which otherwise leaks through (and can resolve dark, e.g. Android's system dark
+  // mode) wherever an individual section sets no background of its own.
+  const backgroundColor = resolveToken('bg', 'color.bg', 'color', payload.theme.tokens) as
+    | string
+    | undefined;
+
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView testID="sdui-screen-root" style={{ flex: 1, backgroundColor }}>
       <BottomSheetModalProvider>
         <SafeAreaView style={{ flex: 1 }} edges={['top']}>
           <Animated.ScrollView
             onScroll={scrollHandler}
             scrollEventThrottle={16}
             stickyHeaderIndices={payload.header ? [0] : undefined}
+            onContentSizeChange={onContentSizeChange}
           >
             {payload.header && (
               <CollapsingHeader node={payload.header} ctx={ctx} scrollY={scrollY} />
