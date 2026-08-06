@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# P6 benchmark release APKs (docs/PROMPTS.md P6) — large binaries, not source
+bench/apks/

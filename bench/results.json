@@ -1,0 +1,362 @@
+[
+  {
+    "variant": "composition",
+    "run": 1,
+    "ttrTotalTimeMs": 456,
+    "markersMs": {
+      "appStart": 760,
+      "payloadReceived": 760,
+      "parseEnd": 760,
+      "validateEnd": 778,
+      "firstPaint": 1062,
+      "interactive": 783,
+      "fullRender": 1062
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 56.19082748598137
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 2,
+    "ttrTotalTimeMs": 215,
+    "markersMs": {
+      "appStart": 469,
+      "payloadReceived": 469,
+      "parseEnd": 469,
+      "validateEnd": 493,
+      "firstPaint": 745,
+      "interactive": 498,
+      "fullRender": 745
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.914798013619965
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 3,
+    "ttrTotalTimeMs": 209,
+    "markersMs": {
+      "appStart": 487,
+      "payloadReceived": 487,
+      "parseEnd": 487,
+      "validateEnd": 507,
+      "firstPaint": 706,
+      "interactive": 511,
+      "fullRender": 706
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.885329936126176
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 4,
+    "ttrTotalTimeMs": 250,
+    "markersMs": {
+      "appStart": 473,
+      "payloadReceived": 473,
+      "parseEnd": 473,
+      "validateEnd": 492,
+      "firstPaint": 700,
+      "interactive": 495,
+      "fullRender": 700
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.98700308711985
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 5,
+    "ttrTotalTimeMs": 220,
+    "markersMs": {
+      "appStart": 424,
+      "payloadReceived": 424,
+      "parseEnd": 425,
+      "validateEnd": 442,
+      "firstPaint": 633,
+      "interactive": 445,
+      "fullRender": 633
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.47770780249991
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 6,
+    "ttrTotalTimeMs": 206,
+    "markersMs": {
+      "appStart": 452,
+      "payloadReceived": 452,
+      "parseEnd": 452,
+      "validateEnd": 471,
+      "firstPaint": 650,
+      "interactive": 476,
+      "fullRender": 650
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.54733064382281
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 7,
+    "ttrTotalTimeMs": 217,
+    "markersMs": {
+      "appStart": 462,
+      "payloadReceived": 462,
+      "parseEnd": 462,
+      "validateEnd": 479,
+      "firstPaint": 669,
+      "interactive": 483,
+      "fullRender": 669
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.64552947823253
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 8,
+    "ttrTotalTimeMs": 221,
+    "markersMs": {
+      "appStart": 425,
+      "payloadReceived": 425,
+      "parseEnd": 425,
+      "validateEnd": 442,
+      "firstPaint": 667,
+      "interactive": 445,
+      "fullRender": 667
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.77368490984991
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 9,
+    "ttrTotalTimeMs": 204,
+    "markersMs": {
+      "appStart": 428,
+      "payloadReceived": 428,
+      "parseEnd": 428,
+      "validateEnd": 443,
+      "firstPaint": 658,
+      "interactive": 448,
+      "fullRender": 657
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 60
+    }
+  },
+  {
+    "variant": "composition",
+    "run": 10,
+    "ttrTotalTimeMs": 203,
+    "markersMs": {
+      "appStart": 461,
+      "payloadReceived": 461,
+      "parseEnd": 461,
+      "validateEnd": 478,
+      "firstPaint": 693,
+      "interactive": 482,
+      "fullRender": 692
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 60
+    }
+  },
+  {
+    "variant": "static",
+    "run": 1,
+    "ttrTotalTimeMs": 373,
+    "markersMs": {
+      "appStart": 668,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 904,
+      "interactive": 671,
+      "fullRender": 904
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 56.42056667392746
+    }
+  },
+  {
+    "variant": "static",
+    "run": 2,
+    "ttrTotalTimeMs": 214,
+    "markersMs": {
+      "appStart": 426,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 659,
+      "interactive": 430,
+      "fullRender": 659
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 58.5313902558016
+    }
+  },
+  {
+    "variant": "static",
+    "run": 3,
+    "ttrTotalTimeMs": 202,
+    "markersMs": {
+      "appStart": 424,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 648,
+      "interactive": 427,
+      "fullRender": 648
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.48121061287184
+    }
+  },
+  {
+    "variant": "static",
+    "run": 4,
+    "ttrTotalTimeMs": 221,
+    "markersMs": {
+      "appStart": 430,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 553,
+      "interactive": 431,
+      "fullRender": 553
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.17811978252889
+    }
+  },
+  {
+    "variant": "static",
+    "run": 5,
+    "ttrTotalTimeMs": 208,
+    "markersMs": {
+      "appStart": 438,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 599,
+      "interactive": 444,
+      "fullRender": 599
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.96825527095585
+    }
+  },
+  {
+    "variant": "static",
+    "run": 6,
+    "ttrTotalTimeMs": 256,
+    "markersMs": {
+      "appStart": 467,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 629,
+      "interactive": 471,
+      "fullRender": 628
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.604735602777936
+    }
+  },
+  {
+    "variant": "static",
+    "run": 7,
+    "ttrTotalTimeMs": 210,
+    "markersMs": {
+      "appStart": 432,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 589,
+      "interactive": 436,
+      "fullRender": 589
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 59.31490356567891
+    }
+  },
+  {
+    "variant": "static",
+    "run": 8,
+    "ttrTotalTimeMs": 200,
+    "markersMs": {
+      "appStart": 420,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 572,
+      "interactive": 423,
+      "fullRender": 572
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 51.622007707431884
+    }
+  },
+  {
+    "variant": "static",
+    "run": 9,
+    "ttrTotalTimeMs": 209,
+    "markersMs": {
+      "appStart": 413,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 598,
+      "interactive": 419,
+      "fullRender": 598
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 57.18328104289363
+    }
+  },
+  {
+    "variant": "static",
+    "run": 10,
+    "ttrTotalTimeMs": 208,
+    "markersMs": {
+      "appStart": 440,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 598,
+      "interactive": 445,
+      "fullRender": 598
+    },
+    "jank": {
+      "status": "SUCCESS",
+      "fpsAverage": 60
+    }
+  }
+]

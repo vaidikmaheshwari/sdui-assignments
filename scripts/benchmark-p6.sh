@@ -7,11 +7,16 @@
 # Prerequisites (not installed by this script):
 #   - adb on PATH, device connected, release APK already built for one variant
 #     (EXPO_PUBLIC_SDUI_PAYLOAD=composition|tile-composite|static, see App.tsx)
-#   - Flashlight CLI (e.g. `npm install -g @flashlight-project/cli`) on PATH — this script
-#     calls `flashlight measure`. Verify that invocation against your installed version before
-#     trusting the jank numbers: its output schema has changed across releases and this was
-#     written without a device to confirm against. If it errors, that's the AI-failure-story
-#     the P6 gate asks for — record it honestly rather than papering over it.
+#   - Flashlight CLI (`curl https://get.flashlight.dev | bash`) on PATH. Verified against a real
+#     device (2026-08-06): `flashlight measure --bundleId/--duration/--resultsFilePath`, as
+#     originally written here from docs memory, does not exist — `measure` takes no such flags at
+#     all (it's the interactive live-report mode). The scriptable command is `flashlight test
+#     --bundleId <id> --testCommand <script> --iterationCount <n> --resultsFilePath <path>`; its
+#     results JSON is `{name, status, iterations: [{time, startTime, status, measures: [{cpu,
+#     fps, ram, time}]}]}` — a flat numeric `fps` per sample, no separate `jsFps` field. This is
+#     exactly the AI-failure-story the P6 gate asks for; recorded here rather than papered over.
+#     scripts/p6-scroll-flow.sh is the testCommand: launches the activity and does the same
+#     8-swipe pattern scripts/benchmark-tile.sh uses.
 #   - node (>=22, per package.json) on PATH, used only to assemble bench/results.json safely.
 #
 # Usage: scripts/benchmark-p6.sh <apk-path> <variant-label> [n]
@@ -77,71 +82,75 @@ for i in $(seq 1 "$N"); do
   full_render_ms=$(node -e "console.log(JSON.parse(process.argv[1]).fullRender)" "$deltas_json")
   interactive_ms=$(node -e "console.log(JSON.parse(process.argv[1]).interactive)" "$deltas_json")
 
-  # Scroll jank: Flashlight measures continuously for a few seconds while we scripted-swipe
-  # through the page (same 8-swipe pattern as scripts/benchmark-tile.sh, for comparability).
-  flashlight_json="$FLASHLIGHT_DIR/${VARIANT}-run${i}.json"
-  set +e
-  flashlight measure --bundleId "$PKG" --duration 4 --resultsFilePath "$flashlight_json" &
-  flashlight_pid=$!
-  set -e
-  sleep 0.5
-  for _ in $(seq 1 8); do
-    adb shell input swipe 540 1900 540 300 150
-    sleep 0.25
-  done
-  wait "$flashlight_pid" || echo "  [warn] flashlight measure exited non-zero — jank fields will be null for this run" >&2
-
   echo "run $i [$VARIANT]: TotalTime=${total_time}ms fullRender=${full_render_ms}ms interactive=${interactive_ms}ms" >&2
 
   node -e '
-    const fs = require("fs");
-    const [variant, run, totalTime, deltasJson, flashlightPath] = process.argv.slice(1);
-    const deltas = JSON.parse(deltasJson);
-    let jank = null;
-    if (fs.existsSync(flashlightPath)) {
-      try {
-        const raw = JSON.parse(fs.readFileSync(flashlightPath, "utf8"));
-        // Flashlight measure output has moved fields around across releases; try the common
-        // shapes and fall back to null rather than guessing wrong. Verify against your
-        // installed version and patch this if the field name has moved again.
-        const fps =
-          raw?.measures?.fps?.average ??
-          raw?.performanceResults?.fps?.average ??
-          raw?.fps?.average ??
-          null;
-        const jsFps =
-          raw?.measures?.jsFps?.average ??
-          raw?.performanceResults?.jsFps?.average ??
-          raw?.jsFps?.average ??
-          null;
-        jank = { fpsAverage: fps, jsFpsAverage: jsFps, raw: flashlightPath };
-      } catch (e) {
-        jank = { error: String(e), raw: flashlightPath };
-      }
-    }
+    const [variant, run, totalTime, deltasJson] = process.argv.slice(1);
     process.stdout.write(JSON.stringify({
       variant,
       run: Number(run),
       ttrTotalTimeMs: totalTime === "" ? null : Number(totalTime),
-      markersMs: deltas,
-      jank,
+      markersMs: JSON.parse(deltasJson),
+      jank: null,
     }) + "\n");
-  ' "$VARIANT" "$i" "$total_time" "$deltas_json" "$flashlight_json" >> "$RUNS_FILE"
+  ' "$VARIANT" "$i" "$total_time" "$deltas_json" >> "$RUNS_FILE"
 done
 
+# Scroll jank: one `flashlight test` invocation covering N iterations, run after the marker loop
+# (not interleaved per-run — `flashlight test` owns its own force-stop/launch cycle via
+# scripts/p6-scroll-flow.sh as its --testCommand). Iteration i's jank is matched back into run i's
+# record by index — they are separate cold starts from the marker loop's runs, not the same one.
+FLASHLIGHT_JSON="$FLASHLIGHT_DIR/${VARIANT}.json"
+set +e
+flashlight test \
+  --bundleId "$PKG" \
+  --testCommand "$(dirname "$0")/p6-scroll-flow.sh" \
+  --iterationCount "$N" \
+  --duration 4000 \
+  --resultsFilePath "$FLASHLIGHT_JSON" \
+  --resultsTitle "$VARIANT scroll jank"
+flashlight_status=$?
+set -e
+if [ "$flashlight_status" -ne 0 ]; then
+  echo "  [warn] flashlight test exited non-zero — jank fields will be null for this variant" >&2
+fi
+
+node -e '
+  const fs = require("fs");
+  const path = process.argv[1];
+  if (!fs.existsSync(path)) { process.exit(0); }
+  const data = JSON.parse(fs.readFileSync(path, "utf8"));
+  const perIteration = (data.iterations || []).map((it) => {
+    const fpsVals = (it.measures || []).map((m) => m.fps).filter((v) => typeof v === "number");
+    const avg = fpsVals.length ? fpsVals.reduce((a, b) => a + b, 0) / fpsVals.length : null;
+    return { status: it.status, fpsAverage: avg };
+  });
+  fs.writeFileSync(process.argv[2], JSON.stringify(perIteration));
+' "$FLASHLIGHT_JSON" "$FLASHLIGHT_JSON.perIteration.json"
+
 # Merge this variant's runs into bench/results.json (append, don't clobber other variants' runs).
+# Attach jank[i] (from the separate flashlight test invocation above) to run i by index — see the
+# comment above the flashlight invocation for why these are matched by index, not the same run.
 node -e '
   const fs = require("fs");
   const path = "'"$RESULTS_JSON"'";
+  const perIterationPath = process.argv[2];
+  const jankByIndex = fs.existsSync(perIterationPath)
+    ? JSON.parse(fs.readFileSync(perIterationPath, "utf8"))
+    : [];
   const existing = fs.existsSync(path) ? JSON.parse(fs.readFileSync(path, "utf8")) : [];
   const incoming = fs
     .readFileSync(process.argv[1], "utf8")
     .split("\n")
     .filter(Boolean)
-    .map((line) => JSON.parse(line));
+    .map((line, idx) => {
+      const run = JSON.parse(line);
+      run.jank = jankByIndex[idx] ?? null;
+      return run;
+    });
   fs.writeFileSync(path, JSON.stringify(existing.concat(incoming), null, 2) + "\n");
   console.log(`wrote ${incoming.length} runs to ${path} (${existing.length + incoming.length} total)`);
-' "$RUNS_FILE"
+' "$RUNS_FILE" "$FLASHLIGHT_JSON.perIteration.json"
 
 echo ""
 echo "=== $VARIANT (n=$N) — median / p90, from bench/results.json ==="
