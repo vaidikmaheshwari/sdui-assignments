@@ -1,4 +1,5 @@
 import React, { useCallback, useReducer, useRef, useState } from 'react';
+import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal, BottomSheetModalProvider, BottomSheetView } from '@gorhom/bottom-sheet';
@@ -17,12 +18,15 @@ export function SDUIScreen({
   registry: registryOverride,
   effects,
   onContentSizeChange,
+  onFirstPaint,
 }: {
   payload: Payload;
   registry?: ComponentRegistry;
   effects?: ActionEffects;
   /** Fires once the scroll content has laid out. Measurement hook (docs/SCHEMA.md §4.3) — not part of the render contract. */
   onContentSizeChange?: () => void;
+  /** Fires once the first section (above the fold) has laid out. Measurement hook (docs/PROMPTS.md P6) — not part of the render contract. */
+  onFirstPaint?: () => void;
 }): React.ReactElement {
   // Dev-only debug overlay (docs/PROMPTS.md P5 item 5) shows degradations from the last
   // render only, not history across renders — devLog is treated as render-scoped diagnostic
@@ -81,9 +85,15 @@ export function SDUIScreen({
             {payload.header && (
               <CollapsingHeader node={payload.header} ctx={ctx} scrollY={scrollY} />
             )}
-            {payload.sections.map((section) => (
-              <SDUINode key={section.id} node={section} ctx={ctx} />
-            ))}
+            {payload.sections.map((section, index) =>
+              index === 0 && onFirstPaint ? (
+                <View key={section.id} onLayout={onFirstPaint}>
+                  <SDUINode node={section} ctx={ctx} />
+                </View>
+              ) : (
+                <SDUINode key={section.id} node={section} ctx={ctx} />
+              )
+            )}
           </Animated.ScrollView>
         </SafeAreaView>
         <BottomSheetModal ref={sheetRef} onDismiss={() => setSheet(null)}>
