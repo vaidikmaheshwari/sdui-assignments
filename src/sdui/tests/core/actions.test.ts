@@ -19,6 +19,49 @@ describe('resolveActionPayload', () => {
     const resolved = resolveActionPayload(action, undefined);
     expect(resolved).toEqual(action);
   });
+
+  // An open_sheet payload carries an SDUI subtree, not data. Resolving it here would substitute
+  // its {{state.*}}/{{data.*}} against a context that has neither, burning the bindings away
+  // before SDUINode ever sees them — a sheet could be interactive but never data-driven.
+  test('passes an open_sheet subtree through verbatim, bindings intact', () => {
+    const node: SDUINode = {
+      id: 'sheet.total',
+      type: 'text',
+      props: { value: '{{data.emiByTenure[state.tenure].total}}' },
+    };
+    const action: Action = { type: 'open_sheet', payload: { title: '$event.value', node } };
+
+    const resolved = resolveActionPayload(action, { value: 'Price breakup' });
+
+    expect(resolved).toEqual({
+      type: 'open_sheet',
+      // Everything that *is* data still resolves…
+      payload: { title: 'Price breakup', node },
+    });
+    // …and the subtree is the same object, not a rebuilt copy with its bindings substituted.
+    expect((resolved as Extract<Action, { type: 'open_sheet' }>).payload.node).toBe(node);
+  });
+
+  // runAction already resolves each member against the same event when it dispatches it, so
+  // resolving them here too is redundant — and destructive, because a sequence containing an
+  // open_sheet would strip the subtree one level higher up.
+  test('passes sequence members through verbatim, so a nested open_sheet survives', () => {
+    const node: SDUINode = { id: 'sheet', type: 'text', props: { value: '{{state.tenure}}' } };
+    const action: Action = {
+      type: 'sequence',
+      payload: {
+        actions: [
+          { type: 'track', payload: { event: 'opened' } },
+          { type: 'open_sheet', payload: { node } },
+        ],
+      },
+    };
+
+    const resolved = resolveActionPayload(action, undefined) as Extract<Action, { type: 'sequence' }>;
+    const nested = resolved.payload.actions[1] as Extract<Action, { type: 'open_sheet' }>;
+
+    expect(nested.payload.node).toBe(node);
+  });
 });
 
 describe('pageStateReducer', () => {

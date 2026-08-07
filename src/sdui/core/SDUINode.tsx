@@ -126,7 +126,44 @@ function applyDefaultsForFailures(
   return { patched, unrecoverable };
 }
 
-export function SDUINode({
+/**
+ * P7 item 3 — "memoize node → element by id + resolved props hash", extended past the leaf-only
+ * memo above to container nodes too.
+ *
+ * Implemented on a different key than the prompt names, deliberately. A container's *own*
+ * resolved props say nothing about what its descendants read: `rail{ text: "{{state.tab}}" }`
+ * has a constant props hash while its subtree changes. Keying a container's cached element on
+ * its own props hash would serve stale subtrees on every `set_state`. The sound key is the set
+ * of inputs the whole subtree can see — the node itself plus the identities of `state`, `data`,
+ * `theme`, `registry` and `dispatch` — all of which are already stable-by-reference here
+ * (`state` is replaced wholesale by the reducer, `dispatch` is a `useCallback`). Reference
+ * equality is also strictly cheaper than the `JSON.stringify` the leaf memo does today.
+ *
+ * Off by default: the flag keeps the baseline build byte-identical to pre-P7 behaviour, which is
+ * what makes this measurable as one isolated change.
+ */
+let nodeMemoEnabled = false;
+
+export function setNodeMemoEnabled(enabled: boolean): void {
+  nodeMemoEnabled = enabled;
+}
+
+function subtreeInputsEqual(
+  prev: { node: SDUINodeData; ctx: RenderContext },
+  next: { node: SDUINodeData; ctx: RenderContext }
+): boolean {
+  if (!nodeMemoEnabled) return false;
+  return (
+    prev.node === next.node &&
+    prev.ctx.state === next.ctx.state &&
+    prev.ctx.data === next.ctx.data &&
+    prev.ctx.theme === next.ctx.theme &&
+    prev.ctx.registry === next.ctx.registry &&
+    prev.ctx.dispatch === next.ctx.dispatch
+  );
+}
+
+function SDUINodeImpl({
   node,
   ctx,
 }: {
@@ -195,3 +232,8 @@ export function SDUINode({
     </NodeErrorBoundary>
   );
 }
+
+// `subtreeInputsEqual` short-circuits to false while the flag is off, so this wrapper is inert
+// by default and the pre-P7 render path is unchanged — one code path, not two.
+export const SDUINode = React.memo(SDUINodeImpl, subtreeInputsEqual);
+SDUINode.displayName = 'SDUINode';

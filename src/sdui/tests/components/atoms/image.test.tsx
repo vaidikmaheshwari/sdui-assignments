@@ -1,7 +1,11 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import { image } from '../../../components/atoms/image';
+import {
+  image,
+  setImagePreloadEnabled,
+  setPreloadedImageLoadReporter,
+} from '../../../components/atoms/image';
 import type { ThemeTokens } from '../../../core/types';
 
 const theme: ThemeTokens = {
@@ -88,7 +92,11 @@ describe('image', () => {
     expect(flatStyle('img1')).toMatchObject({ borderRadius: 12 });
   });
 
-  test('preload raises load priority', async () => {
+  // docs/PROMPTS.md P7 item 5 gated this. `preload` used to raise priority unconditionally;
+  // now the payload flag only declares intent and the client decides whether to act on it, so
+  // that marking images `preload` in home.json doesn't silently change the P7 baseline build
+  // it's supposed to be measured against.
+  test('preload alone does not raise load priority', async () => {
     await render(
       <image.Component
         id="img1"
@@ -97,7 +105,52 @@ describe('image', () => {
         dispatch={jest.fn()}
       />
     );
-    expect(screen.getByTestId('img1').props.priority).toBe('high');
+    expect(screen.getByTestId('img1').props.priority).toBe('normal');
+  });
+
+  test('preload raises load priority once the client opts in', async () => {
+    setImagePreloadEnabled(true);
+    try {
+      await render(
+        <image.Component
+          id="img1"
+          props={image.propsSchema.parse({ url: 'https://example.com/car.png', preload: true })}
+          theme={theme}
+          dispatch={jest.fn()}
+        />
+      );
+      expect(screen.getByTestId('img1').props.priority).toBe('high');
+    } finally {
+      setImagePreloadEnabled(false);
+    }
+  });
+
+  test('a preloaded image reports its load; a normal one does not', async () => {
+    const report = jest.fn();
+    setPreloadedImageLoadReporter(report);
+    try {
+      await render(
+        <image.Component
+          id="img1"
+          props={image.propsSchema.parse({ url: 'https://example.com/car.png', preload: true })}
+          theme={theme}
+          dispatch={jest.fn()}
+        />
+      );
+      expect(screen.getByTestId('img1').props.onLoad).toBe(report);
+
+      await render(
+        <image.Component
+          id="img2"
+          props={image.propsSchema.parse({ url: 'https://example.com/other.png' })}
+          theme={theme}
+          dispatch={jest.fn()}
+        />
+      );
+      expect(screen.getByTestId('img2').props.onLoad).toBeUndefined();
+    } finally {
+      setPreloadedImageLoadReporter(undefined);
+    }
   });
 
   test('without preload, priority is normal', async () => {

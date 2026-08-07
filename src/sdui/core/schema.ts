@@ -39,6 +39,8 @@ const nodeSchema: z.ZodType<any> = z.lazy(() =>
     actions: z.record(z.string(), actionSchema).optional(),
     children: z.array(nodeSchema).optional(),
     fallback: nodeSchema.optional(),
+    // Additive and optional, so every existing payload stays valid unchanged (SCHEMA.md §10.3).
+    deferred: z.boolean().optional(),
   })
 );
 

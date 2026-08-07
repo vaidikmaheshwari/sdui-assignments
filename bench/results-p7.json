@@ -1,0 +1,1902 @@
+[
+  {
+    "variant": "baseline",
+    "run": 1,
+    "ttrTotalTimeMs": 272,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 601,
+      "payloadReceived": 984,
+      "parseEnd": 985,
+      "validateEnd": 1007,
+      "firstPaint": 1179,
+      "interactive": 1176,
+      "fullRender": 1179,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1320
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 2,
+    "ttrTotalTimeMs": 211,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 458,
+      "payloadReceived": 817,
+      "parseEnd": 818,
+      "validateEnd": 837,
+      "firstPaint": 1023,
+      "interactive": 1020,
+      "fullRender": 1023,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1150
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 3,
+    "ttrTotalTimeMs": 205,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 427,
+      "payloadReceived": 782,
+      "parseEnd": 783,
+      "validateEnd": 802,
+      "firstPaint": 946,
+      "interactive": 944,
+      "fullRender": 946,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1067
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 4,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 454,
+      "payloadReceived": 803,
+      "parseEnd": 804,
+      "validateEnd": 821,
+      "firstPaint": 986,
+      "interactive": 984,
+      "fullRender": 986,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1106
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 5,
+    "ttrTotalTimeMs": 220,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 482,
+      "payloadReceived": 845,
+      "parseEnd": 846,
+      "validateEnd": 863,
+      "firstPaint": 1042,
+      "interactive": 1040,
+      "fullRender": 1042,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1166
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 6,
+    "ttrTotalTimeMs": 215,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 504,
+      "payloadReceived": 859,
+      "parseEnd": 860,
+      "validateEnd": 881,
+      "firstPaint": 1039,
+      "interactive": 1036,
+      "fullRender": 1039,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1154
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 7,
+    "ttrTotalTimeMs": 211,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 469,
+      "payloadReceived": 825,
+      "parseEnd": 826,
+      "validateEnd": 845,
+      "firstPaint": 1007,
+      "interactive": 1005,
+      "fullRender": 1007,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1125
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 8,
+    "ttrTotalTimeMs": 208,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 405,
+      "payloadReceived": 756,
+      "parseEnd": 757,
+      "validateEnd": 775,
+      "firstPaint": 927,
+      "interactive": 925,
+      "fullRender": 927,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1042
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 9,
+    "ttrTotalTimeMs": 208,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 422,
+      "payloadReceived": 775,
+      "parseEnd": 776,
+      "validateEnd": 795,
+      "firstPaint": 1009,
+      "interactive": 1006,
+      "fullRender": 1009,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1158
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline",
+    "run": 10,
+    "ttrTotalTimeMs": 221,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 455,
+      "payloadReceived": 812,
+      "parseEnd": 813,
+      "validateEnd": 832,
+      "firstPaint": 1007,
+      "interactive": 1003,
+      "fullRender": 1007,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1143
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 1,
+    "ttrTotalTimeMs": 221,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 487,
+      "payloadReceived": 912,
+      "parseEnd": 913,
+      "validateEnd": 934,
+      "firstPaint": 803,
+      "interactive": 516,
+      "fullRender": 803,
+      "swapEnd": 979,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 2,
+    "ttrTotalTimeMs": 215,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 428,
+      "payloadReceived": 821,
+      "parseEnd": 822,
+      "validateEnd": 828,
+      "firstPaint": 693,
+      "interactive": 461,
+      "fullRender": 693,
+      "swapEnd": 860,
+      "aboveFoldImagesLoaded": 813
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 3,
+    "ttrTotalTimeMs": 201,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 444,
+      "payloadReceived": 819,
+      "parseEnd": 820,
+      "validateEnd": 829,
+      "firstPaint": 667,
+      "interactive": 470,
+      "fullRender": 667,
+      "swapEnd": 861,
+      "aboveFoldImagesLoaded": 792
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 4,
+    "ttrTotalTimeMs": 204,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 404,
+      "payloadReceived": 783,
+      "parseEnd": 783,
+      "validateEnd": 798,
+      "firstPaint": 613,
+      "interactive": 435,
+      "fullRender": 613,
+      "swapEnd": 833,
+      "aboveFoldImagesLoaded": 736
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 5,
+    "ttrTotalTimeMs": 208,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 380,
+      "payloadReceived": 750,
+      "parseEnd": 751,
+      "validateEnd": 759,
+      "firstPaint": 599,
+      "interactive": 411,
+      "fullRender": 599,
+      "swapEnd": 795,
+      "aboveFoldImagesLoaded": 727
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 6,
+    "ttrTotalTimeMs": 190,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 458,
+      "payloadReceived": 1476,
+      "parseEnd": 1476,
+      "validateEnd": 1485,
+      "firstPaint": 1241,
+      "interactive": 496,
+      "fullRender": 1241,
+      "swapEnd": 1545,
+      "aboveFoldImagesLoaded": 1439
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 7,
+    "ttrTotalTimeMs": 197,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 378,
+      "payloadReceived": 757,
+      "parseEnd": 758,
+      "validateEnd": 766,
+      "firstPaint": 599,
+      "interactive": 398,
+      "fullRender": 598,
+      "swapEnd": 801,
+      "aboveFoldImagesLoaded": 715
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 8,
+    "ttrTotalTimeMs": 201,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 419,
+      "payloadReceived": 791,
+      "parseEnd": 791,
+      "validateEnd": 800,
+      "firstPaint": 627,
+      "interactive": 448,
+      "fullRender": 627,
+      "swapEnd": 838,
+      "aboveFoldImagesLoaded": 757
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 9,
+    "ttrTotalTimeMs": 204,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 445,
+      "payloadReceived": 832,
+      "parseEnd": 832,
+      "validateEnd": 841,
+      "firstPaint": 640,
+      "interactive": 473,
+      "fullRender": 639,
+      "swapEnd": 874,
+      "aboveFoldImagesLoaded": 770
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1",
+    "run": 10,
+    "ttrTotalTimeMs": 199,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 417,
+      "payloadReceived": 801,
+      "parseEnd": 803,
+      "validateEnd": 812,
+      "firstPaint": 629,
+      "interactive": 453,
+      "fullRender": 629,
+      "swapEnd": 845,
+      "aboveFoldImagesLoaded": 758
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 1,
+    "ttrTotalTimeMs": 224,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 497,
+      "payloadReceived": 855,
+      "parseEnd": 855,
+      "validateEnd": 871,
+      "firstPaint": 998,
+      "interactive": 993,
+      "fullRender": 997,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1145
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 2,
+    "ttrTotalTimeMs": 212,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 444,
+      "payloadReceived": 803,
+      "parseEnd": 804,
+      "validateEnd": 821,
+      "firstPaint": 967,
+      "interactive": 962,
+      "fullRender": 966,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1107
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 3,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 428,
+      "payloadReceived": 785,
+      "parseEnd": 785,
+      "validateEnd": 804,
+      "firstPaint": 935,
+      "interactive": 931,
+      "fullRender": 935,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1070
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 4,
+    "ttrTotalTimeMs": 196,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 394,
+      "payloadReceived": 743,
+      "parseEnd": 743,
+      "validateEnd": 759,
+      "firstPaint": 877,
+      "interactive": 872,
+      "fullRender": 876,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1014
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 5,
+    "ttrTotalTimeMs": 218,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 428,
+      "payloadReceived": 787,
+      "parseEnd": 788,
+      "validateEnd": 807,
+      "firstPaint": 940,
+      "interactive": 934,
+      "fullRender": 940,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1084
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 6,
+    "ttrTotalTimeMs": 218,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 431,
+      "payloadReceived": 794,
+      "parseEnd": 795,
+      "validateEnd": 820,
+      "firstPaint": 995,
+      "interactive": 991,
+      "fullRender": 995,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1156
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 7,
+    "ttrTotalTimeMs": 211,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 452,
+      "payloadReceived": 807,
+      "parseEnd": 808,
+      "validateEnd": 824,
+      "firstPaint": 960,
+      "interactive": 954,
+      "fullRender": 960,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1090
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 8,
+    "ttrTotalTimeMs": 216,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 490,
+      "payloadReceived": 844,
+      "parseEnd": 845,
+      "validateEnd": 865,
+      "firstPaint": 999,
+      "interactive": 994,
+      "fullRender": 999,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1145
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 9,
+    "ttrTotalTimeMs": 210,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 433,
+      "payloadReceived": 788,
+      "parseEnd": 788,
+      "validateEnd": 810,
+      "firstPaint": 936,
+      "interactive": 931,
+      "fullRender": 936,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1071
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt2",
+    "run": 10,
+    "ttrTotalTimeMs": 201,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 424,
+      "payloadReceived": 773,
+      "parseEnd": 774,
+      "validateEnd": 792,
+      "firstPaint": 924,
+      "interactive": 919,
+      "fullRender": 923,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1057
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 1,
+    "ttrTotalTimeMs": 224,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 481,
+      "payloadReceived": 841,
+      "parseEnd": 842,
+      "validateEnd": 864,
+      "firstPaint": 1039,
+      "interactive": 1036,
+      "fullRender": 1039,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1168
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 2,
+    "ttrTotalTimeMs": 204,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 445,
+      "payloadReceived": 804,
+      "parseEnd": 804,
+      "validateEnd": 823,
+      "firstPaint": 985,
+      "interactive": 982,
+      "fullRender": 984,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1106
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 3,
+    "ttrTotalTimeMs": 209,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 478,
+      "payloadReceived": 826,
+      "parseEnd": 827,
+      "validateEnd": 847,
+      "firstPaint": 1015,
+      "interactive": 1013,
+      "fullRender": 1015,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1140
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 4,
+    "ttrTotalTimeMs": 213,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 479,
+      "payloadReceived": 852,
+      "parseEnd": 853,
+      "validateEnd": 870,
+      "firstPaint": 1043,
+      "interactive": 1041,
+      "fullRender": 1043,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1165
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 5,
+    "ttrTotalTimeMs": 197,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 419,
+      "payloadReceived": 771,
+      "parseEnd": 771,
+      "validateEnd": 789,
+      "firstPaint": 963,
+      "interactive": 960,
+      "fullRender": 963,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1084
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 6,
+    "ttrTotalTimeMs": 212,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 487,
+      "payloadReceived": 844,
+      "parseEnd": 845,
+      "validateEnd": 864,
+      "firstPaint": 1058,
+      "interactive": 1056,
+      "fullRender": 1058,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1202
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 7,
+    "ttrTotalTimeMs": 207,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 444,
+      "payloadReceived": 798,
+      "parseEnd": 798,
+      "validateEnd": 815,
+      "firstPaint": 966,
+      "interactive": 964,
+      "fullRender": 966,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1088
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 8,
+    "ttrTotalTimeMs": 219,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 488,
+      "payloadReceived": 844,
+      "parseEnd": 845,
+      "validateEnd": 863,
+      "firstPaint": 1024,
+      "interactive": 1022,
+      "fullRender": 1024,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1140
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 9,
+    "ttrTotalTimeMs": 218,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 426,
+      "payloadReceived": 785,
+      "parseEnd": 785,
+      "validateEnd": 805,
+      "firstPaint": 970,
+      "interactive": 967,
+      "fullRender": 970,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1093
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt3",
+    "run": 10,
+    "ttrTotalTimeMs": 205,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 444,
+      "payloadReceived": 796,
+      "parseEnd": 796,
+      "validateEnd": 816,
+      "firstPaint": 970,
+      "interactive": 968,
+      "fullRender": 970,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1085
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 1,
+    "ttrTotalTimeMs": 224,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 494,
+      "payloadReceived": 858,
+      "parseEnd": 873,
+      "validateEnd": 894,
+      "firstPaint": 1054,
+      "interactive": 1052,
+      "fullRender": 1054,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1175
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 2,
+    "ttrTotalTimeMs": 216,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 440,
+      "payloadReceived": 795,
+      "parseEnd": 808,
+      "validateEnd": 828,
+      "firstPaint": 986,
+      "interactive": 983,
+      "fullRender": 985,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1128
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 3,
+    "ttrTotalTimeMs": 208,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 402,
+      "payloadReceived": 751,
+      "parseEnd": 764,
+      "validateEnd": 784,
+      "firstPaint": 932,
+      "interactive": 930,
+      "fullRender": 932,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1054
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 4,
+    "ttrTotalTimeMs": 218,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 434,
+      "payloadReceived": 789,
+      "parseEnd": 802,
+      "validateEnd": 823,
+      "firstPaint": 996,
+      "interactive": 994,
+      "fullRender": 996,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1128
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 5,
+    "ttrTotalTimeMs": 201,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 468,
+      "payloadReceived": 822,
+      "parseEnd": 835,
+      "validateEnd": 855,
+      "firstPaint": 1025,
+      "interactive": 1022,
+      "fullRender": 1024,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1146
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 6,
+    "ttrTotalTimeMs": 215,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 472,
+      "payloadReceived": 839,
+      "parseEnd": 851,
+      "validateEnd": 869,
+      "firstPaint": 1042,
+      "interactive": 1040,
+      "fullRender": 1042,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1162
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 7,
+    "ttrTotalTimeMs": 213,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 478,
+      "payloadReceived": 836,
+      "parseEnd": 849,
+      "validateEnd": 869,
+      "firstPaint": 1029,
+      "interactive": 1027,
+      "fullRender": 1029,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1149
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 8,
+    "ttrTotalTimeMs": 210,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 484,
+      "payloadReceived": 836,
+      "parseEnd": 849,
+      "validateEnd": 867,
+      "firstPaint": 1033,
+      "interactive": 1031,
+      "fullRender": 1033,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1155
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 9,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 492,
+      "payloadReceived": 843,
+      "parseEnd": 857,
+      "validateEnd": 876,
+      "firstPaint": 1032,
+      "interactive": 1029,
+      "fullRender": 1032,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1151
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt4",
+    "run": 10,
+    "ttrTotalTimeMs": 226,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 463,
+      "payloadReceived": 812,
+      "parseEnd": 825,
+      "validateEnd": 841,
+      "firstPaint": 1001,
+      "interactive": 998,
+      "fullRender": 1001,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1118
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 1,
+    "ttrTotalTimeMs": 240,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 488,
+      "payloadReceived": 844,
+      "parseEnd": 845,
+      "validateEnd": 863,
+      "firstPaint": 1048,
+      "interactive": 1046,
+      "fullRender": 1048,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1167
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 2,
+    "ttrTotalTimeMs": 214,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 446,
+      "payloadReceived": 803,
+      "parseEnd": 803,
+      "validateEnd": 819,
+      "firstPaint": 995,
+      "interactive": 993,
+      "fullRender": 995,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 3,
+    "ttrTotalTimeMs": 197,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 409,
+      "payloadReceived": 770,
+      "parseEnd": 771,
+      "validateEnd": 787,
+      "firstPaint": 1001,
+      "interactive": 999,
+      "fullRender": 1001,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1124
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 4,
+    "ttrTotalTimeMs": 208,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 442,
+      "payloadReceived": 796,
+      "parseEnd": 797,
+      "validateEnd": 813,
+      "firstPaint": 984,
+      "interactive": 980,
+      "fullRender": 984,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 5,
+    "ttrTotalTimeMs": 284,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 568,
+      "payloadReceived": 988,
+      "parseEnd": 989,
+      "validateEnd": 1016,
+      "firstPaint": 1252,
+      "interactive": 1248,
+      "fullRender": 1252,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 6581
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 6,
+    "ttrTotalTimeMs": 229,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 431,
+      "payloadReceived": 783,
+      "parseEnd": 784,
+      "validateEnd": 802,
+      "firstPaint": 965,
+      "interactive": 963,
+      "fullRender": 965,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 7,
+    "ttrTotalTimeMs": 194,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 397,
+      "payloadReceived": 752,
+      "parseEnd": 753,
+      "validateEnd": 771,
+      "firstPaint": 933,
+      "interactive": 930,
+      "fullRender": 933,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 8,
+    "ttrTotalTimeMs": 217,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": null,
+      "payloadReceived": 788,
+      "parseEnd": 789,
+      "validateEnd": 815,
+      "firstPaint": 969,
+      "interactive": 965,
+      "fullRender": 969,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 8668
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 9,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 401,
+      "payloadReceived": 753,
+      "parseEnd": 754,
+      "validateEnd": 772,
+      "firstPaint": 951,
+      "interactive": 948,
+      "fullRender": 951,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5",
+    "run": 10,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 406,
+      "payloadReceived": 764,
+      "parseEnd": 765,
+      "validateEnd": 779,
+      "firstPaint": 959,
+      "interactive": 956,
+      "fullRender": 959,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": null
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 1,
+    "ttrTotalTimeMs": 218,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 499,
+      "payloadReceived": 859,
+      "parseEnd": 872,
+      "validateEnd": 892,
+      "firstPaint": 1068,
+      "interactive": 1065,
+      "fullRender": 1067,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1192
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 2,
+    "ttrTotalTimeMs": 226,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 440,
+      "payloadReceived": 797,
+      "parseEnd": 809,
+      "validateEnd": 828,
+      "firstPaint": 983,
+      "interactive": 980,
+      "fullRender": 982,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1108
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 3,
+    "ttrTotalTimeMs": 232,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 444,
+      "payloadReceived": 796,
+      "parseEnd": 806,
+      "validateEnd": 824,
+      "firstPaint": 992,
+      "interactive": 989,
+      "fullRender": 992,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1111
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 4,
+    "ttrTotalTimeMs": 220,
+    "wireBytes": null,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": null,
+      "payloadReceived": null,
+      "parseEnd": null,
+      "validateEnd": null,
+      "firstPaint": 1144,
+      "interactive": 1134,
+      "fullRender": 1144,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 11315
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 5,
+    "ttrTotalTimeMs": 205,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 411,
+      "payloadReceived": 764,
+      "parseEnd": 775,
+      "validateEnd": 793,
+      "firstPaint": 960,
+      "interactive": 957,
+      "fullRender": 959,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1076
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 6,
+    "ttrTotalTimeMs": 197,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 424,
+      "payloadReceived": 786,
+      "parseEnd": 798,
+      "validateEnd": 817,
+      "firstPaint": 977,
+      "interactive": 974,
+      "fullRender": 976,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1095
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 7,
+    "ttrTotalTimeMs": 193,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 386,
+      "payloadReceived": 745,
+      "parseEnd": 755,
+      "validateEnd": 771,
+      "firstPaint": 930,
+      "interactive": 928,
+      "fullRender": 930,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1054
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 8,
+    "ttrTotalTimeMs": 187,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 379,
+      "payloadReceived": 736,
+      "parseEnd": 748,
+      "validateEnd": 768,
+      "firstPaint": 944,
+      "interactive": 942,
+      "fullRender": 944,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1071
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 9,
+    "ttrTotalTimeMs": 193,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 435,
+      "payloadReceived": 789,
+      "parseEnd": 799,
+      "validateEnd": 814,
+      "firstPaint": 993,
+      "interactive": 991,
+      "fullRender": 993,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1108
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt6",
+    "run": 10,
+    "ttrTotalTimeMs": 193,
+    "wireBytes": 44815,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 375,
+      "payloadReceived": 729,
+      "parseEnd": 742,
+      "validateEnd": 760,
+      "firstPaint": 922,
+      "interactive": 920,
+      "fullRender": 922,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1040
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 1,
+    "ttrTotalTimeMs": 214,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 430,
+      "payloadReceived": 785,
+      "parseEnd": 786,
+      "validateEnd": 803,
+      "firstPaint": 967,
+      "interactive": 964,
+      "fullRender": 967,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1090
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 2,
+    "ttrTotalTimeMs": 200,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 428,
+      "payloadReceived": 782,
+      "parseEnd": 783,
+      "validateEnd": 800,
+      "firstPaint": 971,
+      "interactive": 969,
+      "fullRender": 971,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1086
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 3,
+    "ttrTotalTimeMs": 198,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 430,
+      "payloadReceived": 780,
+      "parseEnd": 781,
+      "validateEnd": 802,
+      "firstPaint": 958,
+      "interactive": 956,
+      "fullRender": 958,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1077
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 4,
+    "ttrTotalTimeMs": 198,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 504,
+      "payloadReceived": 858,
+      "parseEnd": 859,
+      "validateEnd": 877,
+      "firstPaint": 1039,
+      "interactive": 1037,
+      "fullRender": 1039,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1162
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 5,
+    "ttrTotalTimeMs": 197,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 430,
+      "payloadReceived": 784,
+      "parseEnd": 785,
+      "validateEnd": 801,
+      "firstPaint": 974,
+      "interactive": 972,
+      "fullRender": 974,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1105
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 6,
+    "ttrTotalTimeMs": 211,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 489,
+      "payloadReceived": 850,
+      "parseEnd": 851,
+      "validateEnd": 867,
+      "firstPaint": 1030,
+      "interactive": 1028,
+      "fullRender": 1030,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1150
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 7,
+    "ttrTotalTimeMs": 202,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 450,
+      "payloadReceived": 812,
+      "parseEnd": 813,
+      "validateEnd": 831,
+      "firstPaint": 985,
+      "interactive": 982,
+      "fullRender": 984,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1106
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 8,
+    "ttrTotalTimeMs": 197,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 435,
+      "payloadReceived": 795,
+      "parseEnd": 796,
+      "validateEnd": 812,
+      "firstPaint": 997,
+      "interactive": 994,
+      "fullRender": 997,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1446
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 9,
+    "ttrTotalTimeMs": 234,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 448,
+      "payloadReceived": 803,
+      "parseEnd": 804,
+      "validateEnd": 825,
+      "firstPaint": 996,
+      "interactive": 994,
+      "fullRender": 996,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1117
+    },
+    "jank": null
+  },
+  {
+    "variant": "baseline-recheck",
+    "run": 10,
+    "ttrTotalTimeMs": 204,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 409,
+      "payloadReceived": 762,
+      "parseEnd": 763,
+      "validateEnd": 781,
+      "firstPaint": 943,
+      "interactive": 940,
+      "fullRender": 942,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1063
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 1,
+    "ttrTotalTimeMs": 223,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 498,
+      "payloadReceived": 922,
+      "parseEnd": 922,
+      "validateEnd": 927,
+      "firstPaint": 706,
+      "interactive": 527,
+      "fullRender": 706,
+      "swapEnd": 963,
+      "aboveFoldImagesLoaded": 863
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 2,
+    "ttrTotalTimeMs": 199,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 432,
+      "payloadReceived": 829,
+      "parseEnd": 829,
+      "validateEnd": 834,
+      "firstPaint": 648,
+      "interactive": 456,
+      "fullRender": 647,
+      "swapEnd": 869,
+      "aboveFoldImagesLoaded": 810
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 3,
+    "ttrTotalTimeMs": 210,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 475,
+      "payloadReceived": 874,
+      "parseEnd": 875,
+      "validateEnd": 882,
+      "firstPaint": 688,
+      "interactive": 502,
+      "fullRender": 688,
+      "swapEnd": 919,
+      "aboveFoldImagesLoaded": 840
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 4,
+    "ttrTotalTimeMs": 215,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 428,
+      "payloadReceived": 796,
+      "parseEnd": 796,
+      "validateEnd": 802,
+      "firstPaint": 598,
+      "interactive": 452,
+      "fullRender": 597,
+      "swapEnd": 839,
+      "aboveFoldImagesLoaded": 752
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 5,
+    "ttrTotalTimeMs": 199,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 442,
+      "payloadReceived": 822,
+      "parseEnd": 823,
+      "validateEnd": 828,
+      "firstPaint": 609,
+      "interactive": 468,
+      "fullRender": 609,
+      "swapEnd": 867,
+      "aboveFoldImagesLoaded": 771
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 6,
+    "ttrTotalTimeMs": 207,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 445,
+      "payloadReceived": 825,
+      "parseEnd": 826,
+      "validateEnd": 831,
+      "firstPaint": 622,
+      "interactive": 470,
+      "fullRender": 621,
+      "swapEnd": 869,
+      "aboveFoldImagesLoaded": 769
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 7,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 466,
+      "payloadReceived": 845,
+      "parseEnd": 846,
+      "validateEnd": 855,
+      "firstPaint": 634,
+      "interactive": 493,
+      "fullRender": 633,
+      "swapEnd": 891,
+      "aboveFoldImagesLoaded": 793
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 8,
+    "ttrTotalTimeMs": 202,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 411,
+      "payloadReceived": 785,
+      "parseEnd": 785,
+      "validateEnd": 790,
+      "firstPaint": 581,
+      "interactive": 435,
+      "fullRender": 581,
+      "swapEnd": 830,
+      "aboveFoldImagesLoaded": 732
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 9,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 437,
+      "payloadReceived": 815,
+      "parseEnd": 816,
+      "validateEnd": 821,
+      "firstPaint": 613,
+      "interactive": 465,
+      "fullRender": 613,
+      "swapEnd": 863,
+      "aboveFoldImagesLoaded": 770
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt1,opt2",
+    "run": 10,
+    "ttrTotalTimeMs": 192,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 406,
+      "payloadReceived": 770,
+      "parseEnd": 771,
+      "validateEnd": 777,
+      "firstPaint": 5386,
+      "interactive": 427,
+      "fullRender": 5386,
+      "swapEnd": 777,
+      "aboveFoldImagesLoaded": 5532
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 1,
+    "ttrTotalTimeMs": 385,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 816,
+      "payloadReceived": 1409,
+      "parseEnd": 1409,
+      "validateEnd": 1425,
+      "firstPaint": 1622,
+      "interactive": 1620,
+      "fullRender": 1622,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1804
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 2,
+    "ttrTotalTimeMs": 319,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 572,
+      "payloadReceived": 952,
+      "parseEnd": 953,
+      "validateEnd": 970,
+      "firstPaint": 1134,
+      "interactive": 1131,
+      "fullRender": 1133,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1261
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 3,
+    "ttrTotalTimeMs": 220,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 435,
+      "payloadReceived": 793,
+      "parseEnd": 793,
+      "validateEnd": 813,
+      "firstPaint": 982,
+      "interactive": 980,
+      "fullRender": 982,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1102
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 4,
+    "ttrTotalTimeMs": 213,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 431,
+      "payloadReceived": 789,
+      "parseEnd": 789,
+      "validateEnd": 808,
+      "firstPaint": 973,
+      "interactive": 971,
+      "fullRender": 973,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1102
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 5,
+    "ttrTotalTimeMs": 215,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 444,
+      "payloadReceived": 799,
+      "parseEnd": 799,
+      "validateEnd": 816,
+      "firstPaint": 999,
+      "interactive": 996,
+      "fullRender": 998,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1127
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 6,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 436,
+      "payloadReceived": 795,
+      "parseEnd": 796,
+      "validateEnd": 817,
+      "firstPaint": 988,
+      "interactive": 986,
+      "fullRender": 988,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1101
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 7,
+    "ttrTotalTimeMs": 219,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 431,
+      "payloadReceived": 790,
+      "parseEnd": 791,
+      "validateEnd": 806,
+      "firstPaint": 982,
+      "interactive": 980,
+      "fullRender": 982,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1090
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 8,
+    "ttrTotalTimeMs": 211,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 417,
+      "payloadReceived": 765,
+      "parseEnd": 766,
+      "validateEnd": 783,
+      "firstPaint": 948,
+      "interactive": 946,
+      "fullRender": 948,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1068
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 9,
+    "ttrTotalTimeMs": 203,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 489,
+      "payloadReceived": 844,
+      "parseEnd": 845,
+      "validateEnd": 864,
+      "firstPaint": 1017,
+      "interactive": 1014,
+      "fullRender": 1017,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1136
+    },
+    "jank": null
+  },
+  {
+    "variant": "opt5b",
+    "run": 10,
+    "ttrTotalTimeMs": 216,
+    "wireBytes": 54843,
+    "opt4FellBackToJsThread": false,
+    "markersMs": {
+      "appStart": 458,
+      "payloadReceived": 809,
+      "parseEnd": 810,
+      "validateEnd": 828,
+      "firstPaint": 999,
+      "interactive": 997,
+      "fullRender": 999,
+      "swapEnd": null,
+      "aboveFoldImagesLoaded": 1115
+    },
+    "jank": null
+  }
+]

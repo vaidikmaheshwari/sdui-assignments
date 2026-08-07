@@ -7,3 +7,7 @@ import { View, type ViewProps } from 'react-native';
 export function Image(props: ViewProps) {
   return <View {...props} />;
 }
+
+// P7 item 5 calls Image.prefetch (src/perf/preloadImages.ts). Resolving true keeps the
+// fire-and-forget prefetch a no-op under test rather than a TypeError.
+Image.prefetch = jest.fn(async () => true);

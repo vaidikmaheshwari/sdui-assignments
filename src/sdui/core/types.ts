@@ -54,6 +54,16 @@ export interface SDUINode {
   actions?: Record<string, Action>;
   children?: SDUINode[];
   fallback?: SDUINode;
+  /**
+   * SCHEMA.md §3 — server's declaration that this node is below the fold and may be held back
+   * until after first interaction. A hint, never a requirement: a client that ignores it is
+   * still correct, it just does more work up front. Only meaningful on section roots.
+   *
+   * This is a boolean the renderer honours, not knowledge the renderer has. The server knows
+   * where the fold is; the client does not, and must not be taught which section index is
+   * "below" it.
+   */
+  deferred?: boolean;
 }
 
 // ---- Actions (SCHEMA.md §8) ----

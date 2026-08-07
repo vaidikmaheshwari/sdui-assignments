@@ -1,0 +1,463 @@
+{
+  "schemaVersion": "1.1.0",
+  "screenId": "listing",
+  "analytics": {
+    "screenName": "search_results",
+    "context": { "city": "new-delhi", "query": "hatchback under 8 lakh" }
+  },
+  "theme": {
+    "tokens": {
+      "color": {
+        "brand": "#3B24C4",
+        "brandSurface": "#4A32E0",
+        "bg": "#FFFFFF",
+        "surfaceRaised": "#F5F6F8",
+        "tileBlue": "#123FA8",
+        "tileGreen": "#1F6A4A",
+        "tileCream": "#FBF3E4",
+        "textPrimary": "#101828",
+        "textOnBrand": "#FFFFFF",
+        "textMuted": "#667085",
+        "accent": "#3B24C4",
+        "danger": "#E03131",
+        "success": "#12B76A",
+        "border": "#EAECF0"
+      },
+      "space": { "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24 },
+      "radius": { "sm": 6, "md": 12, "lg": 16, "pill": 999 },
+      "type": {
+        "h1": { "size": 24, "weight": "600" },
+        "h2": { "size": 20, "weight": "600" },
+        "body": { "size": 14, "weight": "400" },
+        "caption": { "size": 12, "weight": "400" },
+        "ghost": { "size": 72, "weight": "700" }
+      }
+    }
+  },
+  "data": {
+    "resultCount": 1284,
+    "quickFilters": [
+      { "label": "Under ₹5L", "value": "under5", "icon": "pricetag-outline" },
+      { "label": "Petrol", "value": "petrol" },
+      { "label": "Automatic", "value": "automatic" },
+      { "label": "1st owner", "value": "owner1" },
+      { "label": "2020 & newer", "value": "year2020" },
+      { "label": "Assured", "value": "assured", "icon": "shield-checkmark-outline" }
+    ],
+    "sortLabels": {
+      "relevance": "Relevance",
+      "price_low": "Price — low to high",
+      "price_high": "Price — high to low",
+      "km_low": "Kilometres driven"
+    }
+  },
+  "state": {
+    "quickFilters": ["assured"],
+    "sort": "relevance",
+    "view": "list"
+  },
+  "header": {
+    "id": "listing.header",
+    "type": "stack",
+    "props": { "direction": "horizontal", "align": "center", "spacing": 12 },
+    "style": { "paddingX": "space.lg", "paddingY": "space.md", "background": "color.bg" },
+    "children": [
+      {
+        "id": "listing.header.back",
+        "type": "icon",
+        "props": { "name": "chevron-back", "size": 24, "color": "color.textPrimary" },
+        "actions": { "onTap": { "type": "navigate", "payload": { "route": "back" } } }
+      },
+      {
+        "id": "listing.header.search",
+        "type": "input",
+        "props": {
+          "placeholder": "Search Baleno, Swift, i20…",
+          "placeholderRotation": [
+            "Search Baleno, Swift, i20…",
+            "Try 'automatic under 6 lakh'",
+            "Try 'SUV, 1st owner'"
+          ],
+          "rotationMs": 2500,
+          "value": "",
+          "keyboard": "default",
+          "readOnly": true
+        },
+        "style": {
+          "flex": 1,
+          "background": "color.surfaceRaised",
+          "radius": "radius.pill",
+          "paddingX": "space.md",
+          "paddingY": "space.sm"
+        },
+        "actions": { "onTap": { "type": "navigate", "payload": { "route": "search" } } }
+      },
+      {
+        "id": "listing.header.filters",
+        "type": "icon",
+        "props": { "name": "options-outline", "size": 22, "color": "color.textPrimary" },
+        "actions": { "onTap": { "type": "navigate", "payload": { "route": "filters" } } }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "listing.quickFilters",
+      "type": "chip_group",
+      "props": {
+        "options": "{{data.quickFilters}}",
+        "selected": "{{state.quickFilters}}",
+        "scrollable": true,
+        "multi": true
+      },
+      "style": { "paddingX": "space.lg", "paddingY": "space.sm" },
+      "actions": {
+        "onSelect": {
+          "type": "sequence",
+          "payload": {
+            "actions": [
+              { "type": "set_state", "payload": { "key": "quickFilters", "value": "$event.value" } },
+              { "type": "refresh", "payload": { "endpoint": "/search", "targetId": "listing.results" } }
+            ]
+          }
+        }
+      }
+    },
+
+    {
+      "id": "listing.resultBar",
+      "type": "stack",
+      "props": { "direction": "horizontal", "align": "center", "justify": "between", "spacing": 8 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.sm" },
+      "children": [
+        {
+          "id": "listing.resultBar.count",
+          "type": "text",
+          "props": {
+            "value": "{{data.resultCount}} cars in New Delhi",
+            "variant": "type.caption",
+            "color": "color.textMuted"
+          }
+        },
+        {
+          "id": "listing.resultBar.controls",
+          "type": "stack",
+          "props": { "direction": "horizontal", "align": "center", "spacing": 12 },
+          "children": [
+            {
+              "id": "listing.resultBar.sort",
+              "type": "button",
+              "props": {
+                "label": "{{data.sortLabels[state.sort]}}",
+                "variant": "ghost",
+                "size": "sm",
+                "icon": "swap-vertical-outline",
+                "iconPosition": "left"
+              },
+              "actions": {
+                "onTap": {
+                  "type": "open_sheet",
+                  "payload": {
+                    "title": "Sort by",
+                    "node": {
+                      "id": "listing.sheet.sort",
+                      "type": "stack",
+                      "props": { "direction": "vertical", "spacing": 2 },
+                      "style": { "padding": "space.lg" },
+                      "children": [
+                        {
+                          "id": "listing.sheet.sort.title",
+                          "type": "text",
+                          "props": { "value": "Sort by", "variant": "type.h2" },
+                          "style": { "marginY": "space.sm" }
+                        },
+                        {
+                          "id": "listing.sheet.sort.relevance",
+                          "type": "text",
+                          "props": { "value": "Relevance" },
+                          "style": { "paddingY": "space.md" },
+                          "actions": {
+                            "onTap": { "type": "set_state", "payload": { "key": "sort", "value": "relevance" } }
+                          }
+                        },
+                        { "id": "listing.sheet.sort.rule1", "type": "divider", "props": { "thickness": 1 } },
+                        {
+                          "id": "listing.sheet.sort.priceLow",
+                          "type": "text",
+                          "props": { "value": "Price — low to high" },
+                          "style": { "paddingY": "space.md" },
+                          "actions": {
+                            "onTap": { "type": "set_state", "payload": { "key": "sort", "value": "price_low" } }
+                          }
+                        },
+                        { "id": "listing.sheet.sort.rule2", "type": "divider", "props": { "thickness": 1 } },
+                        {
+                          "id": "listing.sheet.sort.priceHigh",
+                          "type": "text",
+                          "props": { "value": "Price — high to low" },
+                          "style": { "paddingY": "space.md" },
+                          "actions": {
+                            "onTap": { "type": "set_state", "payload": { "key": "sort", "value": "price_high" } }
+                          }
+                        },
+                        { "id": "listing.sheet.sort.rule3", "type": "divider", "props": { "thickness": 1 } },
+                        {
+                          "id": "listing.sheet.sort.kmLow",
+                          "type": "text",
+                          "props": { "value": "Kilometres driven" },
+                          "style": { "paddingY": "space.md" },
+                          "actions": {
+                            "onTap": { "type": "set_state", "payload": { "key": "sort", "value": "km_low" } }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "id": "listing.resultBar.viewList",
+              "type": "icon",
+              "props": { "name": "list-outline", "size": 20, "color": "color.brand" },
+              "visibleIf": { "eq": ["{{state.view}}", "grid"] },
+              "actions": { "onTap": { "type": "set_state", "payload": { "key": "view", "value": "list" } } }
+            },
+            {
+              "id": "listing.resultBar.viewGrid",
+              "type": "icon",
+              "props": { "name": "grid-outline", "size": 20, "color": "color.brand" },
+              "visibleIf": { "eq": ["{{state.view}}", "list"] },
+              "actions": { "onTap": { "type": "set_state", "payload": { "key": "view", "value": "grid" } } }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "listing.empty",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 8, "align": "center", "justify": "center" },
+      "style": { "padding": "space.xl" },
+      "visibleIf": { "eq": ["{{data.resultCount}}", 0] },
+      "children": [
+        { "id": "listing.empty.icon", "type": "icon", "props": { "name": "car-outline", "size": 40, "color": "color.textMuted" } },
+        { "id": "listing.empty.title", "type": "text", "props": { "value": "No cars match these filters", "variant": "type.h2", "align": "center" } },
+        {
+          "id": "listing.empty.body",
+          "type": "text",
+          "props": { "value": "Clear a filter or widen your budget.", "variant": "type.caption", "color": "color.textMuted", "align": "center" }
+        },
+        {
+          "id": "listing.empty.cta",
+          "type": "button",
+          "props": { "label": "Clear all filters", "variant": "outline", "size": "md" },
+          "actions": {
+            "onTap": {
+              "type": "sequence",
+              "payload": {
+                "actions": [
+                  { "type": "set_state", "payload": { "key": "quickFilters", "value": [] } },
+                  { "type": "refresh", "payload": { "endpoint": "/search", "targetId": "listing.results" } }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "listing.results",
+      "type": "grid",
+      "props": { "columns": 1, "gap": 12 },
+      "style": { "paddingX": "space.lg" },
+      "visibleIf": { "eq": ["{{state.view}}", "list"] },
+      "children": [
+        {
+          "id": "listing.results.card.1",
+          "type": "car_card",
+          "typeVersion": 2,
+          "props": {
+            "title": "2019 Maruti Suzuki Baleno Zeta 1.2",
+            "specs": "42,318 km · Petrol · Manual",
+            "rto": "DL 3C",
+            "imageUrl": "https://picsum.photos/seed/list_baleno/480/320",
+            "badgeLabel": "Assured",
+            "badgeTone": "brand",
+            "priceLine": { "amount": "₹7,56,000", "emi": "₹25,180/mo", "negotiable": false }
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8842190" } } } }
+        },
+        {
+          "id": "listing.results.card.2",
+          "type": "car_card",
+          "typeVersion": 2,
+          "props": {
+            "title": "2020 Hyundai i20 Sportz",
+            "specs": "38,110 km · Petrol · Manual",
+            "rto": "DL 8C",
+            "imageUrl": "https://picsum.photos/seed/list_i20/480/320",
+            "badgeLabel": "Assured",
+            "badgeTone": "brand",
+            "priceLine": { "amount": "₹7,21,000", "emi": "₹24,010/mo", "negotiable": false }
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8811047" } } } }
+        },
+        {
+          "id": "listing.results.promo",
+          "type": "zstack",
+          "props": { "align": "left" },
+          "style": { "height": 120, "radius": "radius.lg" },
+          "children": [
+            {
+              "id": "listing.results.promo.bg",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/list_promo_finance/720/240",
+                "contentMode": "cover",
+                "radius": "radius.lg"
+              },
+              "style": { "height": 120 }
+            },
+            {
+              "id": "listing.results.promo.copy",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 6 },
+              "style": { "padding": "space.lg" },
+              "children": [
+                { "id": "listing.results.promo.title", "type": "text", "props": { "value": "Pre-approved loan in 2 minutes", "variant": "type.h2", "color": "color.textOnBrand", "maxLines": 2 } },
+                {
+                  "id": "listing.results.promo.cta",
+                  "type": "button",
+                  "props": { "label": "Check eligibility", "variant": "secondary", "size": "sm" },
+                  "actions": { "onTap": { "type": "navigate", "payload": { "route": "loan_eligibility" } } }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listing.results.card.3",
+          "type": "car_card",
+          "typeVersion": 2,
+          "props": {
+            "title": "2019 Tata Altroz XZ",
+            "specs": "51,640 km · Diesel · Manual",
+            "rto": "HR 26",
+            "imageUrl": "https://picsum.photos/seed/list_altroz/480/320",
+            "badgeLabel": "Low price",
+            "badgeTone": "success",
+            "priceLine": { "amount": "₹6,88,000", "emi": "₹22,910/mo", "negotiable": true }
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8790233" } } } }
+        },
+        {
+          "id": "listing.results.card.4",
+          "type": "car_card",
+          "typeVersion": 2,
+          "props": {
+            "title": "2018 Honda Jazz V CVT",
+            "specs": "62,905 km · Petrol · Automatic",
+            "rto": "UP 16",
+            "imageUrl": "https://picsum.photos/seed/list_jazz/480/320",
+            "badgeLabel": "Assured",
+            "badgeTone": "brand",
+            "priceLine": { "amount": "₹6,45,000", "emi": "₹21,480/mo", "negotiable": true }
+          },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8702918" } } } }
+        }
+      ]
+    },
+
+    {
+      "id": "listing.resultsGrid",
+      "type": "grid",
+      "props": { "columns": 2, "gap": 12, "aspectRatio": 0.72 },
+      "style": { "paddingX": "space.lg" },
+      "visibleIf": { "eq": ["{{state.view}}", "grid"] },
+      "children": [
+        {
+          "id": "listing.resultsGrid.tile.1",
+          "type": "stack",
+          "props": { "direction": "vertical", "spacing": 6 },
+          "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8842190" } } } },
+          "children": [
+            { "id": "listing.resultsGrid.tile.1.img", "type": "image", "props": { "url": "https://picsum.photos/seed/list_baleno/480/320", "aspectRatio": 1.5, "radius": "radius.sm" } },
+            { "id": "listing.resultsGrid.tile.1.title", "type": "text", "props": { "value": "2019 Baleno Zeta", "variant": "type.caption", "maxLines": 1 } },
+            { "id": "listing.resultsGrid.tile.1.price", "type": "text", "props": { "value": "₹7,56,000", "variant": "type.body" } }
+          ]
+        },
+        {
+          "id": "listing.resultsGrid.tile.2",
+          "type": "stack",
+          "props": { "direction": "vertical", "spacing": 6 },
+          "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8811047" } } } },
+          "children": [
+            { "id": "listing.resultsGrid.tile.2.img", "type": "image", "props": { "url": "https://picsum.photos/seed/list_i20/480/320", "aspectRatio": 1.5, "radius": "radius.sm" } },
+            { "id": "listing.resultsGrid.tile.2.title", "type": "text", "props": { "value": "2020 i20 Sportz", "variant": "type.caption", "maxLines": 1 } },
+            { "id": "listing.resultsGrid.tile.2.price", "type": "text", "props": { "value": "₹7,21,000", "variant": "type.body" } }
+          ]
+        },
+        {
+          "id": "listing.resultsGrid.tile.3",
+          "type": "stack",
+          "props": { "direction": "vertical", "spacing": 6 },
+          "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8790233" } } } },
+          "children": [
+            { "id": "listing.resultsGrid.tile.3.img", "type": "image", "props": { "url": "https://picsum.photos/seed/list_altroz/480/320", "aspectRatio": 1.5, "radius": "radius.sm" } },
+            { "id": "listing.resultsGrid.tile.3.title", "type": "text", "props": { "value": "2019 Altroz XZ", "variant": "type.caption", "maxLines": 1 } },
+            { "id": "listing.resultsGrid.tile.3.price", "type": "text", "props": { "value": "₹6,88,000", "variant": "type.body" } }
+          ]
+        },
+        {
+          "id": "listing.resultsGrid.tile.4",
+          "type": "stack",
+          "props": { "direction": "vertical", "spacing": 6 },
+          "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+          "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8702918" } } } },
+          "children": [
+            { "id": "listing.resultsGrid.tile.4.img", "type": "image", "props": { "url": "https://picsum.photos/seed/list_jazz/480/320", "aspectRatio": 1.5, "radius": "radius.sm" } },
+            { "id": "listing.resultsGrid.tile.4.title", "type": "text", "props": { "value": "2018 Jazz V CVT", "variant": "type.caption", "maxLines": 1 } },
+            { "id": "listing.resultsGrid.tile.4.price", "type": "text", "props": { "value": "₹6,45,000", "variant": "type.body" } }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "listing.loadMore",
+      "type": "stack",
+      "props": { "direction": "vertical", "align": "center", "spacing": 8 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.xl" },
+      "deferred": true,
+      "children": [
+        {
+          "id": "listing.loadMore.label",
+          "type": "text",
+          "props": { "value": "Showing 4 of {{data.resultCount}}", "variant": "type.caption", "color": "color.textMuted" }
+        },
+        {
+          "id": "listing.loadMore.cta",
+          "type": "button",
+          "props": { "label": "Load 20 more", "variant": "outline", "size": "md", "fullWidth": true },
+          "actions": {
+            "onTap": {
+              "type": "sequence",
+              "payload": {
+                "actions": [
+                  { "type": "track", "payload": { "event": "listing_load_more" } },
+                  { "type": "refresh", "payload": { "endpoint": "/search?page=2", "targetId": "listing.results" } }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

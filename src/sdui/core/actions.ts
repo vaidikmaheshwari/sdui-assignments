@@ -16,11 +16,39 @@ export interface ActionRuntime {
   effects?: ActionEffects;
 }
 
+/**
+ * Resolve an action's payload against the dispatching event.
+ *
+ * The binding context is deliberately `{ event }` only — an action fires outside render and has
+ * no live `state`/`data` of its own. That is correct for leaf values like `$event.value`, and
+ * wrong for two payload keys that are not data at all:
+ *
+ * - `open_sheet.payload.node` is an **SDUI subtree**. Resolving it here would substitute every
+ *   `{{state.*}}`/`{{data.*}}` inside it against an empty context and burn the bindings away
+ *   before `SDUINode` ever sees them — a sheet could be interactive but never data-driven
+ *   (found by `payloads/pdp.json`; see COVERAGE.md §5.2).
+ * - `sequence.payload.actions` are **actions**, and `runAction` already resolves each one
+ *   against the same event when it dispatches it. Resolving them here as well is both redundant
+ *   and destructive, since a `sequence` containing an `open_sheet` would strip the subtree one
+ *   level higher up.
+ *
+ * Both are passed through verbatim and resolved by whoever actually renders or dispatches them.
+ */
 export function resolveActionPayload(action: Action, event: unknown): Action {
-  return {
-    ...action,
-    payload: resolveBinding(action.payload, { event }),
-  } as Action;
+  const resolveRest = (rest: Record<string, unknown>): Record<string, unknown> =>
+    resolveBinding(rest, { event }) as Record<string, unknown>;
+
+  if (action.type === 'open_sheet') {
+    const { node, ...rest } = action.payload;
+    return { ...action, payload: { ...resolveRest(rest), node } };
+  }
+
+  if (action.type === 'sequence') {
+    const { actions, ...rest } = action.payload;
+    return { ...action, payload: { ...resolveRest(rest), actions } };
+  }
+
+  return { ...action, payload: resolveBinding(action.payload, { event }) } as Action;
 }
 
 export function pageStateReducer(

@@ -1,0 +1,970 @@
+{
+  "schemaVersion": "1.1.0",
+  "screenId": "pdp",
+  "analytics": {
+    "screenName": "car_detail",
+    "context": { "listingId": "CARS24-8842190", "channel": "app" }
+  },
+  "theme": {
+    "tokens": {
+      "color": {
+        "brand": "#3B24C4",
+        "brandSurface": "#4A32E0",
+        "bg": "#FFFFFF",
+        "surfaceRaised": "#F5F6F8",
+        "tileBlue": "#123FA8",
+        "tileGreen": "#1F6A4A",
+        "tileCream": "#FBF3E4",
+        "textPrimary": "#101828",
+        "textOnBrand": "#FFFFFF",
+        "textMuted": "#667085",
+        "accent": "#3B24C4",
+        "danger": "#E03131",
+        "success": "#12B76A",
+        "border": "#EAECF0"
+      },
+      "space": { "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24 },
+      "radius": { "sm": 6, "md": 12, "lg": 16, "pill": 999 },
+      "type": {
+        "h1": { "size": 24, "weight": "600" },
+        "h2": { "size": 20, "weight": "600" },
+        "body": { "size": 14, "weight": "400" },
+        "caption": { "size": 12, "weight": "400" },
+        "ghost": { "size": 72, "weight": "700" }
+      }
+    }
+  },
+  "data": {
+    "tenureOptions": [
+      { "label": "12 mo", "value": "12" },
+      { "label": "24 mo", "value": "24" },
+      { "label": "36 mo", "value": "36" },
+      { "label": "48 mo", "value": "48" },
+      { "label": "60 mo", "value": "60" }
+    ],
+    "emiByTenure": {
+      "12": {
+        "monthly": "₹66,120",
+        "downPayment": "₹1,26,000",
+        "principal": "₹6,30,000",
+        "interest": "₹63,440",
+        "processingFee": "₹5,900",
+        "total": "₹7,93,440"
+      },
+      "24": {
+        "monthly": "₹35,410",
+        "downPayment": "₹1,26,000",
+        "principal": "₹6,30,000",
+        "interest": "₹1,23,840",
+        "processingFee": "₹5,900",
+        "total": "₹8,49,840"
+      },
+      "36": {
+        "monthly": "₹25,180",
+        "downPayment": "₹1,26,000",
+        "principal": "₹6,30,000",
+        "interest": "₹1,84,480",
+        "processingFee": "₹5,900",
+        "total": "₹9,06,480"
+      },
+      "48": {
+        "monthly": "₹20,090",
+        "downPayment": "₹1,26,000",
+        "principal": "₹6,30,000",
+        "interest": "₹2,34,320",
+        "processingFee": "₹5,900",
+        "total": "₹9,60,320"
+      },
+      "60": {
+        "monthly": "₹17,060",
+        "downPayment": "₹1,26,000",
+        "principal": "₹6,30,000",
+        "interest": "₹2,93,600",
+        "processingFee": "₹5,900",
+        "total": "₹10,17,600"
+      }
+    }
+  },
+  "state": {
+    "tenure": "36",
+    "faqFinance": false,
+    "faqInspection": false,
+    "faqReturn": false
+  },
+  "header": {
+    "id": "pdp.header",
+    "type": "stack",
+    "props": { "direction": "horizontal", "align": "center", "justify": "between", "spacing": 12 },
+    "style": { "paddingX": "space.lg", "paddingY": "space.md", "background": "color.bg" },
+    "children": [
+      {
+        "id": "pdp.header.back",
+        "type": "icon",
+        "props": { "name": "chevron-back", "size": 24, "color": "color.textPrimary" },
+        "actions": { "onTap": { "type": "navigate", "payload": { "route": "back" } } }
+      },
+      {
+        "id": "pdp.header.title",
+        "type": "text",
+        "props": { "value": "2019 Maruti Suzuki Baleno", "variant": "type.body", "maxLines": 1 },
+        "style": { "flex": 1 }
+      },
+      {
+        "id": "pdp.header.share",
+        "type": "icon",
+        "props": { "name": "share-social-outline", "size": 22, "color": "color.textPrimary" },
+        "actions": {
+          "onTap": {
+            "type": "open_url",
+            "payload": { "url": "https://www.cars24.com/buy-used-car/CARS24-8842190" }
+          }
+        }
+      },
+      {
+        "id": "pdp.header.wishlist",
+        "type": "icon",
+        "props": { "name": "heart-outline", "size": 22, "color": "color.textPrimary" },
+        "actions": {
+          "onTap": {
+            "type": "sequence",
+            "payload": {
+              "actions": [
+                { "type": "set_state", "payload": { "key": "wishlisted", "value": true } },
+                { "type": "track", "payload": { "event": "pdp_wishlist_add", "props": { "listingId": "CARS24-8842190" } } }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "pdp.gallery",
+      "type": "zstack",
+      "props": { "align": "bottomRight" },
+      "style": { "height": 240, "marginY": "space.sm" },
+      "children": [
+        {
+          "id": "pdp.gallery.rail",
+          "type": "rail",
+          "props": { "spacing": 8, "snap": true, "peek": 28, "contentInset": 16 },
+          "children": [
+            {
+              "id": "pdp.gallery.img.1",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/pdp_baleno_front/720/480",
+                "aspectRatio": 1.4,
+                "radius": "radius.md",
+                "contentMode": "cover",
+                "preload": true
+              },
+              "style": { "width": 300, "height": 214 }
+            },
+            {
+              "id": "pdp.gallery.img.2",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/pdp_baleno_rear/720/480",
+                "aspectRatio": 1.4,
+                "radius": "radius.md",
+                "contentMode": "cover",
+                "preload": true
+              },
+              "style": { "width": 300, "height": 214 }
+            },
+            {
+              "id": "pdp.gallery.img.3",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/pdp_baleno_interior/720/480",
+                "aspectRatio": 1.4,
+                "radius": "radius.md",
+                "contentMode": "cover"
+              },
+              "style": { "width": 300, "height": 214 }
+            },
+            {
+              "id": "pdp.gallery.img.4",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/pdp_baleno_dash/720/480",
+                "aspectRatio": 1.4,
+                "radius": "radius.md",
+                "contentMode": "cover"
+              },
+              "style": { "width": 300, "height": 214 }
+            },
+            {
+              "id": "pdp.gallery.img.5",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/pdp_baleno_boot/720/480",
+                "aspectRatio": 1.4,
+                "radius": "radius.md",
+                "contentMode": "cover"
+              },
+              "style": { "width": 300, "height": 214 }
+            },
+            {
+              "id": "pdp.gallery.img.6",
+              "type": "image",
+              "props": {
+                "url": "https://picsum.photos/seed/pdp_baleno_tyres/720/480",
+                "aspectRatio": 1.4,
+                "radius": "radius.md",
+                "contentMode": "cover"
+              },
+              "style": { "width": 300, "height": 214 }
+            }
+          ]
+        },
+        {
+          "id": "pdp.gallery.counter",
+          "type": "badge",
+          "props": { "label": "24 photos", "tone": "neutral", "icon": "images-outline" },
+          "style": { "marginX": "space.xl", "marginY": "space.md" },
+          "actions": {
+            "onTap": {
+              "type": "navigate",
+              "payload": { "route": "gallery", "params": { "listingId": "CARS24-8842190" } }
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "pdp.summary",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 6 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.md" },
+      "children": [
+        {
+          "id": "pdp.summary.badges",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 8, "align": "center" },
+          "children": [
+            {
+              "id": "pdp.summary.badge.assured",
+              "type": "badge",
+              "props": { "label": "CARS24 Assured", "tone": "brand", "icon": "shield-checkmark-outline" }
+            },
+            {
+              "id": "pdp.summary.badge.owner",
+              "type": "badge",
+              "props": { "label": "1st owner", "tone": "success" }
+            }
+          ]
+        },
+        {
+          "id": "pdp.summary.title",
+          "type": "text",
+          "props": { "value": "2019 Maruti Suzuki Baleno Zeta 1.2", "variant": "type.h2", "maxLines": 2 }
+        },
+        {
+          "id": "pdp.summary.specs",
+          "type": "text",
+          "props": {
+            "value": "42,318 km · Petrol · Manual · DL 3C",
+            "variant": "type.caption",
+            "color": "color.textMuted"
+          }
+        },
+        {
+          "id": "pdp.summary.rating",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 8, "align": "center" },
+          "children": [
+            { "id": "pdp.summary.rating.stars", "type": "rating", "props": { "value": 4.5, "max": 5 } },
+            {
+              "id": "pdp.summary.rating.label",
+              "type": "text",
+              "props": {
+                "value": "4.5 · 140-point inspection",
+                "variant": "type.caption",
+                "color": "color.textMuted"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "pdp.price",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 4 },
+      "style": {
+        "paddingX": "space.lg",
+        "paddingY": "space.md",
+        "marginX": "space.lg",
+        "background": "color.surfaceRaised",
+        "radius": "radius.lg"
+      },
+      "children": [
+        {
+          "id": "pdp.price.amount",
+          "type": "text",
+          "props": { "value": "₹7,56,000", "variant": "type.h1" }
+        },
+        {
+          "id": "pdp.price.fixed",
+          "type": "text",
+          "props": {
+            "value": "Fixed on-road price · no hidden charges",
+            "variant": "type.caption",
+            "color": "color.textMuted"
+          }
+        },
+        {
+          "id": "pdp.price.emiRow",
+          "type": "stack",
+          "props": { "direction": "horizontal", "align": "center", "justify": "between", "spacing": 8 },
+          "style": { "marginY": "space.sm" },
+          "children": [
+            {
+              "id": "pdp.price.emiLine",
+              "type": "text",
+              "props": {
+                "value": "EMI from {{data.emiByTenure[state.tenure].monthly}}/mo",
+                "variant": "type.body",
+                "color": "color.brand"
+              }
+            },
+            {
+              "id": "pdp.price.breakupCta",
+              "type": "button",
+              "props": {
+                "label": "View breakup",
+                "variant": "ghost",
+                "size": "sm",
+                "icon": "chevron-forward",
+                "iconPosition": "right"
+              },
+              "actions": {
+                "onTap": {
+                  "type": "sequence",
+                  "payload": {
+                    "actions": [
+                      {
+                        "type": "track",
+                        "payload": { "event": "pdp_price_breakup_open", "props": { "listingId": "CARS24-8842190" } }
+                      },
+                      {
+                        "type": "open_sheet",
+                        "payload": {
+                          "title": "Price breakup",
+                          "node": {
+                            "id": "pdp.sheet.breakup",
+                            "type": "stack",
+                            "props": { "direction": "vertical", "spacing": 10 },
+                            "style": { "padding": "space.lg" },
+                            "children": [
+                              {
+                                "id": "pdp.sheet.breakup.title",
+                                "type": "text",
+                                "props": { "value": "How this EMI is calculated", "variant": "type.h2" }
+                              },
+                              {
+                                "id": "pdp.sheet.breakup.tenure",
+                                "type": "text",
+                                "props": {
+                                  "value": "Tenure {{state.tenure}} months at 12.5% p.a.",
+                                  "variant": "type.caption",
+                                  "color": "color.textMuted"
+                                }
+                              },
+                              { "id": "pdp.sheet.breakup.rule1", "type": "divider", "props": { "thickness": 1 } },
+                              {
+                                "id": "pdp.sheet.breakup.row.down",
+                                "type": "stack",
+                                "props": { "direction": "horizontal", "justify": "between" },
+                                "children": [
+                                  { "id": "pdp.sheet.breakup.row.down.k", "type": "text", "props": { "value": "Down payment", "color": "color.textMuted" } },
+                                  { "id": "pdp.sheet.breakup.row.down.v", "type": "text", "props": { "value": "{{data.emiByTenure[state.tenure].downPayment}}" } }
+                                ]
+                              },
+                              {
+                                "id": "pdp.sheet.breakup.row.principal",
+                                "type": "stack",
+                                "props": { "direction": "horizontal", "justify": "between" },
+                                "children": [
+                                  { "id": "pdp.sheet.breakup.row.principal.k", "type": "text", "props": { "value": "Loan principal", "color": "color.textMuted" } },
+                                  { "id": "pdp.sheet.breakup.row.principal.v", "type": "text", "props": { "value": "{{data.emiByTenure[state.tenure].principal}}" } }
+                                ]
+                              },
+                              {
+                                "id": "pdp.sheet.breakup.row.interest",
+                                "type": "stack",
+                                "props": { "direction": "horizontal", "justify": "between" },
+                                "children": [
+                                  { "id": "pdp.sheet.breakup.row.interest.k", "type": "text", "props": { "value": "Total interest", "color": "color.textMuted" } },
+                                  { "id": "pdp.sheet.breakup.row.interest.v", "type": "text", "props": { "value": "{{data.emiByTenure[state.tenure].interest}}" } }
+                                ]
+                              },
+                              {
+                                "id": "pdp.sheet.breakup.row.fee",
+                                "type": "stack",
+                                "props": { "direction": "horizontal", "justify": "between" },
+                                "children": [
+                                  { "id": "pdp.sheet.breakup.row.fee.k", "type": "text", "props": { "value": "Processing fee", "color": "color.textMuted" } },
+                                  { "id": "pdp.sheet.breakup.row.fee.v", "type": "text", "props": { "value": "{{data.emiByTenure[state.tenure].processingFee}}" } }
+                                ]
+                              },
+                              { "id": "pdp.sheet.breakup.rule2", "type": "divider", "props": { "thickness": 1 } },
+                              {
+                                "id": "pdp.sheet.breakup.row.total",
+                                "type": "stack",
+                                "props": { "direction": "horizontal", "justify": "between" },
+                                "children": [
+                                  { "id": "pdp.sheet.breakup.row.total.k", "type": "text", "props": { "value": "Total payable", "variant": "type.body" } },
+                                  { "id": "pdp.sheet.breakup.row.total.v", "type": "text", "props": { "value": "{{data.emiByTenure[state.tenure].total}}", "variant": "type.h2" } }
+                                ]
+                              },
+                              {
+                                "id": "pdp.sheet.breakup.disclaimer",
+                                "type": "text",
+                                "props": {
+                                  "value": "Indicative only. Final offer depends on lender approval.",
+                                  "variant": "type.caption",
+                                  "color": "color.textMuted"
+                                }
+                              },
+                              {
+                                "id": "pdp.sheet.breakup.cta",
+                                "type": "button",
+                                "props": { "label": "Check my eligibility", "variant": "primary", "size": "md", "fullWidth": true },
+                                "actions": {
+                                  "onTap": { "type": "navigate", "payload": { "route": "loan_eligibility", "params": { "listingId": "CARS24-8842190" } } }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "pdp.emiCalculator",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 10 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.lg" },
+      "children": [
+        {
+          "id": "pdp.emiCalculator.header",
+          "type": "stack",
+          "props": { "direction": "horizontal", "align": "center", "justify": "between", "spacing": 8 },
+          "children": [
+            { "id": "pdp.emiCalculator.title", "type": "text", "props": { "value": "EMI calculator", "variant": "type.h2" } },
+            {
+              "id": "pdp.emiCalculator.badge",
+              "type": "badge",
+              "props": { "label": "12.5% p.a.", "tone": "neutral" }
+            }
+          ]
+        },
+        {
+          "id": "pdp.emiCalculator.tenure",
+          "type": "chip_group",
+          "props": {
+            "options": "{{data.tenureOptions}}",
+            "selected": "{{state.tenure}}",
+            "scrollable": true,
+            "multi": false
+          },
+          "actions": {
+            "onSelect": {
+              "type": "sequence",
+              "payload": {
+                "actions": [
+                  { "type": "set_state", "payload": { "key": "tenure", "value": "$event.value" } },
+                  { "type": "track", "payload": { "event": "pdp_emi_tenure_change", "props": { "tenure": "$event.value" } } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "pdp.emiCalculator.result",
+          "type": "stack",
+          "props": { "direction": "horizontal", "align": "center", "justify": "between" },
+          "style": { "padding": "space.md", "background": "color.surfaceRaised", "radius": "radius.md" },
+          "children": [
+            {
+              "id": "pdp.emiCalculator.result.left",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 2 },
+              "children": [
+                {
+                  "id": "pdp.emiCalculator.result.label",
+                  "type": "text",
+                  "props": { "value": "Monthly EMI", "variant": "type.caption", "color": "color.textMuted" }
+                },
+                {
+                  "id": "pdp.emiCalculator.result.value",
+                  "type": "text",
+                  "props": { "value": "{{data.emiByTenure[state.tenure].monthly}}", "variant": "type.h1" }
+                }
+              ]
+            },
+            {
+              "id": "pdp.emiCalculator.result.right",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 2, "align": "end" },
+              "children": [
+                {
+                  "id": "pdp.emiCalculator.result.downLabel",
+                  "type": "text",
+                  "props": { "value": "Down payment", "variant": "type.caption", "color": "color.textMuted", "align": "right" }
+                },
+                {
+                  "id": "pdp.emiCalculator.result.downValue",
+                  "type": "text",
+                  "props": { "value": "{{data.emiByTenure[state.tenure].downPayment}}", "variant": "type.h2", "align": "right" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pdp.emiCalculator.note",
+          "type": "text",
+          "props": {
+            "value": "Longer tenure lowers the EMI and raises total interest. Totals in the breakup.",
+            "variant": "type.caption",
+            "color": "color.textMuted",
+            "maxLines": 2
+          },
+          "visibleIf": { "in": ["{{state.tenure}}", ["48", "60"]] }
+        }
+      ]
+    },
+
+    { "id": "pdp.rule.1", "type": "divider", "props": { "inset": 16, "thickness": 1 } },
+
+    {
+      "id": "pdp.keySpecs",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 12 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.lg" },
+      "children": [
+        { "id": "pdp.keySpecs.title", "type": "text", "props": { "value": "Key specifications", "variant": "type.h2" } },
+        {
+          "id": "pdp.keySpecs.grid",
+          "type": "grid",
+          "props": { "columns": 3, "gap": 12, "aspectRatio": 1.15 },
+          "children": [
+            {
+              "id": "pdp.keySpecs.km",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 4, "align": "center", "justify": "center" },
+              "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+              "children": [
+                { "id": "pdp.keySpecs.km.icon", "type": "icon", "props": { "name": "speedometer-outline", "size": 22, "color": "color.brand" } },
+                { "id": "pdp.keySpecs.km.value", "type": "text", "props": { "value": "42,318 km", "variant": "type.body", "align": "center" } },
+                { "id": "pdp.keySpecs.km.label", "type": "text", "props": { "value": "Odometer", "variant": "type.caption", "color": "color.textMuted", "align": "center" } }
+              ]
+            },
+            {
+              "id": "pdp.keySpecs.fuel",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 4, "align": "center", "justify": "center" },
+              "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+              "children": [
+                { "id": "pdp.keySpecs.fuel.icon", "type": "icon", "props": { "name": "water-outline", "size": 22, "color": "color.brand" } },
+                { "id": "pdp.keySpecs.fuel.value", "type": "text", "props": { "value": "Petrol", "variant": "type.body", "align": "center" } },
+                { "id": "pdp.keySpecs.fuel.label", "type": "text", "props": { "value": "Fuel", "variant": "type.caption", "color": "color.textMuted", "align": "center" } }
+              ]
+            },
+            {
+              "id": "pdp.keySpecs.transmission",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 4, "align": "center", "justify": "center" },
+              "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+              "children": [
+                { "id": "pdp.keySpecs.transmission.icon", "type": "icon", "props": { "name": "settings-outline", "size": 22, "color": "color.brand" } },
+                { "id": "pdp.keySpecs.transmission.value", "type": "text", "props": { "value": "Manual", "variant": "type.body", "align": "center" } },
+                { "id": "pdp.keySpecs.transmission.label", "type": "text", "props": { "value": "Transmission", "variant": "type.caption", "color": "color.textMuted", "align": "center" } }
+              ]
+            },
+            {
+              "id": "pdp.keySpecs.owner",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 4, "align": "center", "justify": "center" },
+              "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+              "children": [
+                { "id": "pdp.keySpecs.owner.icon", "type": "icon", "props": { "name": "person-outline", "size": 22, "color": "color.brand" } },
+                { "id": "pdp.keySpecs.owner.value", "type": "text", "props": { "value": "1st", "variant": "type.body", "align": "center" } },
+                { "id": "pdp.keySpecs.owner.label", "type": "text", "props": { "value": "Owner", "variant": "type.caption", "color": "color.textMuted", "align": "center" } }
+              ]
+            },
+            {
+              "id": "pdp.keySpecs.insurance",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 4, "align": "center", "justify": "center" },
+              "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+              "children": [
+                { "id": "pdp.keySpecs.insurance.icon", "type": "icon", "props": { "name": "document-text-outline", "size": 22, "color": "color.brand" } },
+                { "id": "pdp.keySpecs.insurance.value", "type": "text", "props": { "value": "Comprehensive", "variant": "type.caption", "align": "center" } },
+                { "id": "pdp.keySpecs.insurance.label", "type": "text", "props": { "value": "Insurance", "variant": "type.caption", "color": "color.textMuted", "align": "center" } }
+              ]
+            },
+            {
+              "id": "pdp.keySpecs.rto",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 4, "align": "center", "justify": "center" },
+              "style": { "background": "color.surfaceRaised", "radius": "radius.md", "padding": "space.sm" },
+              "children": [
+                { "id": "pdp.keySpecs.rto.icon", "type": "icon", "props": { "name": "location-outline", "size": 22, "color": "color.brand" } },
+                { "id": "pdp.keySpecs.rto.value", "type": "text", "props": { "value": "DL 3C", "variant": "type.body", "align": "center" } },
+                { "id": "pdp.keySpecs.rto.label", "type": "text", "props": { "value": "RTO", "variant": "type.caption", "color": "color.textMuted", "align": "center" } }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "pdp.features",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 10 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.lg" },
+      "children": [
+        {
+          "id": "pdp.features.header",
+          "type": "stack",
+          "props": { "direction": "horizontal", "align": "center", "justify": "between" },
+          "children": [
+            { "id": "pdp.features.title", "type": "text", "props": { "value": "Features", "variant": "type.h2" } },
+            {
+              "id": "pdp.features.all",
+              "type": "text",
+              "props": { "value": "See all 32", "variant": "type.caption", "color": "color.brand" },
+              "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp_features", "params": { "listingId": "CARS24-8842190" } } } }
+            }
+          ]
+        },
+        {
+          "id": "pdp.features.row.1",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 10, "align": "center" },
+          "children": [
+            { "id": "pdp.features.row.1.icon", "type": "icon", "props": { "name": "snow-outline", "size": 18, "color": "color.success" } },
+            { "id": "pdp.features.row.1.text", "type": "text", "props": { "value": "Automatic climate control" } }
+          ]
+        },
+        {
+          "id": "pdp.features.row.2",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 10, "align": "center" },
+          "children": [
+            { "id": "pdp.features.row.2.icon", "type": "icon", "props": { "name": "videocam-outline", "size": 18, "color": "color.success" } },
+            { "id": "pdp.features.row.2.text", "type": "text", "props": { "value": "Reverse camera with sensors" } }
+          ]
+        },
+        {
+          "id": "pdp.features.row.3",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 10, "align": "center" },
+          "children": [
+            { "id": "pdp.features.row.3.icon", "type": "icon", "props": { "name": "bluetooth-outline", "size": 18, "color": "color.success" } },
+            { "id": "pdp.features.row.3.text", "type": "text", "props": { "value": "SmartPlay touchscreen, Android Auto & CarPlay" } }
+          ]
+        },
+        {
+          "id": "pdp.features.row.4",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 10, "align": "center" },
+          "children": [
+            { "id": "pdp.features.row.4.icon", "type": "icon", "props": { "name": "key-outline", "size": 18, "color": "color.success" } },
+            { "id": "pdp.features.row.4.text", "type": "text", "props": { "value": "Push-button start, keyless entry" } }
+          ]
+        },
+        {
+          "id": "pdp.features.row.5",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 10, "align": "center" },
+          "children": [
+            { "id": "pdp.features.row.5.icon", "type": "icon", "props": { "name": "shield-outline", "size": 18, "color": "color.success" } },
+            { "id": "pdp.features.row.5.text", "type": "text", "props": { "value": "Dual front airbags, ABS with EBD" } }
+          ]
+        }
+      ]
+    },
+
+    { "id": "pdp.rule.2", "type": "divider", "props": { "inset": 16, "thickness": 1 } },
+
+    {
+      "id": "pdp.faq",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 4 },
+      "style": { "paddingX": "space.lg", "paddingY": "space.lg" },
+      "children": [
+        { "id": "pdp.faq.title", "type": "text", "props": { "value": "Good to know", "variant": "type.h2" }, "style": { "marginY": "space.sm" } },
+        {
+          "id": "pdp.faq.finance",
+          "type": "accordion",
+          "props": { "title": "How does CARS24 financing work?", "expanded": "{{state.faqFinance}}" },
+          "style": { "paddingY": "space.md" },
+          "actions": {
+            "onToggle": { "type": "set_state", "payload": { "key": "faqFinance", "value": "$event.value" } }
+          },
+          "children": [
+            {
+              "id": "pdp.faq.finance.body",
+              "type": "text",
+              "props": {
+                "value": "Apply in-app with your PAN and bank statement. Approval is usually same-day, and the loan is disbursed directly against this listing at the tenure you pick above.",
+                "variant": "type.caption",
+                "color": "color.textMuted"
+              }
+            }
+          ]
+        },
+        { "id": "pdp.faq.rule.1", "type": "divider", "props": { "thickness": 1 } },
+        {
+          "id": "pdp.faq.inspection",
+          "type": "accordion",
+          "props": { "title": "What does the 140-point inspection cover?", "expanded": "{{state.faqInspection}}" },
+          "style": { "paddingY": "space.md" },
+          "actions": {
+            "onToggle": { "type": "set_state", "payload": { "key": "faqInspection", "value": "$event.value" } }
+          },
+          "children": [
+            {
+              "id": "pdp.faq.inspection.body",
+              "type": "stack",
+              "props": { "direction": "vertical", "spacing": 6 },
+              "children": [
+                {
+                  "id": "pdp.faq.inspection.body.text",
+                  "type": "text",
+                  "props": {
+                    "value": "Engine, transmission, suspension, electricals, air-conditioning, exterior panels and tyres, plus a full RC and challan check.",
+                    "variant": "type.caption",
+                    "color": "color.textMuted"
+                  }
+                },
+                {
+                  "id": "pdp.faq.inspection.body.cta",
+                  "type": "button",
+                  "props": { "label": "Open inspection report", "variant": "outline", "size": "sm" },
+                  "actions": {
+                    "onTap": {
+                      "type": "open_sheet",
+                      "payload": {
+                        "title": "Inspection report",
+                        "node": {
+                          "id": "pdp.sheet.inspection",
+                          "type": "stack",
+                          "props": { "direction": "vertical", "spacing": 10 },
+                          "style": { "padding": "space.lg" },
+                          "children": [
+                            { "id": "pdp.sheet.inspection.title", "type": "text", "props": { "value": "140-point inspection", "variant": "type.h2" } },
+                            { "id": "pdp.sheet.inspection.score", "type": "rating", "props": { "value": 4.5, "max": 5 } },
+                            {
+                              "id": "pdp.sheet.inspection.grid",
+                              "type": "grid",
+                              "props": { "columns": 2, "gap": 8, "aspectRatio": 2.6 },
+                              "children": [
+                                {
+                                  "id": "pdp.sheet.inspection.engine",
+                                  "type": "stack",
+                                  "props": { "direction": "horizontal", "spacing": 8, "align": "center" },
+                                  "style": { "background": "color.surfaceRaised", "radius": "radius.sm", "padding": "space.sm" },
+                                  "children": [
+                                    { "id": "pdp.sheet.inspection.engine.icon", "type": "icon", "props": { "name": "checkmark-circle-outline", "size": 18, "color": "color.success" } },
+                                    { "id": "pdp.sheet.inspection.engine.text", "type": "text", "props": { "value": "Engine — pass", "variant": "type.caption" } }
+                                  ]
+                                },
+                                {
+                                  "id": "pdp.sheet.inspection.tyres",
+                                  "type": "stack",
+                                  "props": { "direction": "horizontal", "spacing": 8, "align": "center" },
+                                  "style": { "background": "color.surfaceRaised", "radius": "radius.sm", "padding": "space.sm" },
+                                  "children": [
+                                    { "id": "pdp.sheet.inspection.tyres.icon", "type": "icon", "props": { "name": "alert-circle-outline", "size": 18, "color": "color.danger" } },
+                                    { "id": "pdp.sheet.inspection.tyres.text", "type": "text", "props": { "value": "Tyres — 2 to replace", "variant": "type.caption" } }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        { "id": "pdp.faq.rule.2", "type": "divider", "props": { "thickness": 1 } },
+        {
+          "id": "pdp.faq.return",
+          "type": "accordion",
+          "props": { "title": "Can I return the car?", "expanded": "{{state.faqReturn}}" },
+          "style": { "paddingY": "space.md" },
+          "actions": {
+            "onToggle": { "type": "set_state", "payload": { "key": "faqReturn", "value": "$event.value" } }
+          },
+          "children": [
+            {
+              "id": "pdp.faq.return.body",
+              "type": "text",
+              "props": {
+                "value": "Yes — 7 days or 1,000 km, whichever is earlier. Full refund, no questions asked.",
+                "variant": "type.caption",
+                "color": "color.textMuted"
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "pdp.similar",
+      "type": "stack",
+      "props": { "direction": "vertical", "spacing": 12 },
+      "style": { "paddingY": "space.lg" },
+      "deferred": true,
+      "children": [
+        {
+          "id": "pdp.similar.header",
+          "type": "stack",
+          "props": { "direction": "horizontal", "align": "center", "justify": "between" },
+          "style": { "paddingX": "space.lg" },
+          "children": [
+            { "id": "pdp.similar.title", "type": "text", "props": { "value": "Similar cars", "variant": "type.h2" } },
+            {
+              "id": "pdp.similar.all",
+              "type": "text",
+              "props": { "value": "View all", "variant": "type.caption", "color": "color.brand" },
+              "actions": { "onTap": { "type": "navigate", "payload": { "route": "listing", "params": { "make": "maruti-suzuki", "model": "baleno" } } } }
+            }
+          ]
+        },
+        {
+          "id": "pdp.similar.rail",
+          "type": "rail",
+          "props": { "spacing": 12, "contentInset": 16, "peek": 24 },
+          "children": [
+            {
+              "id": "pdp.similar.card.1",
+              "type": "car_card",
+              "typeVersion": 2,
+              "props": {
+                "title": "2020 Hyundai i20 Sportz",
+                "specs": "38,110 km · Petrol · Manual",
+                "rto": "DL 8C",
+                "imageUrl": "https://picsum.photos/seed/pdp_similar_i20/480/320",
+                "badgeLabel": "Assured",
+                "badgeTone": "brand",
+                "priceLine": { "amount": "₹7,21,000", "emi": "₹24,010/mo", "negotiable": false }
+              },
+              "style": { "width": 260 },
+              "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8811047" } } } }
+            },
+            {
+              "id": "pdp.similar.card.2",
+              "type": "car_card",
+              "typeVersion": 2,
+              "props": {
+                "title": "2019 Tata Altroz XZ",
+                "specs": "51,640 km · Diesel · Manual",
+                "rto": "HR 26",
+                "imageUrl": "https://picsum.photos/seed/pdp_similar_altroz/480/320",
+                "badgeLabel": "Low price",
+                "badgeTone": "success",
+                "priceLine": { "amount": "₹6,88,000", "emi": "₹22,910/mo", "negotiable": true }
+              },
+              "style": { "width": 260 },
+              "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8790233" } } } }
+            },
+            {
+              "id": "pdp.similar.card.3",
+              "type": "car_card",
+              "typeVersion": 1,
+              "props": {
+                "title": "2018 Honda Jazz V",
+                "specs": "62,905 km · Petrol · Automatic",
+                "rto": "UP 16",
+                "imageUrl": "https://picsum.photos/seed/pdp_similar_jazz/480/320",
+                "badgeLabel": "Assured",
+                "badgeTone": "brand",
+                "price": "₹6,45,000",
+                "emi": "₹21,480/mo",
+                "priceNegotiable": true
+              },
+              "style": { "width": 260 },
+              "actions": { "onTap": { "type": "navigate", "payload": { "route": "pdp", "params": { "listingId": "CARS24-8702918" } } } }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "pdp.spacer.bottom",
+      "type": "spacer",
+      "props": { "size": 24 }
+    },
+
+    {
+      "id": "pdp.ctaBar",
+      "type": "sticky",
+      "props": { "edge": "bottom", "elevation": 8 },
+      "style": { "background": "color.bg", "paddingX": "space.lg", "paddingY": "space.md" },
+      "children": [
+        {
+          "id": "pdp.ctaBar.row",
+          "type": "stack",
+          "props": { "direction": "horizontal", "spacing": 12, "align": "center" },
+          "children": [
+            {
+              "id": "pdp.ctaBar.testDrive",
+              "type": "button",
+              "props": { "label": "Book test drive", "variant": "outline", "size": "lg" },
+              "style": { "flex": 1 },
+              "actions": {
+                "onTap": {
+                  "type": "sequence",
+                  "payload": {
+                    "actions": [
+                      { "type": "track", "payload": { "event": "pdp_test_drive_tap", "props": { "listingId": "CARS24-8842190" } } },
+                      { "type": "navigate", "payload": { "route": "test_drive", "params": { "listingId": "CARS24-8842190" } } }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "id": "pdp.ctaBar.buy",
+              "type": "button",
+              "props": { "label": "Buy now", "variant": "primary", "size": "lg" },
+              "style": { "flex": 1 },
+              "actions": {
+                "onTap": {
+                  "type": "navigate",
+                  "payload": { "route": "checkout", "params": { "listingId": "CARS24-8842190", "tenure": "36" } }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,20 @@ export function markFullRender(): void {
  * no JSON.parse, and no Zod validation, and never calls them. scripts/benchmark-p6.sh treats
  * a marker that never appears in logcat for a given run as N/A for that variant, not 0ms.
  */
+/**
+ * P7 adds two more (docs/PROMPTS.md P7). They are additive: the seven names above and the
+ * two P4.5 strings keep their exact log format, so §4.3 and P6 stay reproducible.
+ *
+ * Item 6 (MessagePack) needs no new marker — `parseEnd - payloadReceived` already isolates
+ * bytes-to-object decode cost, which is exactly the quantity in question.
+ *
+ * - `swapEnd` — item 1 only: the cache-first tree has been replaced by the network tree and
+ *   the resulting re-render has committed. This is the *cost* side of cache-first, not its win.
+ * - `aboveFoldImagesLoaded` — item 5 only: every image the payload marked `preload` has
+ *   reported `onLoad`. Without this, item 5 is invisible: `fullRender` deliberately does not
+ *   wait on image loads (see PERF.md §4.3 method), so preloading cannot move any existing
+ *   marker and would measure as a flat no-op.
+ */
 export type BenchmarkMarkerName =
   | 'appStart'
   | 'payloadReceived'
@@ -42,7 +56,9 @@ export type BenchmarkMarkerName =
   | 'validateEnd'
   | 'firstPaint'
   | 'interactive'
-  | 'fullRender';
+  | 'fullRender'
+  | 'swapEnd'
+  | 'aboveFoldImagesLoaded';
 
 const logged = new Set<BenchmarkMarkerName>();
 
@@ -79,4 +95,33 @@ export function markInteractive(): void {
 
 export function markFullRenderP6(): void {
   markBenchmark('fullRender');
+}
+
+export function markSwapEnd(): void {
+  markBenchmark('swapEnd');
+}
+
+export function markAboveFoldImagesLoaded(): void {
+  markBenchmark('aboveFoldImagesLoaded');
+}
+
+/**
+ * Item 5's marker can only fire once *all* preloaded images have loaded, which no single
+ * component knows. This counts them: the payload's preload count is registered up front, each
+ * image reports in, and the marker fires on the last one. Registering 0 preloads means the
+ * marker never fires and the benchmark reads it as N/A — correct for every variant except
+ * item 5, rather than a misleading 0ms.
+ */
+let preloadExpected = 0;
+let preloadSeen = 0;
+
+export function registerPreloadCount(count: number): void {
+  preloadExpected = count;
+  preloadSeen = 0;
+}
+
+export function reportPreloadedImageLoaded(): void {
+  if (preloadExpected === 0) return;
+  preloadSeen += 1;
+  if (preloadSeen >= preloadExpected) markAboveFoldImagesLoaded();
 }

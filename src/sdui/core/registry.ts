@@ -34,13 +34,25 @@ export class ComponentRegistry {
   }
 
   list(): Array<{ type: string; typeVersion: number }> {
-    const entries: Array<{ type: string; typeVersion: number }> = [];
-    for (const [type, versions] of this.versionsByType) {
-      for (const typeVersion of versions.keys()) {
-        entries.push({ type, typeVersion });
-      }
+    return this.definitions().map(({ type, typeVersion }) => ({ type, typeVersion }));
+  }
+
+  /**
+   * Every registration, in manifest order (type asc, then typeVersion asc).
+   *
+   * Read-only tooling access. `registry.manifest.json` and `npm run validate` are both
+   * generated from this, which is what makes "the manifest is generated, never hand-edited"
+   * (CLAUDE.md rule 12) enforceable rather than aspirational: there is no second list of
+   * components anywhere that could drift from this one.
+   */
+  definitions(): ComponentDefinition<any>[] {
+    const entries: ComponentDefinition<any>[] = [];
+    for (const versions of this.versionsByType.values()) {
+      for (const definition of versions.values()) entries.push(definition);
     }
-    return entries.sort((a, b) => a.type.localeCompare(b.type) || a.typeVersion - b.typeVersion);
+    return entries.sort(
+      (a, b) => a.type.localeCompare(b.type) || a.typeVersion - b.typeVersion
+    );
   }
 }
 

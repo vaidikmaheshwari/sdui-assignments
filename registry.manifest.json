@@ -3,79 +3,617 @@
   "components": [
     {
       "type": "accordion",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "expanded": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      }
     },
     {
       "type": "badge",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "label": {
+          "type": "string",
+          "required": true
+        },
+        "tone": {
+          "type": "enum",
+          "required": false,
+          "default": "neutral",
+          "allowed": [
+            "neutral",
+            "brand",
+            "success",
+            "danger"
+          ]
+        },
+        "icon": {
+          "type": "string",
+          "required": false
+        }
+      }
     },
     {
       "type": "button",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "label": {
+          "type": "string",
+          "required": true
+        },
+        "variant": {
+          "type": "enum",
+          "required": false,
+          "default": "primary",
+          "allowed": [
+            "primary",
+            "secondary",
+            "outline",
+            "ghost"
+          ]
+        },
+        "size": {
+          "type": "enum",
+          "required": false,
+          "default": "md",
+          "allowed": [
+            "sm",
+            "md",
+            "lg"
+          ]
+        },
+        "icon": {
+          "type": "string",
+          "required": false
+        },
+        "iconPosition": {
+          "type": "enum",
+          "required": false,
+          "default": "left",
+          "allowed": [
+            "left",
+            "right"
+          ]
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "enabled": {
+          "type": "boolean",
+          "required": false,
+          "default": true
+        }
+      }
     },
     {
       "type": "car_card",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "specs": {
+          "type": "string",
+          "required": true
+        },
+        "rto": {
+          "type": "string",
+          "required": true
+        },
+        "imageUrl": {
+          "type": "string",
+          "required": true
+        },
+        "badgeLabel": {
+          "type": "string",
+          "required": true
+        },
+        "badgeTone": {
+          "type": "enum",
+          "required": false,
+          "default": "neutral",
+          "allowed": [
+            "neutral",
+            "brand",
+            "success",
+            "danger"
+          ]
+        },
+        "price": {
+          "type": "string",
+          "required": true
+        },
+        "emi": {
+          "type": "string",
+          "required": false
+        },
+        "priceNegotiable": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      }
     },
     {
       "type": "car_card",
-      "typeVersion": 2
+      "typeVersion": 2,
+      "props": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "specs": {
+          "type": "string",
+          "required": true
+        },
+        "rto": {
+          "type": "string",
+          "required": true
+        },
+        "imageUrl": {
+          "type": "string",
+          "required": true
+        },
+        "badgeLabel": {
+          "type": "string",
+          "required": true
+        },
+        "badgeTone": {
+          "type": "enum",
+          "required": false,
+          "default": "neutral",
+          "allowed": [
+            "neutral",
+            "brand",
+            "success",
+            "danger"
+          ]
+        },
+        "priceLine": {
+          "type": "object",
+          "required": true,
+          "properties": {
+            "amount": {
+              "type": "string",
+              "required": true
+            },
+            "emi": {
+              "type": "string",
+              "required": false
+            },
+            "negotiable": {
+              "type": "boolean",
+              "required": false,
+              "default": false
+            }
+          }
+        }
+      }
     },
     {
       "type": "chip_group",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "options": {
+          "type": "object[]",
+          "required": true,
+          "items": {
+            "type": "object",
+            "required": true,
+            "properties": {
+              "label": {
+                "type": "string",
+                "required": true
+              },
+              "value": {
+                "type": "string",
+                "required": true
+              },
+              "icon": {
+                "type": "string",
+                "required": false
+              }
+            }
+          }
+        },
+        "selected": {
+          "type": "string | string[]",
+          "required": false,
+          "default": []
+        },
+        "scrollable": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "multi": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      }
     },
     {
       "type": "divider",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "inset": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "thickness": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        }
+      }
     },
     {
       "type": "grid",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "columns": {
+          "type": "integer",
+          "required": false,
+          "default": 2
+        },
+        "gap": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "aspectRatio": {
+          "type": "number",
+          "required": false
+        }
+      }
     },
     {
       "type": "icon",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "size": {
+          "type": "number",
+          "required": false,
+          "default": 24
+        },
+        "color": {
+          "type": "string",
+          "required": false,
+          "default": "color.textPrimary"
+        }
+      }
     },
     {
       "type": "image",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "url": {
+          "type": "string",
+          "required": true
+        },
+        "aspectRatio": {
+          "type": "number",
+          "required": false
+        },
+        "radius": {
+          "type": "string",
+          "required": false
+        },
+        "contentMode": {
+          "type": "enum",
+          "required": false,
+          "default": "cover",
+          "allowed": [
+            "cover",
+            "contain",
+            "fill"
+          ]
+        },
+        "preload": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "placeholder": {
+          "type": "string",
+          "required": false
+        }
+      }
     },
     {
       "type": "input",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "placeholder": {
+          "type": "string",
+          "required": false,
+          "default": ""
+        },
+        "placeholderRotation": {
+          "type": "string[]",
+          "required": false,
+          "default": [],
+          "items": {
+            "type": "string",
+            "required": true
+          }
+        },
+        "rotationMs": {
+          "type": "number",
+          "required": false,
+          "default": 3000
+        },
+        "value": {
+          "type": "string",
+          "required": false,
+          "default": ""
+        },
+        "keyboard": {
+          "type": "enum",
+          "required": false,
+          "default": "default",
+          "allowed": [
+            "default",
+            "numeric",
+            "email",
+            "phone"
+          ]
+        },
+        "readOnly": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      }
     },
     {
       "type": "rail",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "spacing": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "snap": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        "peek": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "contentInset": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "showsIndicator": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      }
     },
     {
       "type": "rating",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "max": {
+          "type": "number",
+          "required": false,
+          "default": 5
+        }
+      }
     },
     {
       "type": "spacer",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "size": {
+          "type": "number",
+          "required": false
+        }
+      }
     },
     {
       "type": "stack",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "direction": {
+          "type": "enum",
+          "required": false,
+          "default": "vertical",
+          "allowed": [
+            "vertical",
+            "horizontal"
+          ]
+        },
+        "spacing": {
+          "type": "number",
+          "required": false,
+          "default": 0
+        },
+        "align": {
+          "type": "enum",
+          "required": false,
+          "default": "stretch",
+          "allowed": [
+            "start",
+            "center",
+            "end",
+            "stretch"
+          ]
+        },
+        "justify": {
+          "type": "enum",
+          "required": false,
+          "default": "start",
+          "allowed": [
+            "start",
+            "center",
+            "end",
+            "between",
+            "around",
+            "evenly"
+          ]
+        },
+        "wrap": {
+          "type": "boolean",
+          "required": false,
+          "default": false
+        }
+      }
     },
     {
       "type": "sticky",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "edge": {
+          "type": "enum",
+          "required": false,
+          "default": "top",
+          "allowed": [
+            "top",
+            "bottom"
+          ]
+        },
+        "elevation": {
+          "type": "number",
+          "required": false,
+          "default": 4
+        }
+      }
     },
     {
       "type": "text",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "value": {
+          "type": "string",
+          "required": true
+        },
+        "variant": {
+          "type": "string",
+          "required": false,
+          "default": "type.body"
+        },
+        "color": {
+          "type": "string",
+          "required": false,
+          "default": "color.textPrimary"
+        },
+        "maxLines": {
+          "type": "number",
+          "required": false
+        },
+        "align": {
+          "type": "enum",
+          "required": false,
+          "default": "left",
+          "allowed": [
+            "left",
+            "center",
+            "right"
+          ]
+        },
+        "opacity": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        }
+      }
     },
     {
       "type": "tile",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "label": {
+          "type": "string",
+          "required": true
+        },
+        "labelColor": {
+          "type": "string",
+          "required": false
+        },
+        "labelVariant": {
+          "type": "string",
+          "required": false,
+          "default": "type.body"
+        },
+        "imageUrl": {
+          "type": "string",
+          "required": true
+        },
+        "imageSize": {
+          "type": "number",
+          "required": false,
+          "default": 72
+        },
+        "imageAspectRatio": {
+          "type": "number",
+          "required": false,
+          "default": 1
+        },
+        "imageBackground": {
+          "type": "string",
+          "required": false
+        },
+        "variant": {
+          "type": "enum",
+          "required": false,
+          "default": "card",
+          "allowed": [
+            "card",
+            "avatar"
+          ]
+        }
+      }
     },
     {
       "type": "zstack",
-      "typeVersion": 1
+      "typeVersion": 1,
+      "props": {
+        "align": {
+          "type": "enum",
+          "required": false,
+          "default": "center",
+          "allowed": [
+            "topLeft",
+            "top",
+            "topRight",
+            "left",
+            "center",
+            "right",
+            "bottomLeft",
+            "bottom",
+            "bottomRight"
+          ]
+        }
+      }
     }
   ]
 }

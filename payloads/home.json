@@ -85,7 +85,7 @@
           {
             "id": "home.header.avatar",
             "type": "image",
-            "props": { "url": "https://picsum.photos/seed/home_avatar/100/100", "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" },
+            "props": { "url": "https://picsum.photos/seed/home_avatar/100/100", "preload": true, "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" },
             "style": { "width": 36, "height": 36 },
             "actions": { "onTap": { "type": "navigate", "payload": { "route": "profile" } } }
           }
@@ -190,7 +190,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "listing", "params": { "bodyType": "hatchback" } } } },
               "children": [
                 { "id": "home.buyCar.tile.hatchback.text", "type": "text", "props": { "value": "Hatchback", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.buyCar.tile.hatchback.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_hatchback/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.buyCar.tile.hatchback.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_hatchback/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -201,7 +201,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "listing", "params": { "bodyType": "sedan" } } } },
               "children": [
                 { "id": "home.buyCar.tile.sedan.text", "type": "text", "props": { "value": "Sedan", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.buyCar.tile.sedan.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_sedan/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.buyCar.tile.sedan.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_sedan/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -212,7 +212,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "listing", "params": { "bodyType": "suv" } } } },
               "children": [
                 { "id": "home.buyCar.tile.suv.text", "type": "text", "props": { "value": "SUV", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.buyCar.tile.suv.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_suv/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.buyCar.tile.suv.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_suv/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -223,7 +223,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "listing", "params": { "bodyType": "muv" } } } },
               "children": [
                 { "id": "home.buyCar.tile.muv.text", "type": "text", "props": { "value": "MUV", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.buyCar.tile.muv.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_muv/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.buyCar.tile.muv.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_muv/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -234,7 +234,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "listing", "params": { "transmission": "automatic" } } } },
               "children": [
                 { "id": "home.buyCar.tile.automatic.text", "type": "text", "props": { "value": "Automatic", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.buyCar.tile.automatic.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_automatic/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.buyCar.tile.automatic.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_automatic/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             }
           ]
@@ -261,7 +261,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "sell", "params": { "step": "valuation" } } } },
               "children": [
                 { "id": "home.sellCar.tile.valuation.text", "type": "text", "props": { "value": "Free car valuation", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.sellCar.tile.valuation.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_valuation/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.sellCar.tile.valuation.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_valuation/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -272,7 +272,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "sell", "params": { "step": "inspection" } } } },
               "children": [
                 { "id": "home.sellCar.tile.inspection.text", "type": "text", "props": { "value": "Doorstep inspection", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.sellCar.tile.inspection.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_inspection/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.sellCar.tile.inspection.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_inspection/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -283,7 +283,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "sell", "params": { "step": "payment" } } } },
               "children": [
                 { "id": "home.sellCar.tile.payment.text", "type": "text", "props": { "value": "Instant payment", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.sellCar.tile.payment.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_payment/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.sellCar.tile.payment.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_payment/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             },
             {
@@ -294,7 +294,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "sell", "params": { "step": "rcTransfer" } } } },
               "children": [
                 { "id": "home.sellCar.tile.rcTransfer.text", "type": "text", "props": { "value": "Free RC transfer", "variant": "type.body", "color": "color.textOnBrand" } },
-                { "id": "home.sellCar.tile.rcTransfer.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_rctransfer/200/200", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
+                { "id": "home.sellCar.tile.rcTransfer.image", "type": "image", "props": { "url": "https://picsum.photos/seed/tile_rctransfer/200/200", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 72, "height": 72 } }
               ]
             }
           ]
@@ -320,7 +320,7 @@
               "style": { "width": 84 },
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "loans", "params": { "type": "newCar" } } } },
               "children": [
-                { "id": "home.loans.tile.newCar.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_newcar/160/160", "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
+                { "id": "home.loans.tile.newCar.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_newcar/160/160", "preload": true, "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
                 { "id": "home.loans.tile.newCar.text", "type": "text", "props": { "value": "New Car Loan", "variant": "type.caption", "align": "center" } }
               ]
             },
@@ -331,7 +331,7 @@
               "style": { "width": 84 },
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "loans", "params": { "type": "usedCar" } } } },
               "children": [
-                { "id": "home.loans.tile.usedCar.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_usedcar/160/160", "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
+                { "id": "home.loans.tile.usedCar.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_usedcar/160/160", "preload": true, "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
                 { "id": "home.loans.tile.usedCar.text", "type": "text", "props": { "value": "Used Car Loan", "variant": "type.caption", "align": "center" } }
               ]
             },
@@ -342,7 +342,7 @@
               "style": { "width": 84 },
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "loans", "params": { "type": "loanAgainstCar" } } } },
               "children": [
-                { "id": "home.loans.tile.loanAgainstCar.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_against/160/160", "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
+                { "id": "home.loans.tile.loanAgainstCar.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_against/160/160", "preload": true, "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
                 { "id": "home.loans.tile.loanAgainstCar.text", "type": "text", "props": { "value": "Loan Against Car", "variant": "type.caption", "align": "center" } }
               ]
             },
@@ -353,7 +353,7 @@
               "style": { "width": 84 },
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "loans", "params": { "type": "balanceTransfer" } } } },
               "children": [
-                { "id": "home.loans.tile.balanceTransfer.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_balance/160/160", "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
+                { "id": "home.loans.tile.balanceTransfer.image", "type": "image", "props": { "url": "https://picsum.photos/seed/loan_balance/160/160", "preload": true, "aspectRatio": 1, "radius": "radius.pill", "contentMode": "cover" }, "style": { "width": 64, "height": 64, "background": "color.surfaceRaised" } },
                 { "id": "home.loans.tile.balanceTransfer.text", "type": "text", "props": { "value": "Balance Transfer", "variant": "type.caption", "align": "center" } }
               ]
             }
@@ -382,7 +382,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "services", "params": { "service": "rcTransfer" } } } },
               "children": [
                 { "id": "home.services.tile.rcTransfer.text", "type": "text", "props": { "value": "RC Transfer", "variant": "type.caption", "color": "color.textPrimary" } },
-                { "id": "home.services.tile.rcTransfer.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_rctransfer/160/160", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
+                { "id": "home.services.tile.rcTransfer.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_rctransfer/160/160", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
               ]
             },
             {
@@ -393,7 +393,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "services", "params": { "service": "insurance" } } } },
               "children": [
                 { "id": "home.services.tile.insurance.text", "type": "text", "props": { "value": "Car Insurance", "variant": "type.caption", "color": "color.textPrimary" } },
-                { "id": "home.services.tile.insurance.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_insurance/160/160", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
+                { "id": "home.services.tile.insurance.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_insurance/160/160", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
               ]
             },
             {
@@ -404,7 +404,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "services", "params": { "service": "challan" } } } },
               "children": [
                 { "id": "home.services.tile.challan.text", "type": "text", "props": { "value": "Challan Check", "variant": "type.caption", "color": "color.textPrimary" } },
-                { "id": "home.services.tile.challan.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_challan/160/160", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
+                { "id": "home.services.tile.challan.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_challan/160/160", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
               ]
             },
             {
@@ -415,7 +415,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "services", "params": { "service": "fastag" } } } },
               "children": [
                 { "id": "home.services.tile.fastag.text", "type": "text", "props": { "value": "FASTag Recharge", "variant": "type.caption", "color": "color.textPrimary" } },
-                { "id": "home.services.tile.fastag.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_fastag/160/160", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
+                { "id": "home.services.tile.fastag.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_fastag/160/160", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
               ]
             },
             {
@@ -426,7 +426,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "services", "params": { "service": "valuation" } } } },
               "children": [
                 { "id": "home.services.tile.valuation.text", "type": "text", "props": { "value": "Car Valuation", "variant": "type.caption", "color": "color.textPrimary" } },
-                { "id": "home.services.tile.valuation.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_valuation/160/160", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
+                { "id": "home.services.tile.valuation.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_valuation/160/160", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
               ]
             },
             {
@@ -437,7 +437,7 @@
               "actions": { "onTap": { "type": "navigate", "payload": { "route": "services", "params": { "service": "subscription" } } } },
               "children": [
                 { "id": "home.services.tile.subscription.text", "type": "text", "props": { "value": "Car Subscription", "variant": "type.caption", "color": "color.textPrimary" } },
-                { "id": "home.services.tile.subscription.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_subscription/160/160", "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
+                { "id": "home.services.tile.subscription.image", "type": "image", "props": { "url": "https://picsum.photos/seed/svc_subscription/160/160", "preload": true, "aspectRatio": 1, "contentMode": "contain" }, "style": { "width": 40, "height": 40 } }
               ]
             }
           ]
@@ -849,6 +849,7 @@
     },
     {
       "id": "home.spotifyPromo",
+      "deferred": true,
       "type": "zstack",
       "props": { "align": "bottomLeft" },
       "style": { "paddingX": "space.lg", "marginY": "space.md", "radius": "radius.lg", "height": 180 },
@@ -871,6 +872,7 @@
     },
     {
       "id": "home.trending",
+      "deferred": true,
       "type": "stack",
       "props": { "direction": "vertical", "spacing": 12 },
       "style": { "paddingY": "space.lg" },
@@ -987,6 +989,7 @@
     },
     {
       "id": "home.findMatch",
+      "deferred": true,
       "type": "stack",
       "props": { "direction": "vertical", "spacing": 12 },
       "style": { "marginX": "space.lg", "marginY": "space.md", "padding": "space.lg", "background": "color.surfaceRaised", "radius": "radius.lg" },
@@ -1024,6 +1027,7 @@
     },
     {
       "id": "home.promoRail",
+      "deferred": true,
       "type": "rail",
       "props": { "spacing": 12, "contentInset": 16, "peek": 32, "snap": true },
       "style": { "paddingY": "space.md" },
@@ -1092,6 +1096,7 @@
     },
     {
       "id": "home.crashFreeIndia",
+      "deferred": true,
       "type": "zstack",
       "props": { "align": "bottomLeft" },
       "style": { "paddingX": "space.lg", "marginY": "space.md", "radius": "radius.lg", "height": 200 },
@@ -1114,6 +1119,7 @@
     },
     {
       "id": "home.footer",
+      "deferred": true,
       "type": "stack",
       "props": { "direction": "vertical", "spacing": 8, "align": "center" },
       "style": { "background": "color.brand", "paddingX": "space.lg", "paddingY": "space.xl" },
