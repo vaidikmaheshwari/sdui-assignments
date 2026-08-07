@@ -3,17 +3,24 @@
 Facts only, logged as measured. No recommendation is recorded here — SCHEMA §4.3's gate is
 that the call is made by the person reading these numbers, not by the tool that produced them.
 
+**Statistical convention, for every table below.** n = 10 per variant. *Median* is the lower of
+the two middle values (sorted index 4); *p90* is nearest-rank (sorted index 8). Where a delta
+between two variants is quoted, it is the difference of their medians, not the median of their
+per-run differences — the two are not equal, and §P6's breakdown quotes both so the gap is
+visible. Every P6 and P7 number in this file is recomputable from the checked-in raw runs; see
+`docs/FACTS.md` §3 for the same figures derived independently.
+
 ---
 
 ## §4.3 — `tile`: composition vs. composite
 
 **Question:** does composing each home-screen tile from primitives (`stack{ image, text }`,
-~6 nodes/tile, ~180 nodes across sections 1/2/3/4/6) cost meaningfully more than a single
-`tile` composite node (~30 nodes) — enough to justify admitting the composite?
+3 nodes/tile, 75 nodes across sections 1/2/3/4/6) cost meaningfully more than a single
+`tile` composite node (25 nodes) — enough to justify admitting the composite?
 
 **Method:**
-- Two payloads, visually identical: `payloads/home.json` (composition, 348 total nodes) vs.
-  `payloads/home-tile-composite.json` (298 total nodes, 25 tile stacks converted to single
+- Two payloads, visually identical: `payloads/home.json` (composition, 284 total nodes) vs.
+  `payloads/home-tile-composite.json` (234 total nodes, 25 tile stacks converted to single
   `tile@1` nodes).
 - Release build (`assembleRelease`), same device, same app (`com.vaidik.sduiassignments`),
   one variant selected at build time via `EXPO_PUBLIC_SDUI_PAYLOAD` (see `App.tsx`).
@@ -38,6 +45,15 @@ that the call is made by the person reading these numbers, not by the tool that 
 | Full render (ms from launch to content laid out) | median 587ms · p90 620ms | median 604ms · p90 640ms |
 | Scroll jank (% janky frames) | median 0.27% · p90 0.27% | median 0.27% · p90 0.27% |
 | Scroll frame time, 90th percentile (ms) | median 10ms · p90 11ms | median 10ms · p90 11ms |
+
+**Correction, made while writing `docs/FACTS.md`.** The node counts in the question and method
+above originally read 6 nodes/tile, ~180 composed nodes, ~30 composite nodes, and 348 vs. 298
+total. Recounted from the payload files: each composed tile is a `stack` of 3 nodes, not 6; the
+25 tiles are 75 composed nodes against 25 composite ones; and the payloads are 284 vs. 234 nodes.
+`home.json` has been 284 nodes at every commit that touched it, so the original figures were never
+right rather than having gone stale. The **delta** — 50 nodes, 25 tiles — was correct throughout,
+and the delta is what the two APKs actually differed by, so the timings above are unaffected. The
+original numbers are recorded here rather than silently replaced.
 
 ---
 
@@ -202,7 +218,7 @@ Decode and validation cost, separated:
 |---|---|---|---|
 | baseline | 1 · 1 | 19 · 21 | 54,843 |
 | 4 — worklet parse | **13 · 14** | 20 · 21 | 54,843 |
-| 6 — MessagePack | **12 · 13** | 18 · 20 | **44,815** |
+| 6 — MessagePack | **11 · 13** | 18 · 20 | **44,815** |
 | cumulative (1+2) | 1 · 1 | **5 · 7** | 54,843 |
 
 ### Item 1 — cache-first: real, and partly tautological
