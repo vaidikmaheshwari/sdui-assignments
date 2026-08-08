@@ -21,7 +21,10 @@ visible. Every P6 and P7 number in this file is recomputable from the checked-in
 **Method:**
 - Two payloads, visually identical: `payloads/home.json` (composition, 284 total nodes) vs.
   `payloads/home-tile-composite.json` (234 total nodes, 25 tile stacks converted to single
-  `tile@1` nodes).
+  `tile@1` nodes). Those are the counts **in the measured APKs**. Both files have since gained
+  five `stack` nodes each — one scrim layer per photo-backed banner, fixing white text that was
+  invisible over the background photo — so they are 289 and 239 today. The change is identical on
+  both sides, the 50-node delta is untouched, and the table below has *not* been re-run.
 - Release build (`assembleRelease`), same device, same app (`com.vaidik.sduiassignments`),
   one variant selected at build time via `EXPO_PUBLIC_SDUI_PAYLOAD` (see `App.tsx`).
 - Device: physical Android phone, model CPH2717 (Oppo/OnePlus family), connected via USB.
@@ -67,7 +70,10 @@ parse, no registry, no bindings, no Zod?
 **Method:**
 - Two release builds of the same app (`com.vaidik.sduiassignments`), one variant selected at
   build time via `EXPO_PUBLIC_SDUI_PAYLOAD` (see `App.tsx`): `composition` (full SDUI pipeline
-  over `payloads/home.json`) vs. `static` (`StaticHome.tsx`, no payload at all).
+  over `payloads/home.json`) vs. `static` (`StaticHome.tsx`, no payload at all). The scrim fix
+  noted in §4.3 landed after this table was measured and was applied to both sides — five
+  `stack` layers in `home.json`, the same five in `StaticHome.tsx` — so the twin is still the
+  same tree. This table has not been re-run either.
 - Device: physical Android phone, model CPH2717 (Oppo/OnePlus family), connected via USB —
   same device as §4.3, for the whole table.
 - n = 10 cold starts per variant. Between runs: `am force-stop`, `logcat -c`.

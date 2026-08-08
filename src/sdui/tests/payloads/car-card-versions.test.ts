@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react-native';
 import { parsePayload } from '../../core/schema';
 import { resolveBinding } from '../../core/bindings';
 import { registry } from '../../components';
-import { SDUIScreen } from '../../screens/SDUIScreen';
+import { SDUIScreen } from '../../screens/SDUIScreen/SDUIScreen';
 import { clearDevLog, getDevLog } from '../../utils/devLog';
 import type { SDUINode as SDUINodeData, Payload } from '../../core/types';
 

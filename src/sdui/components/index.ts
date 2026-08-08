@@ -1,5 +1,21 @@
 import { registry } from '../core/registry';
 
+/**
+ * The registry — every type a payload is allowed to name, and nothing else.
+ *
+ * `./chrome/` is deliberately absent. `CollapsingHeader` and `DebugOverlay` are React components
+ * that live under `components/` for filing convenience, but they carry no `type`, no
+ * `typeVersion` and no `propsSchema`, and `SDUIScreen` mounts them directly. A payload cannot
+ * reach them, and `CollapsingHeader` in particular must not become reachable: it is the declared
+ * client-owned boundary (SCHEMA.md §4.4), where the header's *content* is SDUI but its
+ * scroll-linked collapse is native. Registering it would be the first step toward an animation
+ * DSL, which SCHEMA §11 cuts on purpose.
+ *
+ * `registry.manifest.json` is generated from `registry.list()`, not from this directory, so the
+ * manifest stays correct either way — this comment exists so the next person reading
+ * `components/` does not conclude that everything under it is addressable from JSON.
+ */
+
 import { stack } from './layout/stack';
 import { spacer } from './layout/spacer';
 import { divider } from './layout/divider';

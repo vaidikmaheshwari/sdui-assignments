@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { getDevLog, type DevLogEntry } from '../utils/devLog';
+import { getDevLog, type DevLogEntry } from '../../utils/devLog';
 
 // Dev-only demo surface (docs/PROMPTS.md P5 item 5): every unknown type, failed prop and
 // missing binding already logs through devLog.ts (SCHEMA.md §9's "all logs surface in a

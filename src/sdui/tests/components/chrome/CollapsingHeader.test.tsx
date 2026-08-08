@@ -3,11 +3,11 @@ import { Text } from 'react-native';
 import { useSharedValue } from 'react-native-reanimated';
 import { render, screen } from '@testing-library/react-native';
 import { z } from 'zod';
-import { CollapsingHeader } from '../../screens/CollapsingHeader';
-import { ComponentRegistry } from '../../core/registry';
-import { stack } from '../../components/layout/stack';
-import type { RenderContext } from '../../core/SDUINode';
-import type { ComponentDefinition, SDUINode as SDUINodeData } from '../../core/types';
+import { CollapsingHeader } from '../../../components/chrome/CollapsingHeader';
+import { ComponentRegistry } from '../../../core/registry';
+import { stack } from '../../../components/layout/stack';
+import type { RenderContext } from '../../../core/SDUINode';
+import type { ComponentDefinition, SDUINode as SDUINodeData } from '../../../core/types';
 
 const passthroughDef: ComponentDefinition<{ value: string }> = {
   type: 'text',

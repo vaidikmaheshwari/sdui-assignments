@@ -6,10 +6,10 @@ import Animated, {
   useAnimatedStyle,
   type SharedValue,
 } from 'react-native-reanimated';
-import type { SDUINode as SDUINodeData } from '../core/types';
-import { SDUINode, type RenderContext } from '../core/SDUINode';
-import { resolveBinding } from '../core/bindings';
-import { resolveStyle } from '../core/theme';
+import type { SDUINode as SDUINodeData } from '../../core/types';
+import { SDUINode, type RenderContext } from '../../core/SDUINode';
+import { resolveBinding } from '../../core/bindings';
+import { resolveStyle } from '../../core/theme';
 
 /**
  * The declared client-owned boundary (SCHEMA.md §4.4): the header's *content* is an

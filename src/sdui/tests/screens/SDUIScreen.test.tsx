@@ -2,7 +2,7 @@ import React from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import { z } from 'zod';
-import { SDUIScreen } from '../../screens/SDUIScreen';
+import { SDUIScreen } from '../../screens/SDUIScreen/SDUIScreen';
 import { ComponentRegistry } from '../../core/registry';
 import type { ComponentDefinition, Payload } from '../../core/types';
 

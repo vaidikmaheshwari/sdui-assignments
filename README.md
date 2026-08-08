@@ -57,7 +57,7 @@ Verify the whole thing without a device:
 
 ```bash
 yarn typecheck          # tsc --noEmit
-yarn test               # 40 suites, 296 tests
+yarn test               # 41 suites, 312 tests
 yarn validate           # every payloads/*.json against the manifest + Zod, nonzero exit on failure
 yarn generate:manifest  # regenerates registry.manifest.json from the live registry
 ```
@@ -67,6 +67,30 @@ prop type and enum failures, unknown `visibleIf` operators, raw values in token-
 unknown design tokens, duplicate node ids and unknown action types — with file and node id — and
 exits nonzero.
 
+### Demo mode — reaching every payload from the app
+
+```bash
+EXPO_PUBLIC_SDUI_DEMO=1 yarn android
+```
+
+Adds a floating payload picker over all seven fixtures in `payloads/`, and a banner that reports
+each action intent the page dispatches (route and params for `navigate`, event name for `track`,
+and so on). Without it the app renders `home.json` and nothing else changes.
+
+The flag is refused for the static twin and for any `EXPO_PUBLIC_SDUI_OPT` build
+(`App.tsx`, `DEMO_ENABLED`), so no measured variant in [PERF.md](docs/PERF.md) can pick up a
+picker: with the demo off, the rendered payload is the same object by identity and every marker
+and dependency array is unchanged.
+
+Two fixtures are worth reaching for deliberately:
+
+- **`home-unknown.json`** carries two unknown component types. `video_banner` declares a
+  `fallback` and renders it in every build; `ar_showroom_banner` declares none, so it renders a
+  labelled placeholder in dev and *nothing* in release — the whole degradation ladder described
+  under **Failure is always node-local** below, visible in one screen.
+- **`home-too-new.json`** sets `minClientSchemaVersion: 9.9.9`, above what this build advertises,
+  so it degrades to the bundled last-known-good. The picker shows the reason.
+
 ### Seeing the JSON-only edit loop
 
 `payloads/home.json` is bundled, so the fastest demonstration is: edit it, reload, watch the page
@@ -74,7 +98,7 @@ change. To exercise the real network path instead:
 
 ```bash
 node scripts/payload-server.js          # serves /home.json and /home.msgpack with 300ms latency
-EXPO_PUBLIC_SDUI_OPT=cacheFirst yarn android
+EXPO_PUBLIC_SDUI_OPT=opt1 yarn android  # opt1 = cache-first: bundled payload first, network swap
 ```
 
 ---
@@ -89,10 +113,15 @@ src/sdui/
     layout/     stack zstack rail grid sticky spacer divider
     atoms/      text image icon button chip_group badge input rating accordion
     composites/ car_card@1 car_card@2, tile
-  screens/      SDUIScreen, CollapsingHeader, DebugOverlay
+    chrome/     CollapsingHeader, DebugOverlay — the only components here that are
+                NOT in the registry, and cannot be: no payload can name them
+  screens/
+    SDUIScreen/ SDUIScreen.tsx — the one host screen, composes the above
   tests/        mirrors the above, plus tests/payloads/*
 src/screens/    StaticHome.tsx — the hardcoded twin, for the perf comparison
 src/perf/       markers, flags and the P7 optimisation implementations
+src/demo/       host chrome behind EXPO_PUBLIC_SDUI_DEMO — payload picker,
+                action-intent banner, the host's ActionEffects implementation
 payloads/       home, home-unknown, home-too-new, home-tile-composite,
                 car-card-versions, pdp, listing
 scripts/        manifest generator, payload validator, benchmark drivers, payload server
@@ -209,7 +238,7 @@ per-client tailoring. Five mechanisms carry it, each with a fixture that exercis
 The last-known-good payload is bundled in the app and does triple duty: version-gate floor,
 cold-start cache (P7 item 1, −378ms) and the offline story. One mechanism, three benefits.
 
-A dev-only debug overlay (`src/sdui/screens/DebugOverlay.tsx`) lists every degradation from the
+A dev-only debug overlay (`src/sdui/components/chrome/DebugOverlay.tsx`) lists every degradation from the
 last render — unknown types, failed props, missing bindings — which is how you see any of this
 happening on device.
 
@@ -280,11 +309,13 @@ with identical scroll jank. Collapsing 75 composed nodes into 25 composite ones 
 
 Written down because a README that only lists what works is a sales document:
 
-1. **The demo app renders `home.json` only.** `pdp.json`, `listing.json`, `home-unknown.json` and
-   `home-too-new.json` are exercised by tests, not reachable by tapping. There's no payload
-   switcher yet.
-2. **`App.tsx` wires no `effects`,** so the 76 `navigate` actions across the three screens no-op
-   on tap. The renderer dispatches them correctly; the host app just doesn't listen yet.
+1. **The payload picker and the action banner are demo scaffolding, not an app.** Behind
+   `EXPO_PUBLIC_SDUI_DEMO=1` there is a picker over the fixtures and a banner that reports action
+   intents — enough to demonstrate the system, and nowhere near a navigation stack. `onNavigate`
+   prints a route; it does not push a screen, because there is no second screen to push. A real
+   host would hand these to its navigator and analytics client.
+2. **`open_url` is the only effect with a genuine implementation** (it reaches `Linking`).
+   `navigate`, `track` and `refresh` are observable but inert.
 3. **The manifest has no `events` field.** Emitted event names (`onTap`, `onSelect`, `onToggle`)
    exist only as string literals inside each component. Adding them means adding `events` to
    `ComponentDefinition`, which changes the registry contract.

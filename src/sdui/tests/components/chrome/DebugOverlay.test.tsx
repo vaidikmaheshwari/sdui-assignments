@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import { DebugOverlay } from '../../screens/DebugOverlay';
-import { clearDevLog, warn } from '../../utils/devLog';
+import { DebugOverlay } from '../../../components/chrome/DebugOverlay';
+import { clearDevLog, warn } from '../../../utils/devLog';
 
 describe('DebugOverlay', () => {
   beforeEach(() => {

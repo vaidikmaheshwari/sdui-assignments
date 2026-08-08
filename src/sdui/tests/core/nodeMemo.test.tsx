@@ -8,7 +8,7 @@
  */
 import React from 'react';
 import { act, render, screen, fireEvent } from '@testing-library/react-native';
-import { SDUIScreen } from '../../screens/SDUIScreen';
+import { SDUIScreen } from '../../screens/SDUIScreen/SDUIScreen';
 import { setNodeMemoEnabled } from '../../core/SDUINode';
 import { parsePayload } from '../../core/schema';
 import { registry } from '../../components';

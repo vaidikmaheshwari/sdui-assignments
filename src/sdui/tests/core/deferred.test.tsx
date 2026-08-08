@@ -12,7 +12,7 @@
 import React from 'react';
 import { InteractionManager } from 'react-native';
 import { act, render, screen } from '@testing-library/react-native';
-import { SDUIScreen } from '../../screens/SDUIScreen';
+import { SDUIScreen } from '../../screens/SDUIScreen/SDUIScreen';
 import { parsePayload } from '../../core/schema';
 import { registry } from '../../components';
 import type { Payload } from '../../core/types';

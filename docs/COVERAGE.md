@@ -12,8 +12,8 @@ Where this file and SCHEMA disagree, SCHEMA wins and this file has a bug.
 
 | Claim | Status |
 |---|---|
-| The reference screen (Cars24 home) renders from JSON | **Measured.** 284 nodes, 12 sections + header, `payloads/home.json`. |
-| A screen the registry was **not** designed against renders from JSON | **Measured.** Two of them — `payloads/pdp.json` (147 nodes) and `payloads/listing.json` (55 nodes), both written from `registry.manifest.json` alone, **with zero components added or modified**. §5. |
+| The reference screen (Cars24 home) renders from JSON | **Measured.** 289 nodes, 12 sections + header, `payloads/home.json`. |
+| A screen the registry was **not** designed against renders from JSON | **Measured.** Two of them — `payloads/pdp.json` (147 nodes) and `payloads/listing.json` (56 nodes), both written from `registry.manifest.json` alone, **with zero components added or modified**. §5. |
 | A *third-party* Cars24 screen renders from JSON | Still an estimate. §5.5 gives the discount and why it is smaller than it was. |
 
 The previous version of this file gave **~85% as a forward estimate with no second screen behind
@@ -39,7 +39,7 @@ Usage counts below are node counts across the three payloads.
 
 | type | Renders | home | pdp | listing | Test |
 |---|---|---|---|---|---|
-| `stack` | vertical/horizontal flow, spacing, align, justify, wrap | 87 | 39 | 11 | `layout/stack.test.tsx` |
+| `stack` | vertical/horizontal flow, spacing, align, justify, wrap | 92 | 39 | 12 | `layout/stack.test.tsx` |
 | `zstack` | layered children, 9-point align | 9 | 1 | 1 | `layout/zstack.test.tsx` |
 | `rail` | horizontal virtualised list, snap/peek/inset | 7 | 2 | — | `layout/rail.test.tsx` |
 | `grid` | n-column virtualised grid, gap, aspectRatio | 2 | 2 | 2 | `layout/grid.test.tsx` |
@@ -87,11 +87,17 @@ instances across the three screens:
 | `open_url` | — | 1 | — |
 | `refresh` | — | — | 3 |
 
-**Caveat, and it is a real one:** `App.tsx` renders `SDUIScreen` with no `effects` prop, so
-`navigate`, `track` and `refresh` all fall through to `warn(...)` and no-op in this build
-(`core/actions.ts:54-90`). The payloads express the intent correctly and the reducer routes it
-correctly; nothing is wired to a navigator. `set_state`, `open_sheet` and `open_url` do work
-end-to-end.
+**Caveat, narrower than it was:** `App.tsx` now supplies an `effects` object
+(`src/demo/useActionEffects.ts`), so `navigate`, `track` and `refresh` reach a host handler
+instead of falling through to `warn(...)`. What that handler does is report the intent — route,
+params, event name — to a banner and to logcat. So the *contract* is exercised end-to-end and
+observable, but the host still has no navigator and no analytics client behind it: tapping a car
+card announces `navigate /pdp {id: …}` rather than opening a PDP. `set_state`, `open_sheet` and
+`open_url` do the real thing.
+
+This distinction matters for the coverage claim below: it means the three-screen count measures
+whether the *payload* expresses an intent correctly, not whether this repo's demo app services
+it. A host that services it is client code by definition, and is outside what JSON can cover.
 
 ---
 
@@ -180,8 +186,8 @@ Verification, all currently passing:
 
 ```
 npx tsc --noEmit          → clean
-npm run validate          → 8 payloads, 0 unexpected errors
-npx jest                  → 40 suites, 296 tests
+npm run validate          → 7 payloads + 6 rule tests, 0 unexpected errors
+npx jest                  → 41 suites, 312 tests
 ```
 
 ### 5.2 Where the schema broke, and what it cost to fix
@@ -357,7 +363,7 @@ broken until the release lands"; it means "the screen is reduced until the relea
 2. Register it in `src/sdui/components/index.ts`.
 3. `npm run generate:manifest` — `registry.manifest.json` is generated, never hand-edited.
 4. Add a payload fixture and a test, including the unknown-input path.
-5. `npx tsc --noEmit`, `npm run validate`, `npx jest` (currently 40 suites / 296 tests).
+5. `npx tsc --noEmit`, `npm run validate`, `npx jest` (currently 41 suites / 312 tests).
 
 Steps 1–3 are the whole client change.
 
@@ -408,10 +414,12 @@ worthless.
 | Section count | SCHEMA §13 inventories 13 sections; `payloads/home.json` ships 12. | Open |
 | `deferred` version | SCHEMA added `deferred` as v1.1.1; `CLIENT_SCHEMA_VERSION` still reads `1.1.0`. Harmless (the field is additive and optional), but the numbers disagree. Bumping it touches version gating, so it is flagged rather than changed. | Open, needs a call |
 | Raw px in `style` | CLAUDE.md rule 7 says `style` may reference design tokens only. `width` and `height` are raw pass-throughs in `core/theme.ts:38` and `home.json` already depends on that (9 `zstack`s size themselves in px). Both new screens follow the existing convention. Either rule 7 has an exception it does not state, or the sizes want `space.*` tokens. | Open, needs a call |
-| Effects unwired | `App.tsx` passes no `effects`, so `navigate`, `track` and `refresh` no-op. 76 `navigate` actions across three screens do nothing when tapped. | Open — a demo-app gap, not a renderer gap |
+| Effects unwired | `App.tsx` passed no `effects`, so `navigate`, `track` and `refresh` no-opped. 76 `navigate` actions across three screens did nothing when tapped. | **Fixed** — `App.tsx` supplies `src/demo/useActionEffects.ts`; intents now surface with their route and params. Still a reporting host, not a navigator (§2.4) |
+| Fixtures unreachable | `pdp.json`, `listing.json`, `home-unknown.json`, `home-too-new.json` and `car-card-versions.json` were exercised only by Jest — the running app rendered `home.json` alone, so the fallback and versioning behaviour could be asserted but not shown. | **Fixed** — `EXPO_PUBLIC_SDUI_DEMO=1` adds a picker over all seven fixtures (`src/demo/payloadCatalog.ts`), gated off for every build PERF.md measured |
 | Tab switch mechanism | SCHEMA §6 motivates `data.carLists[state.carListTab]` as the tab-switch mechanism. `home.json` implements the switch with two sibling rails and `visibleIf`. Both work; only one is documented — and `pdp.json` / `listing.json` now use *both*, so both are real. | Resolved by use |
 | `car_card` on home | SCHEMA §13 shows section 5 as `rail{ car_card… }`; `home.json` composes those cards from `stack{ image, text… }` instead. | Still true of home, but `car_card` now has 7 real usages on pdp and listing |
 | `npm run validate` | CLAUDE.md's definition-of-done required it; no such script existed. | **Fixed** — §7 |
+| Text invisible on the five photo banners | `zstack{ image, stack{ white text } }` put white copy straight onto a `picsum.photos` background. On a pale photo the copy vanished and only the purple outline CTA read, which is how it was reported. Every component behaved correctly, so no component test could see it. | **Fixed** — a `color.scrim` layer between image and copy in all five banners (and the same five in `StaticHome.tsx`); `npm run validate` now errors on text layered straight onto an image |
 | Manifest completeness | The manifest listed only `{type, typeVersion}`, which is not enough to write a payload from. | **Fixed** — §7 |
 
 ---

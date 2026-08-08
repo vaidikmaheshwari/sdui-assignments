@@ -9,7 +9,7 @@ import { resolvePayload, type ResolvedPayload } from './src/sdui/core/resolvePay
 import { setNodeMemoEnabled } from './src/sdui/core/SDUINode';
 import { setImagePreloadEnabled, setPreloadedImageLoadReporter } from './src/sdui/components/atoms/image';
 import { registry } from './src/sdui/components';
-import { SDUIScreen } from './src/sdui/screens/SDUIScreen';
+import { SDUIScreen } from './src/sdui/screens/SDUIScreen/SDUIScreen';
 import { StaticHome } from './src/screens/StaticHome';
 import { PayloadSwitcher } from './src/demo/PayloadSwitcher';
 import { ActionBanner } from './src/demo/ActionBanner';

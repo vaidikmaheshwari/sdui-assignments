@@ -4,7 +4,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react-native';
 import { parsePayload } from '../../core/schema';
 import { registry } from '../../components';
-import { SDUIScreen } from '../../screens/SDUIScreen';
+import { SDUIScreen } from '../../screens/SDUIScreen/SDUIScreen';
 import { clearDevLog, getDevLog } from '../../utils/devLog';
 import type { Payload } from '../../core/types';
 

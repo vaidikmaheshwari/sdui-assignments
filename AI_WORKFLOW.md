@@ -226,7 +226,7 @@ number.
 ## 5. Verification strategy
 
 **The gate.** Nothing is accepted without `tsc --noEmit` clean, the full suite green, and — since
-P8 — `npm run validate` clean. Currently **40 suites / 296 tests**, plus 8 payload validations.
+P8 — `npm run validate` clean. Currently **41 suites / 312 tests**, plus 13 payload validations.
 
 **Prove it mechanically or don't claim it.** Where a claim can be a check, it is one:
 

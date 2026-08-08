@@ -4,15 +4,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModal, BottomSheetModalProvider, BottomSheetView } from '@gorhom/bottom-sheet';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
-import type { Action, Payload, SDUINode as SDUINodeData } from '../core/types';
-import { ComponentRegistry, registry as defaultRegistry } from '../core/registry';
-import { SDUINode, type RenderContext } from '../core/SDUINode';
-import { pageStateReducer, runAction, type ActionEffects } from '../core/actions';
-import { resolveBinding } from '../core/bindings';
-import { resolveToken } from '../core/theme';
-import { clearDevLog } from '../utils/devLog';
-import { CollapsingHeader } from './CollapsingHeader';
-import { DebugOverlay } from './DebugOverlay';
+import type { Action, Payload, SDUINode as SDUINodeData } from '../../core/types';
+import { ComponentRegistry, registry as defaultRegistry } from '../../core/registry';
+import { SDUINode, type RenderContext } from '../../core/SDUINode';
+import { pageStateReducer, runAction, type ActionEffects } from '../../core/actions';
+import { resolveBinding } from '../../core/bindings';
+import { resolveToken } from '../../core/theme';
+import { clearDevLog } from '../../utils/devLog';
+import { CollapsingHeader } from '../../components/chrome/CollapsingHeader';
+import { DebugOverlay } from '../../components/chrome/DebugOverlay';
 
 export function SDUIScreen({
   payload,

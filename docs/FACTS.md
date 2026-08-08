@@ -60,10 +60,10 @@ item 1 asked for "which events it emits"; that part is not implemented.
 
 | Payload | Nodes (tree only) | Nodes incl. subtrees inside action payloads | Sections | Header |
 |---|---|---|---|---|
-| `home.json` | 279 | 284 | 12 | yes |
+| `home.json` | 284 | 289 | 12 | yes |
 | `pdp.json` | 115 | 147 | 12 | yes |
-| `listing.json` | 46 | 55 | 6 | yes |
-| **total** | **440** | **486** | **30** | — |
+| `listing.json` | 47 | 56 | 6 | yes |
+| **total** | **446** | **492** | **30** | — |
 
 "Tree only" walks `header`, `sections`, `children`, `fallback`. The larger count also walks nodes
 carried inside `actions.*.payload.node` (`open_sheet` subtrees). `pdp.json` contains 2
@@ -138,7 +138,7 @@ Two, neither a component:
 | File | Change |
 |---|---|
 | `src/sdui/core/actions.ts` | `resolveActionPayload` no longer resolves bindings inside `open_sheet.payload.node` or `sequence.payload.actions` |
-| `src/sdui/screens/SDUIScreen.tsx` | top-level `sticky` sections are lifted out of the scroll container and pinned by `edge` |
+| `src/sdui/screens/SDUIScreen/SDUIScreen.tsx` | top-level `sticky` sections are lifted out of the scroll container and pinned by `edge` |
 
 ---
 
@@ -238,14 +238,18 @@ Node counts, recomputed:
 
 | Payload | Nodes | `tile` nodes |
 |---|---|---|
-| `home.json` | 284 | 0 |
-| `home-tile-composite.json` | 234 | 25 |
+| `home.json` | 289 | 0 |
+| `home-tile-composite.json` | 239 | 25 |
 
-Delta: 50 nodes, 25 tile stacks collapsed. `home.json` has been 284 nodes at every commit that
-touched it (`31186ed`, `e3709c1`).
+Delta: 50 nodes, 25 tile stacks collapsed. `home.json` was 284 nodes at every commit up to and
+including `e3709c1` (`31186ed`, `e3709c1`); the scrim fix added one `stack` layer to each of the
+five photo-backed banners, in both payloads, so both counts moved by +5 and the delta did not
+move at all.
 
 `docs/PERF.md` §4.3 states these counts as 348 and 298. That is a discrepancy of +64 on both
-sides; the delta (50) and the tile count (25) match.
+sides; the delta (50) and the tile count (25) match. §4.3's method paragraph states 284 and 234,
+which is what the measured APKs actually contained — those numbers are deliberately left as they
+were rather than updated to 289/239, because they describe a build, not the current file.
 
 ---
 
@@ -264,8 +268,9 @@ site: server payload, action payload, binding path, style value, event value, ne
 | `core/resolvePayload.ts:37-43` | malformed envelope | warns, returns bundled last-known-good, `degraded: true` |
 | `core/resolvePayload.ts:45-50` | `minClientSchemaVersion` > `CLIENT_SCHEMA_VERSION` (`1.1.0`) | warns, returns bundled last-known-good, `degraded: true` |
 | `core/resolvePayload.ts:55-63` | the last-known-good itself fails to parse | **throws** — the one deliberate throw in core, labelled a build-time bug |
-| `App.tsx:108-116` | network fetch/decode failure (P7 builds) | logs `SDUI_P7_FETCH_ERROR`, renders an error view |
+| `App.tsx:132-140` | network fetch/decode failure (P7 builds) | logs `SDUI_P7_FETCH_ERROR`, renders an error view |
 | `perf/offThreadParse.ts:38,69` | worklet runtime unavailable or throws | falls back to a JS-thread parse, sets `opt4FellBackToJsThread`, logs `SDUI_OPT4_FALLBACK` |
+| `demo/payloadCatalog.ts:72` `catalogEntry` | id not in the catalog | returns the first entry; never throws. Demo host only — not reachable from a measured build |
 
 ### 5.2 Node level
 
@@ -328,14 +333,15 @@ No `eval`, no `new Function`, no dynamic dispatch on the operator key — the op
 
 | Site | Trigger | Behaviour |
 |---|---|---|
-| `scripts/validate-payloads.test.ts` (`npm run validate`) | any `payloads/*.json` with an unknown type without a `fallback`, a failing prop, an unknown `visibleIf` operator, a raw value in a token-only style slot, an unknown token, a duplicate node id, or an unknown action type | prints a per-file report, **nonzero exit** |
+| `scripts/validate-payloads.test.ts` (`npm run validate`) | any `payloads/*.json` with an unknown type without a `fallback`, a failing prop, an unknown `visibleIf` operator, a raw value in a token-only style slot, an unknown token, a duplicate node id, an unknown action type, or text layered directly over an image | prints a per-file report, **nonzero exit** |
+| same, contrast check | a text node whose colour, composited at its own `opacity`, falls below 3:1 against the nearest painted background | **warning** — the author chose both colours, so it is reported with the measured ratio, not failed (the `type.ghost` trending numerals are 1.0:1 on purpose) |
 | same, `EXPECTED_ERRORS` | `home-unknown.json` is expected to produce exactly 1 error | the run fails if the count differs **in either direction** |
 
 ### 5.8 Warning sink
 
 All of the above route through `warn(source, message)` in `src/sdui/utils/devLog.ts`, which
 appends to an in-memory array always and `console.warn`s only under `__DEV__`.
-`src/sdui/screens/DebugOverlay.tsx` renders that array; `SDUIScreen` clears it each render, so the
+`src/sdui/components/chrome/DebugOverlay.tsx` renders that array; `SDUIScreen` clears it each render, so the
 overlay shows the last render only.
 
 ---
@@ -344,8 +350,8 @@ overlay shows the last render only.
 
 | | |
 |---|---|
-| Test suites / tests | 40 / 296 |
+| Test suites / tests | 41 / 312 |
 | Payload fixtures | 7 (`home`, `home-unknown`, `home-too-new`, `home-tile-composite`, `car-card-versions`, `pdp`, `listing`) |
-| `npm run validate` | 8 assertions (7 payloads + envelope pass) |
+| `npm run validate` | 13 assertions (7 payloads + envelope pass + 5 legibility-rule tests) |
 | Raw benchmark runs checked in | 120 (20 in `results.json`, 100 in `results-p7.json`) |
 | Release APKs built | 11 (`bench/apks/`) |
