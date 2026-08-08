@@ -19,7 +19,8 @@
         "accent": "#3B24C4",
         "danger": "#E03131",
         "success": "#12B76A",
-        "border": "#EAECF0"
+        "border": "#EAECF0",
+        "scrim": "rgba(16,24,40,0.55)"
       },
       "space": { "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24 },
       "radius": { "sm": 6, "md": 12, "lg": 16, "pill": 999 },
@@ -855,7 +856,8 @@
       "style": { "paddingX": "space.lg", "marginY": "space.md", "radius": "radius.lg", "height": 180 },
       "actions": { "onTap": { "type": "navigate", "payload": { "route": "promo", "params": { "campaign": "spotify" } } } },
       "children": [
-        { "id": "home.spotifyPromo.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_spotify/800/400", "contentMode": "cover", "radius": "radius.lg" } },
+        { "id": "home.spotifyPromo.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_spotify/800/400", "contentMode": "cover", "radius": "radius.lg" }, "style": { "width": "100%", "height": "100%" } },
+        { "id": "home.spotifyPromo.scrim", "type": "stack", "props": { "direction": "vertical" }, "style": { "background": "color.scrim", "radius": "radius.lg", "width": "100%", "height": "100%" } },
         {
           "id": "home.spotifyPromo.content",
           "type": "stack",
@@ -1039,7 +1041,8 @@
           "style": { "width": 260, "height": 130, "radius": "radius.md" },
           "actions": { "onTap": { "type": "navigate", "payload": { "route": "promo", "params": { "campaign": "moneyBack" } } } },
           "children": [
-            { "id": "home.promoRail.item.moneyBack.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_moneyback/600/300", "contentMode": "cover", "radius": "radius.md" } },
+            { "id": "home.promoRail.item.moneyBack.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_moneyback/600/300", "contentMode": "cover", "radius": "radius.md" }, "style": { "width": "100%", "height": "100%" } },
+            { "id": "home.promoRail.item.moneyBack.scrim", "type": "stack", "props": { "direction": "vertical" }, "style": { "background": "color.scrim", "radius": "radius.md", "width": "100%", "height": "100%" } },
             {
               "id": "home.promoRail.item.moneyBack.content",
               "type": "stack",
@@ -1059,7 +1062,8 @@
           "style": { "width": 260, "height": 130, "radius": "radius.md" },
           "actions": { "onTap": { "type": "navigate", "payload": { "route": "promo", "params": { "campaign": "rcTransfer" } } } },
           "children": [
-            { "id": "home.promoRail.item.rcTransfer.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_rctransfer/600/300", "contentMode": "cover", "radius": "radius.md" } },
+            { "id": "home.promoRail.item.rcTransfer.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_rctransfer/600/300", "contentMode": "cover", "radius": "radius.md" }, "style": { "width": "100%", "height": "100%" } },
+            { "id": "home.promoRail.item.rcTransfer.scrim", "type": "stack", "props": { "direction": "vertical" }, "style": { "background": "color.scrim", "radius": "radius.md", "width": "100%", "height": "100%" } },
             {
               "id": "home.promoRail.item.rcTransfer.content",
               "type": "stack",
@@ -1079,7 +1083,8 @@
           "style": { "width": 260, "height": 130, "radius": "radius.md" },
           "actions": { "onTap": { "type": "navigate", "payload": { "route": "promo", "params": { "campaign": "warranty" } } } },
           "children": [
-            { "id": "home.promoRail.item.warranty.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_warranty/600/300", "contentMode": "cover", "radius": "radius.md" } },
+            { "id": "home.promoRail.item.warranty.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_warranty/600/300", "contentMode": "cover", "radius": "radius.md" }, "style": { "width": "100%", "height": "100%" } },
+            { "id": "home.promoRail.item.warranty.scrim", "type": "stack", "props": { "direction": "vertical" }, "style": { "background": "color.scrim", "radius": "radius.md", "width": "100%", "height": "100%" } },
             {
               "id": "home.promoRail.item.warranty.content",
               "type": "stack",
@@ -1102,7 +1107,8 @@
       "style": { "paddingX": "space.lg", "marginY": "space.md", "radius": "radius.lg", "height": 200 },
       "actions": { "onTap": { "type": "navigate", "payload": { "route": "promo", "params": { "campaign": "crashFreeIndia" } } } },
       "children": [
-        { "id": "home.crashFreeIndia.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_crashfree/800/450", "contentMode": "cover", "radius": "radius.lg" } },
+        { "id": "home.crashFreeIndia.bg", "type": "image", "props": { "url": "https://picsum.photos/seed/promo_crashfree/800/450", "contentMode": "cover", "radius": "radius.lg" }, "style": { "width": "100%", "height": "100%" } },
+        { "id": "home.crashFreeIndia.scrim", "type": "stack", "props": { "direction": "vertical" }, "style": { "background": "color.scrim", "radius": "radius.lg", "width": "100%", "height": "100%" } },
         {
           "id": "home.crashFreeIndia.content",
           "type": "stack",

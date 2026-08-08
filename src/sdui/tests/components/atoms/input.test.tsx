@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { render, screen, fireEvent, act } from '@testing-library/react-native';
 import { input } from '../../../components/atoms/input';
 
@@ -107,5 +108,39 @@ describe('input', () => {
       />
     );
     expect(screen.queryByTestId('in1-tap-target')).toBeNull();
+  });
+
+  // The tap wrapper is what the parent stack lays out, so `width`/`flex` left on the inner field
+  // sizes a child of a shrink-to-fit box and the input collapses. This is how listing.json's
+  // search bar was sized: `flex: 1` that never reached anything that could act on it.
+  test('readOnly + onTap moves sizing to the tap wrapper and leaves painting on the field', async () => {
+    await render(
+      <input.Component
+        id="in1"
+        props={input.propsSchema.parse({ readOnly: true })}
+        style={{ width: '80%', backgroundColor: '#F5F6F8', paddingHorizontal: 12 }}
+        actions={{ onTap: { type: 'navigate', payload: { route: 'search' } } }}
+        dispatch={jest.fn()}
+      />
+    );
+
+    const wrapper = StyleSheet.flatten(screen.getByTestId('in1-tap-target').props.style);
+    expect(wrapper).toMatchObject({ width: '80%' });
+    expect(wrapper.paddingHorizontal).toBeUndefined();
+
+    const field = StyleSheet.flatten(screen.getByTestId('in1').props.style);
+    expect(field).toMatchObject({ backgroundColor: '#F5F6F8', paddingHorizontal: 12 });
+    // Doubling the padding onto both boxes would inset the text twice.
+    expect(field.width).toBeUndefined();
+  });
+
+  test('an editable field keeps its whole style — there is no wrapper to split it across', async () => {
+    await render(
+      <input.Component id="in1" props={input.propsSchema.parse({})} style={{ width: '80%', paddingHorizontal: 12 }} dispatch={jest.fn()} />
+    );
+    expect(StyleSheet.flatten(screen.getByTestId('in1').props.style)).toMatchObject({
+      width: '80%',
+      paddingHorizontal: 12,
+    });
   });
 });

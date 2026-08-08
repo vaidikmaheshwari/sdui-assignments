@@ -92,4 +92,46 @@ describe('icon', () => {
 
     expect(dispatch).toHaveBeenCalledWith({ type: 'navigate', payload: { route: 'pdp' } });
   });
+
+  // Two icons of different sizes in one row sat at two different heights: flexbox centres the
+  // text boxes correctly, but Android's font padding leaves the glyph off-centre inside its box
+  // by an amount that scales with `size`. Asserted on both shapes because the tappable one
+  // renders through a Pressable and the plain one does not.
+  test.each([
+    ['plain', undefined],
+    ['tappable', { onTap: { type: 'navigate' as const, payload: { route: 'x' } } }],
+  ])('%s icons neutralise the font padding that pushes the glyph off-centre', async (_label, actions) => {
+    await render(
+      <icon.Component
+        id="i1"
+        props={icon.propsSchema.parse({ name: 'heart' })}
+        theme={theme}
+        actions={actions}
+        dispatch={jest.fn()}
+      />
+    );
+
+    const target = screen.getByTestId('i1');
+    const glyph = actions ? target.children[0] : target;
+    expect(StyleSheet.flatten((glyph as { props: { style?: unknown } }).props.style)).toMatchObject({
+      includeFontPadding: false,
+      textAlignVertical: 'center',
+    });
+  });
+
+  test('the tap wrapper centres the glyph it contains', async () => {
+    await render(
+      <icon.Component
+        id="i1"
+        props={icon.propsSchema.parse({ name: 'heart' })}
+        theme={theme}
+        actions={{ onTap: { type: 'navigate', payload: { route: 'x' } } }}
+        dispatch={jest.fn()}
+      />
+    );
+    expect(StyleSheet.flatten(screen.getByTestId('i1').props.style)).toMatchObject({
+      alignItems: 'center',
+      justifyContent: 'center',
+    });
+  });
 });

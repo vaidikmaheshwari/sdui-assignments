@@ -47,22 +47,31 @@ export const input: ComponentDefinition<InputProps> = {
     const placeholder =
       props.placeholderRotation.length > 0 ? props.placeholderRotation[rotationIndex] : props.placeholder;
 
+    const tappable = props.readOnly && actions?.onTap;
+
+    // A read-only input is wrapped in a Pressable, and the wrapper is what the parent lays out.
+    // Sizing keys therefore have to travel to the wrapper — left on the TextInput they describe
+    // a child of a shrink-to-fit box and do nothing. Everything else (background, radius,
+    // padding) stays on the field, or the padding would be applied twice.
+    const { flex, width, height, ...painted } = (style ?? {}) as ViewStyle;
+    const layout: ViewStyle = tappable ? { flex, width, height } : {};
+
     const field = (
       <TextInput
         testID={id}
-        style={style as ViewStyle}
+        style={tappable ? painted : (style as ViewStyle)}
         value={props.value}
         placeholder={placeholder}
         editable={!props.readOnly}
         keyboardType={KEYBOARD_TYPES[props.keyboard]}
-        pointerEvents={props.readOnly && actions?.onTap ? 'none' : 'auto'}
+        pointerEvents={tappable ? 'none' : 'auto'}
         onChangeText={(text) => actions?.onChange && dispatch(actions.onChange, { value: text })}
       />
     );
 
-    if (props.readOnly && actions?.onTap) {
+    if (tappable) {
       return (
-        <Pressable testID={`${id}-tap-target`} onPress={() => dispatch(actions.onTap!)}>
+        <Pressable testID={`${id}-tap-target`} style={layout} onPress={() => dispatch(actions.onTap!)}>
           {field}
         </Pressable>
       );

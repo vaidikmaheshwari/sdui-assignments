@@ -105,6 +105,8 @@ Failure after `visibleIf` routes to `fallback`, then to the dev placeholder, the
 
 **`zstack` exists because of the promo banners.** The Spotify, CrashFree India and 30-day-return cards are a full-bleed image with a headline, body and CTA layered on top. Without an overlay primitive, every such banner is either a flat baked image (no localisable text, no separately-tappable CTA) or a new composite. `zstack` makes all of them `zstack{ image, stack{ text, text, button } }` — JSON only, forever. This gap was found by auditing the real screen, not by designing in the abstract.
 
+**A photo-backed banner needs three layers, not two.** The shape above shipped first and was wrong: white copy sits directly on the photo, so whether it is readable depends on what the photo happens to look like, which the payload cannot know. The correct shape is `zstack{ image, stack(background: color.scrim), stack{ text, text, button } }` — the background image must also carry `style.width/height: "100%"`, because `align` positions *every* layer, including the one meant to be full-bleed. `npm run validate` fails any payload that layers text straight onto an image.
+
 ### 4.2 Atoms — content, zero domain knowledge
 
 | type | key props | events |
@@ -164,7 +166,8 @@ This is a real limitation of the system and it is stated here rather than discov
                 "surfaceRaised": "#F5F6F8", "tileBlue": "#123FA8", "tileGreen": "#1F6A4A",
                 "tileCream": "#FBF3E4", "textPrimary": "#101828", "textOnBrand": "#FFFFFF",
                 "textMuted": "#667085", "accent": "#3B24C4", "danger": "#E03131",
-                "success": "#12B76A", "border": "#EAECF0" },
+                "success": "#12B76A", "border": "#EAECF0",
+                "scrim": "rgba(16,24,40,0.55)" },
     "space":  { "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24 },
     "radius": { "sm": 6, "md": 12, "lg": 16, "pill": 999 },
     "type":   { "h1": {"size":24,"weight":"600"}, "h2": {"size":20,"weight":"600"},

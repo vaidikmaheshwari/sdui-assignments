@@ -48,6 +48,7 @@ const THEME: ThemeTokens = {
     danger: '#E03131',
     success: '#12B76A',
     border: '#EAECF0',
+    scrim: 'rgba(16,24,40,0.55)',
   },
   space: { xs: 4, sm: 8, md: 12, lg: 16, xl: 24 },
   radius: { sm: 6, md: 12, lg: 16, pill: 999 },
@@ -483,7 +484,8 @@ function TrendingItem({ id, item }: { id: string; item: (typeof TRENDING)[number
 function PromoCard({ id, item }: { id: string; item: (typeof PROMO_RAIL)[number] }) {
   return (
     <ZStk id={id} align="bottomLeft" onTap style={{ width: 260, height: 130, radius: 'radius.md' }}>
-      <Img id={`${id}.bg`} url={item.image} contentMode="cover" style={{ radius: 'radius.md' }} />
+      <Img id={`${id}.bg`} url={item.image} contentMode="cover" style={{ radius: 'radius.md', width: '100%', height: '100%' }} />
+      <Stk id={`${id}.scrim`} direction="vertical" style={{ background: 'color.scrim', radius: 'radius.md', width: '100%', height: '100%' }} />
       <Stk id={`${id}.content`} direction="vertical" spacing={2} style={{ padding: 'space.md' }}>
         <T id={`${id}.title`} value={item.title} variant="type.body" color="color.textOnBrand" />
         <T id={`${id}.subtitle`} value={item.subtitle} variant="type.caption" color="color.textOnBrand" />
@@ -630,7 +632,8 @@ export function StaticHome({
 
           {/* 7 — Spotify promo */}
           <ZStk id="home.spotifyPromo" align="bottomLeft" onTap style={{ paddingX: 'space.lg', marginY: 'space.md', radius: 'radius.lg', height: 180 }}>
-            <Img id="home.spotifyPromo.bg" url="https://picsum.photos/seed/promo_spotify/800/400" contentMode="cover" style={{ radius: 'radius.lg' }} />
+            <Img id="home.spotifyPromo.bg" url="https://picsum.photos/seed/promo_spotify/800/400" contentMode="cover" style={{ radius: 'radius.lg', width: '100%', height: '100%' }} />
+            <Stk id="home.spotifyPromo.scrim" direction="vertical" style={{ background: 'color.scrim', radius: 'radius.lg', width: '100%', height: '100%' }} />
             <Stk id="home.spotifyPromo.content" direction="vertical" spacing={4} style={{ padding: 'space.lg' }}>
               <Img id="home.spotifyPromo.logo" url="https://picsum.photos/seed/spotify_logo/80/80" aspectRatio={1} contentMode="contain" style={{ width: 28, height: 28 }} />
               <T id="home.spotifyPromo.title" value="Cars24 x Spotify" variant="type.h2" color="color.textOnBrand" />
@@ -676,7 +679,8 @@ export function StaticHome({
 
           {/* 11 — CrashFree India */}
           <ZStk id="home.crashFreeIndia" align="bottomLeft" onTap style={{ paddingX: 'space.lg', marginY: 'space.md', radius: 'radius.lg', height: 200 }}>
-            <Img id="home.crashFreeIndia.bg" url="https://picsum.photos/seed/promo_crashfree/800/450" contentMode="cover" style={{ radius: 'radius.lg' }} />
+            <Img id="home.crashFreeIndia.bg" url="https://picsum.photos/seed/promo_crashfree/800/450" contentMode="cover" style={{ radius: 'radius.lg', width: '100%', height: '100%' }} />
+            <Stk id="home.crashFreeIndia.scrim" direction="vertical" style={{ background: 'color.scrim', radius: 'radius.lg', width: '100%', height: '100%' }} />
             <Stk id="home.crashFreeIndia.content" direction="vertical" spacing={4} style={{ padding: 'space.lg' }}>
               <T id="home.crashFreeIndia.title" value="CrashFree India" variant="type.h2" color="color.textOnBrand" />
               <T id="home.crashFreeIndia.subtitle" value="Every Cars24 car passes a 200-point quality check" variant="type.body" color="color.textOnBrand" />

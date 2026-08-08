@@ -42,3 +42,10 @@ yarn-error.*
 
 # P6 benchmark release APKs (docs/PROMPTS.md P6) — large binaries, not source
 bench/apks/
+
+# Working notes and the brief itself — deliberately not part of the submission.
+# Ignored rather than merely left untracked so they cannot be swept up by `git add -A`.
+docs/CARS24_SDUI_PLAN.md
+docs/OWNERSHIP_PLAYBOOK.md
+docs/PROMPTS.md
+docs/the-SDUI-Assignment.pdf

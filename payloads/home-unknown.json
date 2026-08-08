@@ -24,7 +24,8 @@
         "accent": "#3B24C4",
         "danger": "#E03131",
         "success": "#12B76A",
-        "border": "#EAECF0"
+        "border": "#EAECF0",
+        "scrim": "rgba(16,24,40,0.55)"
       },
       "space": {
         "xs": 4,
@@ -3134,6 +3135,23 @@
               "url": "https://picsum.photos/seed/promo_spotify/800/400",
               "contentMode": "cover",
               "radius": "radius.lg"
+            },
+            "style": {
+              "width": "100%",
+              "height": "100%"
+            }
+          },
+          {
+            "id": "home.spotifyPromo.fallback.scrim",
+            "type": "stack",
+            "props": {
+              "direction": "vertical"
+            },
+            "style": {
+              "background": "color.scrim",
+              "width": "100%",
+              "height": "100%",
+              "radius": "radius.lg"
             }
           },
           {
@@ -3734,6 +3752,23 @@
                 "url": "https://picsum.photos/seed/promo_moneyback/600/300",
                 "contentMode": "cover",
                 "radius": "radius.md"
+              },
+              "style": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "id": "home.promoRail.item.moneyBack.scrim",
+              "type": "stack",
+              "props": {
+                "direction": "vertical"
+              },
+              "style": {
+                "background": "color.scrim",
+                "width": "100%",
+                "height": "100%",
+                "radius": "radius.md"
               }
             },
             {
@@ -3799,6 +3834,23 @@
                 "url": "https://picsum.photos/seed/promo_rctransfer/600/300",
                 "contentMode": "cover",
                 "radius": "radius.md"
+              },
+              "style": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "id": "home.promoRail.item.rcTransfer.scrim",
+              "type": "stack",
+              "props": {
+                "direction": "vertical"
+              },
+              "style": {
+                "background": "color.scrim",
+                "width": "100%",
+                "height": "100%",
+                "radius": "radius.md"
               }
             },
             {
@@ -3863,6 +3915,23 @@
               "props": {
                 "url": "https://picsum.photos/seed/promo_warranty/600/300",
                 "contentMode": "cover",
+                "radius": "radius.md"
+              },
+              "style": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "id": "home.promoRail.item.warranty.scrim",
+              "type": "stack",
+              "props": {
+                "direction": "vertical"
+              },
+              "style": {
+                "background": "color.scrim",
+                "width": "100%",
+                "height": "100%",
                 "radius": "radius.md"
               }
             },
