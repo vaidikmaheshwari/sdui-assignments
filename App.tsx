@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { InteractionManager, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -11,6 +11,10 @@ import { setImagePreloadEnabled, setPreloadedImageLoadReporter } from './src/sdu
 import { registry } from './src/sdui/components';
 import { SDUIScreen } from './src/sdui/screens/SDUIScreen';
 import { StaticHome } from './src/screens/StaticHome';
+import { PayloadSwitcher } from './src/demo/PayloadSwitcher';
+import { ActionBanner } from './src/demo/ActionBanner';
+import { catalogEntry, DEFAULT_PAYLOAD_ID } from './src/demo/payloadCatalog';
+import { useActionEffects } from './src/demo/useActionEffects';
 import { P7, P7_ENABLED, P7_VARIANT_LABEL } from './src/perf/p7Flags';
 import { fetchPayload } from './src/perf/payloadSource';
 import { collectPreloadUrls, prefetchPreloadUrls } from './src/perf/preloadImages';
@@ -42,6 +46,12 @@ const SDUI_VARIANT: 'composition' | 'tile-composite' | 'static' =
       ? 'tile-composite'
       : 'composition';
 const IS_STATIC = SDUI_VARIANT === 'static';
+
+// Demo host (docs/PROMPTS.md P9 — the submission's screen recording). Off unless explicitly
+// asked for, and additionally refused for the static twin and for any P7 build, so that every
+// measured variant in PERF.md runs the exact code path it was measured on. A benchmark build
+// cannot accidentally acquire a payload picker, because no benchmark script sets this flag.
+const DEMO_ENABLED = process.env.EXPO_PUBLIC_SDUI_DEMO === '1' && !IS_STATIC && !P7_ENABLED;
 
 // P7 flags are process-wide switches inside core/**, set once here rather than threaded through
 // the render tree: they exist to make one build differ from another, not to vary per node.
@@ -89,6 +99,20 @@ export default function App() {
   const [networkError, setNetworkError] = useState<unknown>();
   const swapPending = useRef(false);
 
+  // Demo-only. Both hooks run unconditionally (rules of hooks) but produce nothing when the demo
+  // host is off: `demoResolved` stays undefined and `effects` is never dispatched to, since no
+  // benchmark run taps anything.
+  const [demoPayloadId, setDemoPayloadId] = useState(DEFAULT_PAYLOAD_ID);
+  const demoResolved = useMemo(
+    () => (DEMO_ENABLED ? resolvePayload(catalogEntry(demoPayloadId).raw, homePayloadRaw) : undefined),
+    [demoPayloadId]
+  );
+  const { effects, lastEffect, dismiss } = useActionEffects();
+
+  // With the demo host off this is `resolved` by identity, so every marker below and every
+  // dependency array is unchanged from the build PERF.md measured.
+  const active = DEMO_ENABLED ? demoResolved : resolved;
+
   useEffect(() => {
     if (IS_STATIC || !P7_ENABLED) return;
     let cancelled = false;
@@ -131,12 +155,12 @@ export default function App() {
   // count matches the tree that will actually fire onLoad — and so the count is identical in
   // every variant, which is what makes aboveFoldImagesLoaded comparable across them.
   useEffect(() => {
-    if (IS_STATIC || !resolved) return;
-    const urls = collectPreloadUrls(resolved.payload);
+    if (IS_STATIC || !active) return;
+    const urls = collectPreloadUrls(active.payload);
     registerPreloadCount(urls.length);
     // v1 only. v2 deliberately issues no request of its own — see prefetchPreloadUrls.
     if (P7.imagePreload) prefetchPreloadUrls(urls);
-  }, [resolved]);
+  }, [active]);
 
   useEffect(() => {
     if (!IS_STATIC) markTTR();
@@ -146,10 +170,10 @@ export default function App() {
   // baseline renders nothing until the payload lands, so registering this at mount (as P6 did)
   // would have timed an empty screen becoming idle and reported it as a win.
   useEffect(() => {
-    if (!IS_STATIC && !resolved) return;
+    if (!IS_STATIC && !active) return;
     const handle = InteractionManager.runAfterInteractions(markInteractive);
     return () => handle.cancel();
-  }, [resolved]);
+  }, [active]);
 
   if (IS_STATIC) {
     return (
@@ -163,7 +187,7 @@ export default function App() {
     );
   }
 
-  if (!resolved) {
+  if (!active) {
     // Under P7 this is the pre-payload state of every non-cache-first variant: a blank page for
     // as long as the network takes. That blank window is precisely what item 1 removes, so it
     // is left genuinely blank rather than filled with a spinner or skeleton that would muddy
@@ -194,8 +218,13 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SDUIScreen
-        payload={resolved.payload}
+        // Remounting on payload change resets the page-local state, which `useReducer` seeds
+        // only at mount. Without it, switching to a payload whose `state` block differs would
+        // render the new tree against the previous screen's state.
+        key={DEMO_ENABLED ? demoPayloadId : undefined}
+        payload={active.payload}
         registry={registry}
+        effects={effects}
         honourDeferred={P7.deferSections}
         onFirstPaint={markFirstPaint}
         onContentSizeChange={() => {
@@ -203,6 +232,16 @@ export default function App() {
           markFullRenderP6();
         }}
       />
+      {DEMO_ENABLED && (
+        <>
+          <ActionBanner effect={lastEffect} onDismiss={dismiss} />
+          <PayloadSwitcher
+            value={demoPayloadId}
+            onChange={setDemoPayloadId}
+            degradedReason={active.degraded ? active.reason : undefined}
+          />
+        </>
+      )}
       <StatusBar style="auto" />
     </SafeAreaProvider>
   );
